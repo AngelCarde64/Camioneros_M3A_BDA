@@ -11,6 +11,20 @@ public class Camionero {
     private double sueldo;
     private String poblacion;
 
+    public Camionero() {
+    }
+
+    public Camionero(int id, String dni, String nombre, String telefono, String direccion, String id_Direccion, double sueldo, String poblacion) {
+        this.id = id;
+        this.dni = dni;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.id_Direccion = id_Direccion;
+        this.sueldo = sueldo;
+        this.poblacion = poblacion;
+    }
+    
     public int getId() {
         return id;
     }

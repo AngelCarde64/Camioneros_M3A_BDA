@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Privincia {
+public class Provincia {
 
     private String cod_paquete;
     private String nombre;

@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class ModeloPaquete extends Paquete {
 
-    ConectPG conpg = new ConectPG();
+    PgConect conpg = new PgConect();
 
     public ModeloPaquete() {
     }
@@ -19,8 +19,7 @@ public class ModeloPaquete extends Paquete {
     }
 
     public List<Paquete> ListarPaquete(String filtro) {
-        //--> No es recomendable usar un select *. Solo sacar  la informacion que es necesaria mostrar.
-        String sql = "select * from Paqueteria where "; //Campos de la base de datos.
+        String sql = "select * from Paqueteria where ";
         sql += " UPPER(paq_id_paquetes) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(paq_codigo_paquete) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(paq_id_direccion) like UPPER('%" + filtro + "%') ";
@@ -39,32 +38,31 @@ public class ModeloPaquete extends Paquete {
                 lista.add(paquete);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloPaquete.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             rs.close();
             return lista;
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloPaquete.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
 
-    public boolean CrearPaquete() {
+    public SQLException CrearPaquete() {
         String sql = "INSERT INTO Paqueteria (paq_codigo_paquete, paq_id_direccion, paq_descripcion, paq_destinatario)";
         sql += " VALUES ('" + getCod_paquete() + "','" + getDireccion() + "','" + "','" + getDescripcion() + "','" + getDestinatario() + "','" + "')";
         return conpg.accion(sql);
     }
 
-    public boolean ActualizarPaquete() {
+    public SQLException ActualizarPaquete() {
         String sql = "UPDATE Paqueteria SET paq_codigo_paquete = '" + getCod_paquete() + "', paq_id_direccion = '" + getDireccion()
                 + "', paq_descripcion = '" + getDescripcion() + "', paq_destinatario = '" + getDestinatario() + "'";
         sql += "WHERE paq_id_paquetes = '" + getId() + "';";
-        System.out.println("SENTENCIA " + sql);
         return conpg.accion(sql);
     }
 
-    public boolean DeletePaquete() {
+    public SQLException DeletePaquete() {
         String sql = "DELETE FROM Paqueteria WHERE paq_id_paquetes ='" + getId() + "';";
         return conpg.accion(sql);
     }
@@ -82,12 +80,12 @@ public class ModeloPaquete extends Paquete {
                 MPaquete.setDestinatario(rs.getString("paq_destinatario"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloPaquete.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             rs.close();//cierro conexion BD
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloPaquete.class.getName()).log(Level.SEVERE, null, ex);
         }
         return MPaquete;
     }

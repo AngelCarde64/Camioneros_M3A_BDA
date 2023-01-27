@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class ModeloProvincia extends Provincia {
 
-    ConectPG conpg = new ConectPG();
+    PgConect conpg = new PgConect();
 
     public ModeloProvincia() {
     }
@@ -19,8 +19,7 @@ public class ModeloProvincia extends Provincia {
     }
 
     public List<Provincia> ListarProvincia(String filtro) {
-        //--> No es recomendable usar un select *. Solo sacar  la informacion que es necesaria mostrar.
-        String sql = "select * from Provincia where "; //Campos de la base de datos.
+        String sql = "select * from Provincia where ";
         sql += " UPPER(pro_codigo_provincia) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(pro_nombre) like UPPER('%" + filtro + "%') ";
         ResultSet rs = conpg.consulta(sql);
@@ -28,35 +27,36 @@ public class ModeloProvincia extends Provincia {
         try {
             while (rs.next()) {
                 Provincia provincia = new Provincia();
-                provincia.setCod_paquete(rs.getString("pro_codigo_provincia"));
+                provincia.setCod_provincia(rs.getString("pro_codigo_provincia"));
                 provincia.setNombre(rs.getString("pro_nombre"));
                 lista.add(provincia);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloProvincia.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             rs.close();
             return lista;
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloProvincia.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
 
-    public boolean CrearProvincia() {
+    public SQLException CrearProvincia() {
         String sql = "INSERT INTO Provincia (pro_nombre)";
         sql += " VALUES ('" + getNombre() + "','" + "')";
         return conpg.accion(sql);
     }
 
-    public boolean ActualizarProvincia() {
+    public SQLException ActualizarProvincia() {
         String sql = "UPDATE Provincia SET pro_nombre = '" + getNombre() + "';";
+        sql += "WHERE pro_codigo_provincia = '" + getCod_provincia() + "';";
         return conpg.accion(sql);
     }
 
-    public boolean DeleteProvincia() {
-        String sql = "DELETE FROM Provincia WHERE pro_codigo_provincia ='" + getCod_paquete() + "';";
+    public SQLException DeleteProvincia() {
+        String sql = "DELETE FROM Provincia WHERE pro_codigo_provincia ='" + getCod_provincia() + "';";
         return conpg.accion(sql);
     }
 
@@ -66,16 +66,16 @@ public class ModeloProvincia extends Provincia {
         ModeloProvincia MProvincia = new ModeloProvincia();
         try {
             while (rs.next()) {
-                MProvincia.setCod_paquete(rs.getString("pro_codigo_provincia"));
-                MProvincia.setCod_paquete(rs.getString("pro_nombre"));
+                MProvincia.setCod_provincia(rs.getString("pro_codigo_provincia"));
+                MProvincia.setCod_provincia(rs.getString("pro_nombre"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloProvincia.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             rs.close();//cierro conexion BD
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloProvincia.class.getName()).log(Level.SEVERE, null, ex);
         }
         return MProvincia;
     }

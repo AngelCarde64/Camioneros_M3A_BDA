@@ -24,7 +24,7 @@ public class Camionero {
         this.sueldo = sueldo;
         this.poblacion = poblacion;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -72,8 +72,6 @@ public class Camionero {
     public void setId_Direccion(String id_Direccion) {
         this.id_Direccion = id_Direccion;
     }
-    
-    
 
     public double getSueldo() {
         return sueldo;

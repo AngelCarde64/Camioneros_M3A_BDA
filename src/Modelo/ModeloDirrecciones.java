@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class ModeloDirrecciones extends Dirrecciones {
 
-    ConectPG conpg = new ConectPG();
+    PgConect conpg = new PgConect();
 
     public ModeloDirrecciones() {
     }
@@ -18,9 +18,8 @@ public class ModeloDirrecciones extends Dirrecciones {
         super(id, calle_P, calle_S);
     }
 
-    public List<Dirrecciones> ListarCamioneros(String filtro) {
-        //--> No es recomendable usar un select *. Solo sacar  la informacion que es necesaria mostrar.
-        String sql = "select * from Dirrecciones where "; //Campos de la base de datos.
+    public List<Dirrecciones> ListarDirrecciones(String filtro) {
+        String sql = "select * from Dirrecciones where ";
         sql += " UPPER(dir_id) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(dir_calle_P) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(dir_calle_S) like UPPER('%" + filtro + "%') ";
@@ -29,36 +28,36 @@ public class ModeloDirrecciones extends Dirrecciones {
         try {
             while (rs.next()) {
                 Dirrecciones dirrecciones = new Dirrecciones();
+                dirrecciones.setId(rs.getInt("dir_id"));
                 dirrecciones.setCalle_P(rs.getString("dir_calle_P"));
                 dirrecciones.setCalle_S(rs.getString("dir_calle_S"));
                 lista.add(dirrecciones);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloDirrecciones.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             rs.close();
             return lista;
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloDirrecciones.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
 
-    public boolean CrearDirrecciones() {
+    public SQLException CrearDirrecciones() {
         String sql = "INSERT INTO Dirrecciones (dir_calle_P, dir_calle_S)";
         sql += " VALUES ('" + getCalle_P() + "','" + getCalle_S() + "')";
         return conpg.accion(sql);
     }
 
-    public boolean ActualizarDirrecciones() {
+    public SQLException ActualizarDirrecciones() {
         String sql = "UPDATE Dirrecciones SET dir_calle_P = '" + getCalle_P() + "', dir_calle_S = '" + getCalle_S() + "'";
         sql += "WHERE dir_id = '" + getId() + "';";
-        System.out.println("SENTENCIA " + sql);
         return conpg.accion(sql);
     }
 
-    public boolean DeleteDirrecciones() {
+    public SQLException DeleteDirrecciones() {
         String sql = "DELETE FROM Dirrecciones WHERE dir_id ='" + getId() + "';";
         return conpg.accion(sql);
     }
@@ -74,12 +73,12 @@ public class ModeloDirrecciones extends Dirrecciones {
                 MDirrecciones.setCalle_S(rs.getString("dir_calle_S"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloDirrecciones.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             rs.close();//cierro conexion BD
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModeloDirrecciones.class.getName()).log(Level.SEVERE, null, ex);
         }
         return MDirrecciones;
     }

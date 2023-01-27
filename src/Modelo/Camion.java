@@ -8,6 +8,17 @@ public class Camion {
     private String tipo;
     private String potencia;
 
+    public Camion() {
+    }
+
+    public Camion(int id, String nro_Placa, String modelo, String tipo, String potencia) {
+        this.id = id;
+        this.nro_Placa = nro_Placa;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.potencia = potencia;
+    }
+
     public int getId() {
         return id;
     }
@@ -16,11 +27,11 @@ public class Camion {
         this.id = id;
     }
 
-    public String getMatricula() {
+    public String getNro_Placa() {
         return nro_Placa;
     }
 
-    public void setMatricula(String matricula) {
+    public void setNro_Placa(String matricula) {
         this.nro_Placa = matricula;
     }
 

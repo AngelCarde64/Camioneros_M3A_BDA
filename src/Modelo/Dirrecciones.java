@@ -6,6 +6,15 @@ public class Dirrecciones {
     private String calle_P;
     private String calle_S;
 
+    public Dirrecciones() {
+    }
+
+    public Dirrecciones(int id, String calle_P, String calle_S) {
+        this.id = id;
+        this.calle_P = calle_P;
+        this.calle_S = calle_S;
+    }
+
     public int getId() {
         return id;
     }

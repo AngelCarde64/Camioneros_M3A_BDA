@@ -8,6 +8,26 @@ public class Paquete {
     private String destinatario;
     private String direccion;
 
+    public Paquete() {
+    }
+
+    public Paquete(int id, String cod_paquete, String descripcion, String destinatario, String direccion) {
+        this.id = id;
+        this.cod_paquete = cod_paquete;
+        this.descripcion = descripcion;
+        this.destinatario = destinatario;
+        this.direccion = direccion;
+    }
+
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getCod_paquete() {
         return cod_paquete;
     }
@@ -39,5 +59,4 @@ public class Paquete {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
 }

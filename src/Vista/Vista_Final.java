@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 /**
  *
  * @author User
@@ -15,6 +18,10 @@ public class Vista_Final extends javax.swing.JFrame {
      */
     public Vista_Final() {
         initComponents();
+        pnbuscarCamionero.setVisible(false);
+        paneIngCamres.setVisible(false);
+        paneChoicecamioneros.setVisible(false);
+        paneMostrar.setVisible(false);
     }
 
     /**
@@ -26,18 +33,13 @@ public class Vista_Final extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jButtonIniciarSesion = new javax.swing.JButton();
-        jButtonIniciarSesion1 = new javax.swing.JButton();
-        jButtonIniciarSesion2 = new javax.swing.JButton();
-        jButtonIniciarSesion3 = new javax.swing.JButton();
-        jButtonIniciarSesion4 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
         Content = new javax.swing.JPanel();
+        pnbuscarCamionero = new javax.swing.JPanel();
+        txtatributocamionero = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         paneCamioners = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -54,7 +56,6 @@ public class Vista_Final extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         paneIngCamres = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -63,121 +64,35 @@ public class Vista_Final extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButtonMostrar = new javax.swing.JButton();
+        paneChoicecamioneros = new javax.swing.JPanel();
+        tituloCamioneros = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButtonIniciarSesion = new javax.swing.JButton();
+        jButtonIniciarSesion1 = new javax.swing.JButton();
+        jButtonIniciarSesion2 = new javax.swing.JButton();
+        jButtonIniciarSesion3 = new javax.swing.JButton();
+        jButtonIniciarSesion4 = new javax.swing.JButton();
+        paneInicio = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        paneMostrar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel17.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("MOSTRAR CAMIONEROS");
+        pnbuscarCamionero.setBackground(new java.awt.Color(255, 255, 255));
+        pnbuscarCamionero.setMinimumSize(new java.awt.Dimension(670, 352));
 
-        jPanel3.setBackground(new java.awt.Color(139, 69, 19));
+        txtatributocamionero.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
 
-        jButtonIniciarSesion.setBackground(new java.awt.Color(188, 143, 143));
-        jButtonIniciarSesion.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
-        jButtonIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciarSesion.setText("MOSTRAR");
-        jButtonIniciarSesion.setActionCommand("");
-        jButtonIniciarSesion.setBorder(null);
-        jButtonIniciarSesion.setBorderPainted(false);
-        jButtonIniciarSesion.setFocusPainted(false);
-        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesionActionPerformed(evt);
-            }
-        });
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jButtonIniciarSesion1.setBackground(new java.awt.Color(188, 143, 143));
-        jButtonIniciarSesion1.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
-        jButtonIniciarSesion1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciarSesion1.setText("INGRESAR");
-        jButtonIniciarSesion1.setActionCommand("");
-        jButtonIniciarSesion1.setBorder(null);
-        jButtonIniciarSesion1.setBorderPainted(false);
-        jButtonIniciarSesion1.setFocusPainted(false);
-        jButtonIniciarSesion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesion1ActionPerformed(evt);
-            }
-        });
-
-        jButtonIniciarSesion2.setBackground(new java.awt.Color(188, 143, 143));
-        jButtonIniciarSesion2.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
-        jButtonIniciarSesion2.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciarSesion2.setText("MODIFICAR");
-        jButtonIniciarSesion2.setActionCommand("");
-        jButtonIniciarSesion2.setBorder(null);
-        jButtonIniciarSesion2.setBorderPainted(false);
-        jButtonIniciarSesion2.setFocusPainted(false);
-        jButtonIniciarSesion2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesion2ActionPerformed(evt);
-            }
-        });
-
-        jButtonIniciarSesion3.setBackground(new java.awt.Color(188, 143, 143));
-        jButtonIniciarSesion3.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
-        jButtonIniciarSesion3.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciarSesion3.setText("BUSCAR");
-        jButtonIniciarSesion3.setActionCommand("");
-        jButtonIniciarSesion3.setBorder(null);
-        jButtonIniciarSesion3.setBorderPainted(false);
-        jButtonIniciarSesion3.setFocusPainted(false);
-        jButtonIniciarSesion3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesion3ActionPerformed(evt);
-            }
-        });
-
-        jButtonIniciarSesion4.setBackground(new java.awt.Color(188, 143, 143));
-        jButtonIniciarSesion4.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
-        jButtonIniciarSesion4.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciarSesion4.setText("ELIMINAR");
-        jButtonIniciarSesion4.setActionCommand("");
-        jButtonIniciarSesion4.setBorder(null);
-        jButtonIniciarSesion4.setBorderPainted(false);
-        jButtonIniciarSesion4.setFocusPainted(false);
-        jButtonIniciarSesion4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesion4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(jButtonIniciarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
-                .addComponent(jButtonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
-                .addComponent(jButtonIniciarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(jButtonIniciarSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
-                .addComponent(jButtonIniciarSesion4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonIniciarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonIniciarSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonIniciarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonIniciarSesion4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -196,52 +111,45 @@ public class Vista_Final extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        jScrollPane1.setViewportView(jTable1);
+        jTable2.setGridColor(new java.awt.Color(255, 255, 255));
+        jTable2.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        jScrollPane2.setViewportView(jTable2);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
+        jLabel1.setText("INGRESE EL DNI DEL CAMIONERO:");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout pnbuscarCamioneroLayout = new javax.swing.GroupLayout(pnbuscarCamionero);
+        pnbuscarCamionero.setLayout(pnbuscarCamioneroLayout);
+        pnbuscarCamioneroLayout.setHorizontalGroup(
+            pnbuscarCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnbuscarCamioneroLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(pnbuscarCamioneroLayout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(txtatributocamionero, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pnbuscarCamioneroLayout.setVerticalGroup(
+            pnbuscarCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnbuscarCamioneroLayout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addGroup(pnbuscarCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtatributocamionero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(210, 105, 30));
 
         paneCamioners.setBackground(new java.awt.Color(245, 222, 179));
         paneCamioners.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FOTOS/empleado.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empleado.png"))); // NOI18N
         paneCamioners.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1, 50, 60));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -256,7 +164,7 @@ public class Vista_Final extends javax.swing.JFrame {
         panePaquetes.setBackground(new java.awt.Color(245, 222, 179));
         panePaquetes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FOTOS/paquete.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/paquete.png"))); // NOI18N
         panePaquetes.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1, 50, 60));
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -266,7 +174,7 @@ public class Vista_Final extends javax.swing.JFrame {
         PaneCamiones.setBackground(new java.awt.Color(245, 222, 179));
         PaneCamiones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FOTOS/camion.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/camion.png"))); // NOI18N
         PaneCamiones.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1, 50, 60));
 
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -276,7 +184,7 @@ public class Vista_Final extends javax.swing.JFrame {
         PaneTurnosConducc.setBackground(new java.awt.Color(245, 222, 179));
         PaneTurnosConducc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FOTOS/TURNO.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TURNO.png"))); // NOI18N
         PaneTurnosConducc.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1, 50, 60));
 
         jLabel10.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -311,13 +219,11 @@ public class Vista_Final extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(PaneCamiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
-                .addComponent(PaneTurnosConducc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PaneTurnosConducc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         paneIngCamres.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
-        jLabel11.setText("                                                                                                 INGRESO DE CAMIONEROS");
 
         jLabel12.setBackground(new java.awt.Color(204, 204, 204));
         jLabel12.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -332,7 +238,9 @@ public class Vista_Final extends javax.swing.JFrame {
 
         jTextField4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
 
+        jLabel15.setBackground(new java.awt.Color(165, 42, 42));
         jLabel15.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(165, 42, 42));
         jLabel15.setText("DNI:");
 
         jTextField5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -340,97 +248,299 @@ public class Vista_Final extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jLabel16.setText("POBLACIÓN:");
 
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        jButton1.setText("GUARDAR");
-
         jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jButton2.setText("SELECCIONE LA DIRECCIÓN:");
+
+        jButtonMostrar.setBackground(new java.awt.Color(102, 153, 255));
+        jButtonMostrar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonMostrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonMostrar.setText("INGRESAR");
+        jButtonMostrar.setBorder(null);
 
         javax.swing.GroupLayout paneIngCamresLayout = new javax.swing.GroupLayout(paneIngCamres);
         paneIngCamres.setLayout(paneIngCamresLayout);
         paneIngCamresLayout.setHorizontalGroup(
             paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneIngCamresLayout.createSequentialGroup()
-                .addGap(260, 260, 260)
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(paneIngCamresLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(paneIngCamresLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(paneIngCamresLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(420, 420, 420)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71)
+                .addGroup(paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(paneIngCamresLayout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paneIngCamresLayout.createSequentialGroup()
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paneIngCamresLayout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(91, 91, 91)
+                .addGroup(paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneIngCamresLayout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneIngCamresLayout.createSequentialGroup()
+                        .addComponent(jButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         paneIngCamresLayout.setVerticalGroup(
             paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneIngCamresLayout.createSequentialGroup()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(215, 215, 215)
-                .addGroup(paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addGroup(paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addGroup(paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
                 .addGroup(paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(paneIngCamresLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(62, 62, 62)
+                        .addGroup(paneIngCamresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneIngCamresLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
+        );
+
+        paneChoicecamioneros.setBackground(new java.awt.Color(255, 255, 255));
+
+        tituloCamioneros.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        tituloCamioneros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloCamioneros.setText("INGRESO DE CAMIONEROS");
+        tituloCamioneros.setFocusable(false);
+        tituloCamioneros.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        jPanel3.setBackground(new java.awt.Color(139, 69, 19));
+
+        jButtonIniciarSesion.setBackground(new java.awt.Color(188, 143, 143));
+        jButtonIniciarSesion.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
+        jButtonIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciarSesion.setText("MOSTRAR");
+        jButtonIniciarSesion.setActionCommand("");
+        jButtonIniciarSesion.setBorder(null);
+        jButtonIniciarSesion.setBorderPainted(false);
+        jButtonIniciarSesion.setFocusPainted(false);
+
+        jButtonIniciarSesion1.setBackground(new java.awt.Color(188, 143, 143));
+        jButtonIniciarSesion1.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
+        jButtonIniciarSesion1.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciarSesion1.setText("INGRESAR");
+        jButtonIniciarSesion1.setActionCommand("");
+        jButtonIniciarSesion1.setBorder(null);
+        jButtonIniciarSesion1.setBorderPainted(false);
+        jButtonIniciarSesion1.setFocusPainted(false);
+
+        jButtonIniciarSesion2.setBackground(new java.awt.Color(188, 143, 143));
+        jButtonIniciarSesion2.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
+        jButtonIniciarSesion2.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciarSesion2.setText("MODIFICAR");
+        jButtonIniciarSesion2.setActionCommand("");
+        jButtonIniciarSesion2.setBorder(null);
+        jButtonIniciarSesion2.setBorderPainted(false);
+        jButtonIniciarSesion2.setFocusPainted(false);
+
+        jButtonIniciarSesion3.setBackground(new java.awt.Color(188, 143, 143));
+        jButtonIniciarSesion3.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
+        jButtonIniciarSesion3.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciarSesion3.setText("BUSCAR");
+        jButtonIniciarSesion3.setActionCommand("");
+        jButtonIniciarSesion3.setBorder(null);
+        jButtonIniciarSesion3.setBorderPainted(false);
+        jButtonIniciarSesion3.setFocusPainted(false);
+
+        jButtonIniciarSesion4.setBackground(new java.awt.Color(188, 143, 143));
+        jButtonIniciarSesion4.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
+        jButtonIniciarSesion4.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciarSesion4.setText("ELIMINAR");
+        jButtonIniciarSesion4.setActionCommand("");
+        jButtonIniciarSesion4.setBorder(null);
+        jButtonIniciarSesion4.setBorderPainted(false);
+        jButtonIniciarSesion4.setFocusPainted(false);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jButtonIniciarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
+                .addComponent(jButtonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89)
+                .addComponent(jButtonIniciarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94)
+                .addComponent(jButtonIniciarSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(jButtonIniciarSesion4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonIniciarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonIniciarSesion2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonIniciarSesion3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonIniciarSesion4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        paneInicio.setBackground(new java.awt.Color(255, 248, 220));
+
+        jLabel13.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 18)); // NOI18N
+        jLabel13.setText("BIENVENIDO A TU SISTEMA DE ENVIO DE PAQUETERÍA PREFERIDO");
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FONDO.png"))); // NOI18N
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estrella-fugaz.png"))); // NOI18N
+
+        javax.swing.GroupLayout paneInicioLayout = new javax.swing.GroupLayout(paneInicio);
+        paneInicio.setLayout(paneInicioLayout);
+        paneInicioLayout.setHorizontalGroup(
+            paneInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneInicioLayout.createSequentialGroup()
+                .addContainerGap(99, Short.MAX_VALUE)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addGap(265, 265, 265))
+            .addGroup(paneInicioLayout.createSequentialGroup()
+                .addGap(280, 280, 280)
+                .addComponent(jLabel13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        paneInicioLayout.setVerticalGroup(
+            paneInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneInicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGroup(paneInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneInicioLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paneInicioLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel11)))
+                .addGap(0, 190, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout paneChoicecamionerosLayout = new javax.swing.GroupLayout(paneChoicecamioneros);
+        paneChoicecamioneros.setLayout(paneChoicecamionerosLayout);
+        paneChoicecamionerosLayout.setHorizontalGroup(
+            paneChoicecamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tituloCamioneros, javax.swing.GroupLayout.PREFERRED_SIZE, 1131, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(paneChoicecamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(paneInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        paneChoicecamionerosLayout.setVerticalGroup(
+            paneChoicecamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneChoicecamionerosLayout.createSequentialGroup()
+                .addComponent(tituloCamioneros, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(paneChoicecamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(paneChoicecamionerosLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(paneInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+
+        paneMostrar.setBackground(new java.awt.Color(255, 255, 255));
+        paneMostrar.setPreferredSize(new java.awt.Dimension(670, 352));
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID_CAMIONERO", "DNI", "NOMBRE", "TELEFONO", "CALLE PRINCIPAL", "CALLE SECUNDARIA", "SUELDO", "POBLACION"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
+        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout paneMostrarLayout = new javax.swing.GroupLayout(paneMostrar);
+        paneMostrar.setLayout(paneMostrarLayout);
+        paneMostrarLayout.setHorizontalGroup(
+            paneMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneMostrarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        paneMostrarLayout.setVerticalGroup(
+            paneMostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneMostrarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
         Content.setLayout(ContentLayout);
         ContentLayout.setHorizontalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1753, Short.MAX_VALUE)
-            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ContentLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ContentLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(paneIngCamres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addGap(289, 289, 289)
+                .addComponent(pnbuscarCamionero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addGap(289, 289, 289)
+                .addComponent(paneMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(paneIngCamres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(paneChoicecamioneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ContentLayout.setVerticalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ContentLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ContentLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(paneIngCamres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(pnbuscarCamionero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(paneMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+                .addGap(54, 54, 54))
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addComponent(paneIngCamres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(9, 9, 9))
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addComponent(paneChoicecamioneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -441,31 +551,11 @@ public class Vista_Final extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, 703, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
-
-    private void jButtonIniciarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonIniciarSesion1ActionPerformed
-
-    private void jButtonIniciarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesion2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonIniciarSesion2ActionPerformed
-
-    private void jButtonIniciarSesion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesion3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonIniciarSesion3ActionPerformed
-
-    private void jButtonIniciarSesion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesion4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonIniciarSesion4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,26 +591,72 @@ public class Vista_Final extends javax.swing.JFrame {
             }
         });
     }
+    //paneCamioners
+    
+    public JPanel getPaneCamioners() {
+        return paneCamioners;
+    }
 
+    public void setPaneCamioners(JPanel paneCamioners) {
+        this.paneCamioners = paneCamioners;
+    }
+
+    public JButton getjButtonIniciarSesion1() {
+        return jButtonIniciarSesion1;
+    }
+
+    public void setjButtonIniciarSesion1(JButton jButtonIniciarSesion1) {
+        this.jButtonIniciarSesion1 = jButtonIniciarSesion1;
+    }
+
+    public JButton getjButtonIniciarSesion2() {
+        return jButtonIniciarSesion2;
+    }
+
+    public void setjButtonIniciarSesion2(JButton jButtonIniciarSesion2) {
+        this.jButtonIniciarSesion2 = jButtonIniciarSesion2;
+    }
+
+    public JButton getjButtonIniciarSesion() {
+        return jButtonIniciarSesion;
+    }
+
+    public void setjButtonIniciarSesion(JButton jButtonIniciarSesion) {
+        this.jButtonIniciarSesion = jButtonIniciarSesion;
+    }
+
+    public JPanel getPaneInicio() {
+        return paneInicio;
+    }
+
+    public void setPaneInicio(JPanel paneInicio) {
+        this.paneInicio = paneInicio;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Barra_img;
     private javax.swing.JPanel Content;
-    public javax.swing.JPanel PaneCamiones;
-    public javax.swing.JPanel PaneTurnosConducc;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel PaneCamiones;
+    private javax.swing.JPanel PaneTurnosConducc;
     private javax.swing.JButton jButton2;
-    public javax.swing.JButton jButtonIniciarSesion;
+    private javax.swing.JButton jButtonIniciarSesion;
     private javax.swing.JButton jButtonIniciarSesion1;
-    public javax.swing.JButton jButtonIniciarSesion2;
-    public javax.swing.JButton jButtonIniciarSesion3;
-    public javax.swing.JButton jButtonIniciarSesion4;
+    private javax.swing.JButton jButtonIniciarSesion2;
+    private javax.swing.JButton jButtonIniciarSesion3;
+    private javax.swing.JButton jButtonIniciarSesion4;
+    private javax.swing.JButton jButtonMostrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -530,17 +666,23 @@ public class Vista_Final extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
     public javax.swing.JTextField jTextField5;
-    public javax.swing.JPanel paneCamioners;
-    private javax.swing.JPanel paneIngCamres;
-    public javax.swing.JPanel panePaquetes;
+    private javax.swing.JPanel paneCamioners;
+    public javax.swing.JPanel paneChoicecamioneros;
+    public javax.swing.JPanel paneIngCamres;
+    private javax.swing.JPanel paneInicio;
+    public javax.swing.JPanel paneMostrar;
+    private javax.swing.JPanel panePaquetes;
+    public javax.swing.JPanel pnbuscarCamionero;
+    public javax.swing.JLabel tituloCamioneros;
+    public javax.swing.JTextField txtatributocamionero;
     // End of variables declaration//GEN-END:variables
 }

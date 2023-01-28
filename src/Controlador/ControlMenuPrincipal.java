@@ -1,12 +1,12 @@
 package Controlador;
 
-import Vista.Vista_Final;
+import Vista.VistaMenuPrincipal;
 
 public class ControlMenuPrincipal {
 
-    private Vista_Final interfaz;
+    private VistaMenuPrincipal interfaz;
 
-    public ControlMenuPrincipal(Vista_Final interfaz) {
+    public ControlMenuPrincipal(VistaMenuPrincipal interfaz) {
         this.interfaz = interfaz;
         interfaz.setVisible(true);
     }

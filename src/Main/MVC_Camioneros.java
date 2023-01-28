@@ -7,7 +7,7 @@ public class MVC_Camioneros {
 
     public static void main(String[] args) {
         VistaMenuPrincipal vista = new VistaMenuPrincipal();
-        ControlMenuPrincipal acciones = new ControlMenuPrincipal(vista);
-        acciones.Controlador();
+        ControlMenuPrincipal controller = new ControlMenuPrincipal(vista);
+        controller.IniciarControl();
     }
 }

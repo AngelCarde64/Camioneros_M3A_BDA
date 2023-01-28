@@ -4,20 +4,24 @@ import Vista.VistaMenuPrincipal;
 
 public class ControlMenuPrincipal {
 
-    private VistaMenuPrincipal interfaz;
+    private VistaMenuPrincipal vista;
 
     public ControlMenuPrincipal(VistaMenuPrincipal interfaz) {
-        this.interfaz = interfaz;
+        this.vista = interfaz;
         interfaz.setVisible(true);
     }
 
+    public void IniciarControlPrincipal() {
+//        vista.get
+    }
+
     public void Controlador() {
-        interfaz.getPaneCamioners().addMouseListener(new java.awt.event.MouseAdapter() {
+        vista.getPaneCamioners().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mostrarbarra();
             }
         });
-        interfaz.getjButtonIniciarSesion1().addMouseListener(new java.awt.event.MouseAdapter() {
+        vista.getjButtonIniciarSesion1().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mostrarINGRESO();
             }
@@ -25,20 +29,20 @@ public class ControlMenuPrincipal {
     }
 
     public void mostrarbarra() {
-        interfaz.paneIngCamres.setVisible(false);
-        interfaz.paneChoicecamioneros.setVisible(true);
-        interfaz.tituloCamioneros.setText("MENU DE CAMIONERROS");
-        interfaz.paneMostrar.setVisible(false);
-        interfaz.pnbuscarCamionero.setVisible(false);
-        interfaz.getPaneInicio().setVisible(true);
+        vista.paneIngCamres.setVisible(false);
+        vista.jPanelCrud.setVisible(true);
+        vista.jLabeltituloCamioneros.setText("MENU DE CAMIONERROS");
+        vista.paneMostrar.setVisible(false);
+        vista.pnbuscarCamionero.setVisible(false);
+        vista.getPaneInicio().setVisible(true);
     }
 
     public void mostrarINGRESO() {
-        interfaz.paneIngCamres.setVisible(true);
-        interfaz.paneChoicecamioneros.setVisible(true);
-        interfaz.tituloCamioneros.setText("INGRESO DE CAMIONEROS");
-        interfaz.paneMostrar.setVisible(false);
-        interfaz.pnbuscarCamionero.setVisible(false);
-        interfaz.getPaneInicio().setVisible(false);
+        vista.paneIngCamres.setVisible(true);
+        vista.jPanelCrud.setVisible(true);
+        vista.jLabeltituloCamioneros.setText("INGRESO DE CAMIONEROS");
+        vista.paneMostrar.setVisible(false);
+        vista.pnbuscarCamionero.setVisible(false);
+        vista.getPaneInicio().setVisible(false);
     }
 }

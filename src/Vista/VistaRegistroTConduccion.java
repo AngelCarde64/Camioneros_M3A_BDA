@@ -1,8 +1,8 @@
 package Vista;
 
-public class VistaRegistroPaquetes extends javax.swing.JFrame {
+public class VistaRegistroTConduccion extends javax.swing.JFrame {
 
-    public VistaRegistroPaquetes() {
+    public VistaRegistroTConduccion() {
         initComponents();
     }
     

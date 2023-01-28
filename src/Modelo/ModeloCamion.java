@@ -18,7 +18,7 @@ public class ModeloCamion extends Camion {
         super(id, nro_Placa, modelo, tipo, potencia);
     }
 
-    public List<Camion> ListarDirrecciones(String filtro) {
+    public List<Camion> ListarCamion(String filtro) {
         String sql = "select * from Camion where ";
         sql += " UPPER(cam_id) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cam_nro_Placa) like UPPER('%" + filtro + "%') ";
@@ -49,25 +49,25 @@ public class ModeloCamion extends Camion {
         }
     }
 
-    public SQLException CrearDirrecciones() {
+    public SQLException CrearCamion() {
         String sql = "INSERT INTO Camion (cam_nro_Placa, cam_modelo, cam_tipo, cam_potencia)";
         sql += " VALUES ('" + getNro_Placa() + "','" + getModelo() + "','" + getTipo() + "','" + getPotencia() + "')";
         return conpg.accion(sql);
     }
 
-    public SQLException ActualizarDirrecciones() {
+    public SQLException ActualizarCamion() {
         String sql = "UPDATE Camion SET cam_nro_Placa = '" + getNro_Placa() + "', cam_modelo = '" + getModelo()
                 + "', cam_tipo = '" + getTipo() + "', cam_potencia = '" + getPotencia() + "'";
         sql += "WHERE cam_id = '" + getId() + "';";
         return conpg.accion(sql);
     }
 
-    public SQLException DeleteDirrecciones() {
+    public SQLException DeleteCamion() {
         String sql = "DELETE FROM Camion WHERE cam_id ='" + getId() + "';";
         return conpg.accion(sql);
     }
 
-    public ModeloCamion MostrarDatosDirrecciones(String id) {
+    public ModeloCamion MostrarDatosCamion(String id) {
         String sql = "select * from Camion where cam_id = '" + id + "'";
         ResultSet rs = conpg.consulta(sql);
         ModeloCamion MCamion = new ModeloCamion();

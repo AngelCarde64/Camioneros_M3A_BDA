@@ -26,15 +26,13 @@ public class ControlRCamionero {
         CargarCamioneros();
         // --> Obtener ID de Direcciones
         ModeloDirrecciones MDirreciones = new ModeloDirrecciones();
-//        listaDirecciones = MDirreciones.ListarDirrecciones("");
-        System.out.println("LISTAA: " + MDirreciones.ListarDirrecciones("").get(0).getCalle_P());
-        ModeloCamion mo= new ModeloCamion();
-        System.out.println("Lista de camiones:   "+ mo.ListarCamion(""));
-//        vistaCam.getjCBoxIDDirecciones().removeAllItems();
-//
-//        for (Dirrecciones listD : listaDirecciones) {
-//            vistaCam.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getId()));
-//        }
+        listaDirecciones = MDirreciones.ListarDirrecciones("");
+        vistaCam.getjCBoxIDDirecciones().removeAllItems();
+
+        for (Dirrecciones listD : listaDirecciones) {
+            vistaCam.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getId()
+                    + " - " + listD.getCalle_P() + " - " + listD.getCalle_S()));
+        }
 
         // --> Add listeners
         vistaCam.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {

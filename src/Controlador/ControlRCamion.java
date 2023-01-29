@@ -21,19 +21,7 @@ public class ControlRCamion {
     }
 
     public void iniciarControl() {
-        CargarCamioneros();
-        // --> Obtener ID de Direcciones
-        ModeloDirrecciones MDirreciones = new ModeloDirrecciones();
-//        listaDirecciones = MDirreciones.ListarDirrecciones("");
-        System.out.println("LISTAA: " + MDirreciones.ListarDirrecciones("").get(0).getCalle_P());
-        ModeloCamion mo = new ModeloCamion();
-        System.out.println("Lista de camiones:   " + mo.ListarCamion(""));
-//        vistaCam.getjCBoxIDDirecciones().removeAllItems();
-//
-//        for (Dirrecciones listD : listaDirecciones) {
-//            vistaCam.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getId()));
-//        }
-
+        CargarCamiones();
         // --> Add listeners
         VRCamion.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -80,7 +68,7 @@ public class ControlRCamion {
         });
     }
 
-    public void CargarCamioneros() {
+    public void CargarCamiones() {
         // Para darle forma al modelo de la tabla
         DefaultTableModel mTabla;
         mTabla = (DefaultTableModel) VRCamion.getTablaDeRegistros().getModel();
@@ -96,32 +84,32 @@ public class ControlRCamion {
     }
 
     public void Insertar() {
-        ModeloCamionero MCamionero = new ModeloCamionero();
-        MCamionero = RecuperarDatos(MCamionero);
+        ModeloCamion MCamion = new ModeloCamion();
+        MCamion = RecuperarDatos(MCamion);
 
-        if (MCamionero.CrearCamionero() == null) {
+        if (MCamion.CrearCamion() == null) {
             JOptionPane.showMessageDialog(null,
-                    "Camionero creado satisfactoriamente.");
-            CargarCamioneros();
+                    "Camion creado satisfactoriamente.");
+            CargarCamiones();
         } else {
-            JOptionPane.showMessageDialog(null, "Error al crear al Camionero!\n"
+            JOptionPane.showMessageDialog(null, "Error al crear al Camion!\n"
                     + "Por favor corriga estos errores:",
-                    "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+                    "Error al crear al Camion", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     public void Modificar() {
-        ModeloCamionero MCamionero = new ModeloCamionero();
-        MCamionero = RecuperarDatos(MCamionero);
+        ModeloCamion MCamion = new ModeloCamion();
+        MCamion = RecuperarDatos(MCamion);
 
-        if (MCamionero.ActualizarCamionero() == null) {
+        if (MCamion.ActualizarCamion() == null) {
             JOptionPane.showMessageDialog(null,
-                    "Camionero modificado satisfactoriamente.");
-            CargarCamioneros();
+                    "Camion modificado satisfactoriamente.");
+            CargarCamiones();
         } else {
-            JOptionPane.showMessageDialog(null, "Error al modificar al Camionero!\n"
+            JOptionPane.showMessageDialog(null, "Error al modificar al Camion!\n"
                     + "Por favor corriga estos errores:",
-                    "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+                    "Error al crear al Camion", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -140,7 +128,7 @@ public class ControlRCamion {
                 if (MCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
                     id_Camion = 0;
-                    CargarCamioneros();
+                    CargarCamiones();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
                             "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
@@ -153,18 +141,12 @@ public class ControlRCamion {
         }
     }
 
-    /**
-     * ---> Cuando se le da click en un elemento de la tabla en la parte derecha
-     * se llenaran los datos.
-     */
-    public ModeloCamionero RecuperarDatos(ModeloCamionero MCami) {
-        MCami.setDni(VRCamion.getjFieldDNI().getText());
-        MCami.setNombre(VRCamion.getjFieldNombre().getText());
-        MCami.setTelefono(VRCamion.getjFieldtelefono().getText());
-        MCami.setPoblacion(VRCamion.getjSpinnerPoblacion().getValue().toString());
-        MCami.setSueldo((Double.parseDouble(VRCamion.getjFieldsueldo().toString())));
-//        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
-        return MCami;
+    public ModeloCamion RecuperarDatos(ModeloCamion MCamion) {
+        MCamion.setNro_Placa(VRCamion.getjFieldnro_Placa().getText());
+        MCamion.setModelo(VRCamion.getjFieldModelo().getText());
+        MCamion.setPotencia(VRCamion.getjFieldpotencia().getText());
+        MCamion.setTipo(VRCamion.getjFieldTipo().getText());
+        return MCamion;
     }
 
     public void Buscar() {
@@ -174,7 +156,7 @@ public class ControlRCamion {
             LlenarTablaBusqueda();
         } else {
             VRCamion.getjLabelSinCoincidencias().setVisible(false);
-            CargarCamioneros();
+            CargarCamiones();
         }
     }
 

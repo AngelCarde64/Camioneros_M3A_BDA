@@ -397,6 +397,14 @@ public class VistaRCamion extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getjLabelID() {
+        return jLabelID;
+    }
+
+    public void setjLabelID(JLabel jLabelID) {
+        this.jLabelID = jLabelID;
+    }
+
     public JTable getTablaDeRegistros() {
         return TablaDeRegistros;
     }

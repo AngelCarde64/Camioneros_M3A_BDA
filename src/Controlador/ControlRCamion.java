@@ -123,9 +123,9 @@ public class ControlRCamion {
 
             respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
             if (respuesta == 0) {
-                ModeloCamionero MCamionero = new ModeloCamionero(id_Camion, "", "", "", "", "", 0, "");
+                ModeloCamion MCamion = new ModeloCamion(id_Camion, "", "", "", "");
 
-                if (MCamionero.DeleteCamionero() == null) {
+                if (MCamion.DeleteCamion() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
                     id_Camion = 0;
                     CargarCamiones();
@@ -146,6 +146,24 @@ public class ControlRCamion {
         MCamion.setModelo(VRCamion.getjFieldModelo().getText());
         MCamion.setPotencia(VRCamion.getjFieldpotencia().getText());
         MCamion.setTipo(VRCamion.getjFieldTipo().getText());
+        return MCamion;
+    }
+
+    public ModeloCamion MostrarDatos(ModeloCamion MCamion) {
+        VRCamion.getjLabelID().setText("");
+        VRCamion.getjFieldnro_Placa().setText("");
+        VRCamion.getjFieldModelo().setText("");
+        VRCamion.getjFieldpotencia().setText("");
+        VRCamion.getjFieldTipo().setText("");
+        return MCamion;
+    }
+
+    public ModeloCamion LimpiarDatos(ModeloCamion MCamion) {
+        VRCamion.getjLabelID().setText("");
+        VRCamion.getjFieldnro_Placa().setText("");
+        VRCamion.getjFieldModelo().setText("");
+        VRCamion.getjFieldpotencia().setText("");
+        VRCamion.getjFieldTipo().setText("");
         return MCamion;
     }
 

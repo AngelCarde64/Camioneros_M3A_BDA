@@ -7,7 +7,7 @@ import java.util.Date;
 
 // --> ¡¡ POR ACTUALIZAR !!
 public class Validaciones {
-    
+
     public int valiCedula(String cedula) {
         //si la cedula es una cadena numerica
         if (cedula.matches("[0-9]{10}")) {
@@ -33,16 +33,16 @@ public class Validaciones {
                 resultado = 10 - (suma % 10);
 
                 if (resultado == numero) {
-                    
+
                     //si la cedula es correcta
                     return 0;
                 } else {
-                    
+
                     //si la cedula no es valida
                     return 1;
                 }
             } else {
-                
+
                 return 0;
             }
             //la cedula contiene letras o no cumple con el formato
@@ -53,58 +53,20 @@ public class Validaciones {
 
     }
 
-    public boolean valiNombreApe(String nomAp) {
+    public boolean validarNombre(String nomAp) {
         return nomAp.matches("[a-zA-z]{3,15}");
     }
 
-    public int valiNumTelefono(String tel) {
+    public void IngresarSoloNumeros(java.awt.event.KeyEvent evt) {
 
-        if (tel.matches("[+-]?\\d*(\\.\\d+)?")) {
-
-            if (tel.matches("[0-9]{10}") || tel.matches("[0-9]{7}") || tel.matches("[0-9]{9}")) {
-                return 0;
-
-            } else {
-               
-                return 1;
-            }
-        } else {
-            return 2;
+        System.out.println("SAASAS");
+        char validarnum = evt.getKeyChar();
+        if (validarnum < '0' || validarnum > '9') {
+            evt.consume();
         }
+    }
 
-    }
-    
-    public boolean valiDirec(String nomAp) {
-        return nomAp.length()>4;
-    }
- 
-    public boolean valiString(String cadena){
+    public boolean valiString(String cadena) {
         return cadena.matches("[a-zA-z]{3,15}[\\s]{0,1}[a-zA-z]{0,15}");
-    }
-    
-    //---------------------------------------------------------------------------------------
-    //validar de la fecha de nacimiento es anterior a la actual para calcular la edad
-//    public boolean validarFechaNac(Date fechaNac){
-//
-//            return fechaNac.before(Date.from(Instant.now()));
-//       
-//    }
-    
-    
-    //Pasar la edad a años
-    public String calcularEdad(Date fechaN){
-                String edad;
-      
-                LocalDate fechaNac =fechaN.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-                Period periodo = Period.between(fechaNac, LocalDate.now());
-                
-                edad = "Años: "+periodo.getYears()+" Meses: "+ periodo.getMonths()+" Dias: "+ periodo.getDays()+" ";
-                //coloca debajo de cada uno el año gracias a %s
-//                 System.out.printf("Tu edad es: %s años, %s meses y %s días",
-//                        periodo.getYears(), periodo.getMonths(), periodo.getDays());
-               
-                
-           return edad;
     }
 }

@@ -6,20 +6,18 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ControlRCamionero {
+public class ControlRCamion {
 
-    private VistaRCamionero vistaCam;
-    private ModeloCamionero modeloCamionero;
+    private VistaRCamion VRCamion;
+    private ModeloCamion MCamion;
 
     private Validaciones vali = new Validaciones();
     private String criterio = "";
-    private int id_Camionero;
-    // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
-    private List<Dirrecciones> listaDirecciones;
+    private int id_Camion;
 
-    public ControlRCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
-        this.vistaCam = vistaCam;
-        this.modeloCamionero = modeloCamionero;
+    public ControlRCamion(VistaRCamion VRCamion, ModeloCamion MCamion) {
+        this.VRCamion = VRCamion;
+        this.MCamion = MCamion;
     }
 
     public void iniciarControl() {
@@ -28,8 +26,8 @@ public class ControlRCamionero {
         ModeloDirrecciones MDirreciones = new ModeloDirrecciones();
 //        listaDirecciones = MDirreciones.ListarDirrecciones("");
         System.out.println("LISTAA: " + MDirreciones.ListarDirrecciones("").get(0).getCalle_P());
-        ModeloCamion mo= new ModeloCamion();
-        System.out.println("Lista de camiones:   "+ mo.ListarCamion(""));
+        ModeloCamion mo = new ModeloCamion();
+        System.out.println("Lista de camiones:   " + mo.ListarCamion(""));
 //        vistaCam.getjCBoxIDDirecciones().removeAllItems();
 //
 //        for (Dirrecciones listD : listaDirecciones) {
@@ -37,48 +35,47 @@ public class ControlRCamionero {
 //        }
 
         // --> Add listeners
-        vistaCam.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
+        VRCamion.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
             }
         });
 
-        vistaCam.getjButtonModificarA().addMouseListener(new java.awt.event.MouseAdapter() {
+        VRCamion.getjButtonModificarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Modificar();
             }
         });
-        vistaCam.getjButtonEliminarA().addMouseListener(new java.awt.event.MouseAdapter() {
+        VRCamion.getjButtonEliminarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Eliminar();
             }
         });
-        vistaCam.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
+        VRCamion.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ObtenerIDTable();
             }
         });
-        vistaCam.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
+        VRCamion.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Buscar();
             }
         });
         // --> Desactivar elementos que van a estar ocultos al principio
-        vistaCam.getjLabelSinCoincidencias().setVisible(false);
+        VRCamion.getjLabelSinCoincidencias().setVisible(false);
     }
 
     // --> Se llenaran todos los datos en la tabla
     public void LlenarTablaBusqueda() {
         // Para darle forma al modelo de la tabla
         DefaultTableModel mTabla;
-        mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
+        mTabla = (DefaultTableModel) VRCamion.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        List<Camionero> listap = modeloCamionero.ListarCamioneros(criterio);
+        List<Camion> listap = MCamion.ListarCamion(criterio);
         // Uso de una expresion landa
-        listap.stream().forEach(cam -> {
-            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                cam.getTelefono(), cam.getPoblacion(), cam.getId_Direccion(), String.valueOf(cam.getSueldo()), cam.getId_Direccion()};
+        listap.stream().forEach(cami -> {
+            String[] filaNueva = {String.valueOf(cami.getId()), cami.getModelo(), cami.getNro_Placa(), cami.getPotencia(), cami.getTipo()};
             mTabla.addRow(filaNueva);
         });
     }
@@ -86,14 +83,14 @@ public class ControlRCamionero {
     public void CargarCamioneros() {
         // Para darle forma al modelo de la tabla
         DefaultTableModel mTabla;
-        mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
+        mTabla = (DefaultTableModel) VRCamion.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        List<Camionero> listap = modeloCamionero.ListarCamioneros("");
+        List<Camion> listap = MCamion.ListarCamion("");
         // Uso de una expresion landa
-        listap.stream().forEach(cam -> {
-            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                cam.getTelefono(), cam.getPoblacion(), cam.getId_Direccion(), String.valueOf(cam.getSueldo()), cam.getId_Direccion()};
+        listap.stream().forEach(cami -> {
+            String[] filaNueva = {String.valueOf(cami.getId()), cami.getModelo(), cami.getNro_Placa(), cami.getPotencia(), cami.getTipo()};
+            mTabla.addRow(filaNueva);
             mTabla.addRow(filaNueva);
         });
     }
@@ -129,7 +126,7 @@ public class ControlRCamionero {
     }
 
     public void Eliminar() {
-        if (id_Camionero == 0) {
+        if (id_Camion == 0) {
             JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!\n"
                     + "Por favor Selecciona un camionero",
                     "Error al eliminar al Camionero", JOptionPane.ERROR_MESSAGE);
@@ -138,20 +135,20 @@ public class ControlRCamionero {
 
             respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
             if (respuesta == 0) {
-                ModeloCamionero MCamionero = new ModeloCamionero(id_Camionero, "", "", "", "", "", 0, "");
+                ModeloCamionero MCamionero = new ModeloCamionero(id_Camion, "", "", "", "", "", 0, "");
 
                 if (MCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    id_Camionero = 0;
+                    id_Camion = 0;
                     CargarCamioneros();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
                             "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
-                    id_Camionero = 0;
+                    id_Camion = 0;
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Cancelado");
-                id_Camionero = 0;
+                id_Camion = 0;
             }
         }
     }
@@ -161,29 +158,29 @@ public class ControlRCamionero {
      * se llenaran los datos.
      */
     public ModeloCamionero RecuperarDatos(ModeloCamionero MCami) {
-        MCami.setDni(vistaCam.getjFieldDNI().getText());
-        MCami.setNombre(vistaCam.getjFieldNombre().getText());
-        MCami.setTelefono(vistaCam.getjFieldtelefono().getText());
-        MCami.setPoblacion(vistaCam.getjSpinnerPoblacion().getValue().toString());
-        MCami.setSueldo((Double.parseDouble(vistaCam.getjFieldsueldo().toString())));
+        MCami.setDni(VRCamion.getjFieldDNI().getText());
+        MCami.setNombre(VRCamion.getjFieldNombre().getText());
+        MCami.setTelefono(VRCamion.getjFieldtelefono().getText());
+        MCami.setPoblacion(VRCamion.getjSpinnerPoblacion().getValue().toString());
+        MCami.setSueldo((Double.parseDouble(VRCamion.getjFieldsueldo().toString())));
 //        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
         return MCami;
     }
 
     public void Buscar() {
-        criterio = vistaCam.getjTextFieldBuscar().getText().trim();
+        criterio = VRCamion.getjTextFieldBuscar().getText().trim();
 
         if (!criterio.equals("")) {
             LlenarTablaBusqueda();
         } else {
-            vistaCam.getjLabelSinCoincidencias().setVisible(false);
+            VRCamion.getjLabelSinCoincidencias().setVisible(false);
             CargarCamioneros();
         }
     }
 
     private void ObtenerIDTable() {
-        id_Camionero = 0;
-        DefaultTableModel tm = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
-        id_Camionero = (int) tm.getValueAt(vistaCam.getTablaDeRegistros().getSelectedRow(), 0);
+        id_Camion = 0;
+        DefaultTableModel tm = (DefaultTableModel) VRCamion.getTablaDeRegistros().getModel();
+        id_Camion = (int) tm.getValueAt(VRCamion.getTablaDeRegistros().getSelectedRow(), 0);
     }
 }

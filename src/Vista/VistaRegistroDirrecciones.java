@@ -1,6 +1,9 @@
 package Vista;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 public class VistaRegistroDirrecciones extends javax.swing.JFrame {
 
@@ -63,8 +66,49 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
     public void setjButtonEliminarA(JButton jButtonEliminarA) {
         this.jButtonEliminarA = jButtonEliminarA;
     }
+
+    public JTable getTablaDeRegistros() {
+        return TablaDeRegistros;
+    }
+
+    public void setTablaDeRegistros(JTable TablaDeRegistros) {
+        this.TablaDeRegistros = TablaDeRegistros;
+    }
+
+    public JTextField getJtextFieldBuscarPaquete() {
+        return JtextFieldBuscarPaquete;
+    }
+
+    public void setJtextFieldBuscarPaquete(JTextField JtextFieldBuscarPaquete) {
+        this.JtextFieldBuscarPaquete = JtextFieldBuscarPaquete;
+    }
+
+    public JLabel getjLabelSinCoincidencias() {
+        return jLabelSinCoincidencias;
+    }
+
+    public void setjLabelSinCoincidencias(JLabel jLabelSinCoincidencias) {
+        this.jLabelSinCoincidencias = jLabelSinCoincidencias;
+    }
+
+    public JTextField getjFieldNombreRA1() {
+        return jFieldNombreRA1;
+    }
+
+    public void setjFieldNombreRA1(JTextField jFieldNombreRA) {
+        this.jFieldNombreRA1 = jFieldNombreRA;
+    }
+
+    public JTextField getjFieldCalleS() {
+        return jFieldEspecie;
+    }
+
+    public void setjFieldCalleS(JTextField jFieldCalleS) {
+        this.jFieldEspecie = jFieldCalleS;
+    }
     
-    //                                                                          jButtonEliminarA
+    
+    //                                                                          jFieldCalleS
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -87,6 +131,7 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
         jButtonEliminar = new javax.swing.JButton();
         ContentRegistro = new javax.swing.JPanel();
         PanelOpciones = new javax.swing.JPanel();
+        jLabelSinCoincidencias = new javax.swing.JLabel();
         jLabelIconTipo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaDeRegistros = new javax.swing.JTable();
@@ -106,13 +151,12 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
         ContentRAparte1 = new javax.swing.JPanel();
         Nombretxt = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jFieldNombreRA = new javax.swing.JTextField();
         alertNombretxt = new javax.swing.JLabel();
         Especietxt = new javax.swing.JLabel();
         jFieldEspecie = new javax.swing.JTextField();
         alertEspecietxt = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        jButtonSubirFotoRAnimal = new javax.swing.JButton();
+        jFieldNombreRA1 = new javax.swing.JTextField();
 
         paneIngCamres.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -277,6 +321,9 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
 
         PanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabelSinCoincidencias.setForeground(new java.awt.Color(204, 0, 0));
+        jLabelSinCoincidencias.setText("No hay coincidencias");
+
         TablaDeRegistros.setBackground(new java.awt.Color(133, 171, 208));
         TablaDeRegistros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         TablaDeRegistros.setModel(new javax.swing.table.DefaultTableModel(
@@ -359,18 +406,23 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
             .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabelIconTipo))
-            .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(JtextFieldBuscarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButtonMostrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(ContentButtonsIME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+                .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabelIconTipo))
+                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(JtextFieldBuscarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButtonMostrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(ContentButtonsIME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelOpcionesLayout.setVerticalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,10 +432,12 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JtextFieldBuscarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonMostrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonMostrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
                 .addComponent(ContentButtonsIME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
@@ -454,9 +508,6 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
-        jFieldNombreRA.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldNombreRA.setBorder(null);
-
         alertNombretxt.setBackground(new java.awt.Color(255, 255, 255));
         alertNombretxt.setFont(new java.awt.Font("Segoe UI Historic", 0, 11)); // NOI18N
         alertNombretxt.setForeground(new java.awt.Color(255, 51, 51));
@@ -477,63 +528,61 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButtonSubirFotoRAnimal.setBackground(new java.awt.Color(0, 107, 221));
-        jButtonSubirFotoRAnimal.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jButtonSubirFotoRAnimal.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSubirFotoRAnimal.setText("Subir Foto");
-        jButtonSubirFotoRAnimal.setToolTipText("");
+        jFieldNombreRA1.setForeground(new java.awt.Color(102, 102, 102));
+        jFieldNombreRA1.setBorder(null);
 
         javax.swing.GroupLayout ContentRAparte1Layout = new javax.swing.GroupLayout(ContentRAparte1);
         ContentRAparte1.setLayout(ContentRAparte1Layout);
         ContentRAparte1Layout.setHorizontalGroup(
             ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContentRAparte1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFieldNombreRA, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(ContentRAparte1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(alertNombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(ContentRAparte1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jFieldEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Especietxt, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(ContentRAparte1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alertEspecietxt, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(ContentRAparte1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jButtonSubirFotoRAnimal))
+                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(Nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(Especietxt, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(alertEspecietxt, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jFieldEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(alertNombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jFieldNombreRA1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         ContentRAparte1Layout.setVerticalGroup(
             ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContentRAparte1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Nombretxt)
-                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jFieldNombreRA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(alertNombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ContentRAparte1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jFieldEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Especietxt))
-                .addGroup(ContentRAparte1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(alertEspecietxt, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(220, 220, 220)
-                .addComponent(jButtonSubirFotoRAnimal))
+                .addGap(19, 19, 19)
+                .addComponent(Nombretxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFieldNombreRA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alertNombretxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Especietxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFieldEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(alertEspecietxt, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(175, 175, 175))
         );
 
         javax.swing.GroupLayout CambiarDatosAnimalesLayout = new javax.swing.GroupLayout(CambiarDatosAnimales);
@@ -547,7 +596,7 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
         CambiarDatosAnimalesLayout.setVerticalGroup(
             CambiarDatosAnimalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CambiarDatosAnimalesLayout.createSequentialGroup()
-                .addComponent(ContentRAparte1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ContentRAparte1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(380, 380, 380))
         );
 
@@ -631,14 +680,14 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
     private javax.swing.JButton jButtonModificarA;
     private javax.swing.JButton jButtonMostrar;
     private javax.swing.JButton jButtonMostrar1;
-    private javax.swing.JButton jButtonSubirFotoRAnimal;
     private javax.swing.JTextField jFieldEspecie;
-    private javax.swing.JTextField jFieldNombreRA;
+    private javax.swing.JTextField jFieldNombreRA1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabelIconTipo;
+    private javax.swing.JLabel jLabelSinCoincidencias;
     private javax.swing.JPanel jPanelCRUD;
     private javax.swing.JScrollPane jScrollPCDAnimal;
     private javax.swing.JScrollPane jScrollPane2;

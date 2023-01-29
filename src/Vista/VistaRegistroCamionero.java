@@ -4,6 +4,12 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author User
@@ -13,7 +19,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
     public VistaRegistroCamionero() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,6 +31,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
         jButtonInsertarA = new javax.swing.JButton();
         jButtonModificarA = new javax.swing.JButton();
         jButtonEliminarA = new javax.swing.JButton();
+        jLabelSinCoincidencias = new javax.swing.JLabel();
         jScrollPaneCam = new javax.swing.JScrollPane();
         TablaDeRegistros = new javax.swing.JTable();
         CambiarDatosPanel = new javax.swing.JPanel();
@@ -32,7 +39,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
         MensajeingresoTxt = new javax.swing.JLabel();
         IDTxt = new javax.swing.JLabel();
         jLabelID = new javax.swing.JLabel();
-        jScrollPCDAnimal = new javax.swing.JScrollPane();
+        jScrollCami = new javax.swing.JScrollPane();
         JPanelDatosCamionero = new javax.swing.JPanel();
         IDtxt = new javax.swing.JLabel();
         jFieldDNI = new javax.swing.JTextField();
@@ -48,7 +55,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
         SueldoTxt = new javax.swing.JLabel();
         jFieldsueldo = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        jSpinnerPorcion = new javax.swing.JSpinner();
+        jSpinnerPoblacion = new javax.swing.JSpinner();
         PorcionTXT = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,6 +121,9 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
             }
         });
 
+        jLabelSinCoincidencias.setForeground(new java.awt.Color(204, 0, 0));
+        jLabelSinCoincidencias.setText("No hay coincidencias");
+
         TablaDeRegistros.setBackground(new java.awt.Color(133, 171, 208));
         TablaDeRegistros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         TablaDeRegistros.setModel(new javax.swing.table.DefaultTableModel(
@@ -159,15 +169,18 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                        .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
                         .addComponent(jButtonInsertarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                        .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelOpcionesLayout.setVerticalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +188,9 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonInsertarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,7 +229,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
         jLabelID.setText("[Id]");
         CambiarDatosPanel.add(jLabelID, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 91, 69, -1));
 
-        jScrollPCDAnimal.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollCami.setBackground(new java.awt.Color(255, 255, 255));
 
         JPanelDatosCamionero.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -265,8 +280,8 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
 
-        jSpinnerPorcion.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, null, 1.0d));
-        jSpinnerPorcion.setBorder(null);
+        jSpinnerPoblacion.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, null, 1.0d));
+        jSpinnerPoblacion.setBorder(null);
 
         PorcionTXT.setBackground(new java.awt.Color(0, 102, 255));
         PorcionTXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -287,7 +302,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                     .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
                         .addComponent(PorcionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jSpinnerPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSpinnerPoblacion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jCBoxIDDirecciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator3)
                     .addComponent(jFieldtelefono)
@@ -341,10 +356,10 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                     .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(PorcionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSpinnerPorcion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSpinnerPoblacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jScrollPCDAnimal.setViewportView(JPanelDatosCamionero);
+        jScrollCami.setViewportView(JPanelDatosCamionero);
 
         javax.swing.GroupLayout ContentRegistroLayout = new javax.swing.GroupLayout(ContentRegistro);
         ContentRegistro.setLayout(ContentRegistroLayout);
@@ -355,7 +370,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                 .addComponent(PanelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(4, 4, 4)
                 .addGroup(ContentRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPCDAnimal)
+                    .addComponent(jScrollCami)
                     .addGroup(ContentRegistroLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(CambiarDatosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -373,7 +388,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                     .addComponent(CambiarDatosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ContentRegistroLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addComponent(jScrollPCDAnimal))))
+                        .addComponent(jScrollCami))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -395,6 +410,103 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JLabel getjLabelSinCoincidencias() {
+        return jLabelSinCoincidencias;
+    }
+
+    public void setjLabelSinCoincidencias(JLabel jLabelSinCoincidencias) {
+        this.jLabelSinCoincidencias = jLabelSinCoincidencias;
+    }
+
+    public JTable getTablaDeRegistros() {
+        return TablaDeRegistros;
+    }
+
+    public void setTablaDeRegistros(JTable TablaDeRegistros) {
+        this.TablaDeRegistros = TablaDeRegistros;
+    }
+
+    public JButton getjButtonBuscar() {
+        return jButtonBuscar;
+    }
+
+    public void setjButtonBuscar(JButton jButtonBuscar) {
+        this.jButtonBuscar = jButtonBuscar;
+    }
+
+    public JButton getjButtonEliminarA() {
+        return jButtonEliminarA;
+    }
+
+    public void setjButtonEliminarA(JButton jButtonEliminarA) {
+        this.jButtonEliminarA = jButtonEliminarA;
+    }
+
+    public JButton getjButtonInsertarA() {
+        return jButtonInsertarA;
+    }
+
+    public void setjButtonInsertarA(JButton jButtonInsertarA) {
+        this.jButtonInsertarA = jButtonInsertarA;
+    }
+
+    public JButton getjButtonModificarA() {
+        return jButtonModificarA;
+    }
+
+    public void setjButtonModificarA(JButton jButtonModificarA) {
+        this.jButtonModificarA = jButtonModificarA;
+    }
+
+    public JComboBox<String> getjCBoxIDDirecciones() {
+        return jCBoxIDDirecciones;
+    }
+
+    public void setjCBoxIDDirecciones(JComboBox<String> jCBoxIDDirecciones) {
+        this.jCBoxIDDirecciones = jCBoxIDDirecciones;
+    }
+
+    public JTextField getjFieldDNI() {
+        return jFieldDNI;
+    }
+
+    public void setjFieldDNI(JTextField jFieldDNI) {
+        this.jFieldDNI = jFieldDNI;
+    }
+
+    public JTextField getjFieldNombre() {
+        return jFieldNombre;
+    }
+
+    public void setjFieldNombre(JTextField jFieldNombre) {
+        this.jFieldNombre = jFieldNombre;
+    }
+
+    public JTextField getjFieldsueldo() {
+        return jFieldsueldo;
+    }
+
+    public void setjFieldsueldo(JTextField jFieldsueldo) {
+        this.jFieldsueldo = jFieldsueldo;
+    }
+
+    public JTextField getjFieldtelefono() {
+        return jFieldtelefono;
+    }
+
+    public void setjFieldtelefono(JTextField jFieldtelefono) {
+        this.jFieldtelefono = jFieldtelefono;
+    }
+
+    public JTextField getjTextFieldBuscar() {
+        return jTextFieldBuscar;
+    }
+
+    public void setjTextFieldBuscar(JTextField jTextFieldBuscar) {
+        this.jTextFieldBuscar = jTextFieldBuscar;
+    }
+
 
     private void TablaDeRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaDeRegistrosMouseClicked
         // TODO add your handling code here:
@@ -447,13 +559,14 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
     private javax.swing.JTextField jFieldsueldo;
     private javax.swing.JTextField jFieldtelefono;
     private javax.swing.JLabel jLabelID;
-    private javax.swing.JScrollPane jScrollPCDAnimal;
+    private javax.swing.JLabel jLabelSinCoincidencias;
+    private javax.swing.JScrollPane jScrollCami;
     private javax.swing.JScrollPane jScrollPaneCam;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSpinner jSpinnerPorcion;
+    private javax.swing.JSpinner jSpinnerPoblacion;
     private javax.swing.JTextField jTextFieldBuscar;
     private javax.swing.JLabel telefonoTxt;
     private javax.swing.JLabel telefonoTxt1;

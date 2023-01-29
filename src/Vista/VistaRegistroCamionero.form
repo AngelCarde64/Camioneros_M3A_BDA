@@ -56,7 +56,7 @@
                   <Component id="PanelOpciones" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPCDAnimal" max="32767" attributes="0"/>
+                      <Component id="jScrollCami" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Component id="CambiarDatosPanel" max="32767" attributes="0"/>
@@ -79,7 +79,7 @@
                       <Component id="CambiarDatosPanel" min="-2" pref="120" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-                          <Component id="jScrollPCDAnimal" max="32767" attributes="0"/>
+                          <Component id="jScrollCami" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -98,22 +98,25 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPaneCam" pref="800" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jTextFieldBuscar" min="-2" pref="440" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                              <Component id="jButtonBuscar" min="-2" pref="93" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jButtonInsertarA" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Component id="jButtonModificarA" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButtonEliminarA" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jTextFieldBuscar" min="-2" pref="440" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="jButtonBuscar" min="-2" pref="93" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabelSinCoincidencias" min="-2" pref="214" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -123,7 +126,10 @@
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextFieldBuscar" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="jButtonBuscar" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButtonBuscar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="jLabelSinCoincidencias" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -231,6 +237,14 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEliminarAActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelSinCoincidencias">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="cc" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="No hay coincidencias"/>
+              </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPaneCam">
               <AuxValues>
@@ -363,7 +377,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPCDAnimal">
+        <Container class="javax.swing.JScrollPane" name="jScrollCami">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -392,7 +406,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="PorcionTXT" min="-2" pref="90" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jSpinnerPorcion" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="jSpinnerPoblacion" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jCBoxIDDirecciones" alignment="0" max="32767" attributes="0"/>
                               <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
@@ -461,7 +475,7 @@
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                   <Component id="PorcionTXT" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jSpinnerPorcion" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="jSpinnerPoblacion" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -619,7 +633,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSpinner" name="jSpinnerPorcion">
+                <Component class="javax.swing.JSpinner" name="jSpinnerPoblacion">
                   <Properties>
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                       <SpinnerModel initial="1.0" minimum="1.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>

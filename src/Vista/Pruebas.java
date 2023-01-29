@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import Modelo.ModeloCamion;
+
 /**
  *
  * @author User
@@ -15,6 +17,7 @@ public class Pruebas extends javax.swing.JFrame {
      */
     public Pruebas() {
         initComponents();
+        setVisible(true);
     }
 
     /**
@@ -117,6 +120,13 @@ public class Pruebas extends javax.swing.JFrame {
 
     private void jButtonInsertarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarAActionPerformed
         // TODO add your handling code here:
+        ModeloCamion mo= new ModeloCamion();
+        mo.setNro_Placa("dsddsa");
+        mo.setId(12);
+        mo.setPotencia("123");
+        mo.setTipo("ddd");
+        mo.setModelo("dadad");
+        mo.CrearDirrecciones();
         
     }//GEN-LAST:event_jButtonInsertarAActionPerformed
 

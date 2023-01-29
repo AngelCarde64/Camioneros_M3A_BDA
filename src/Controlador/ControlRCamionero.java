@@ -1,8 +1,7 @@
 package Controlador;
 
-import Modelo.Camionero;
-import Modelo.ModeloCamionero;
-import Vista.VistaRCamionero;
+import Modelo.*;
+import Vista.*;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +13,8 @@ public class ControlRCamionero {
 
     private Validaciones vali = new Validaciones();
     private String id_Camionero = "", criterio = "";
+    // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
+    private List<Dirrecciones> listaDirecciones;
 
     public ControlRCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
         this.vistaCam = vistaCam;
@@ -22,10 +23,37 @@ public class ControlRCamionero {
 
     public void iniciarControl() {
         CargarCamioneros();
+        // --> Obtener ID de Direcciones
+        ModeloDirrecciones MDirreciones = new ModeloDirrecciones();
+        listaDirecciones = MDirreciones.ListarDirrecciones("");
+        System.out.println(listaDirecciones);
+        vistaCam.getjCBoxIDDirecciones().removeAllItems();
+
+        for (Dirrecciones listD : listaDirecciones) {
+            //----> Añadir las opciones al combo box
+            vistaCam.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getId()));
+        }
+
         // --> Add listeners
+        vistaCam.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Insertar();
+            }
+        });
+
+        vistaCam.getjButtonModificarA().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Modificar();
+            }
+        });
+        vistaCam.getjButtonEliminarA().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Eliminar();
+            }
+        });
         vistaCam.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ObtenerIDTable(evt);
+                ObtenerIDTable();
             }
         });
         vistaCam.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
@@ -49,7 +77,7 @@ public class ControlRCamionero {
         mTabla.setNumRows(0);
 
         List<Camionero> listap = modeloCamionero.ListarCamioneros("");
-
+        System.out.println("LISTA:  " + listap);
         // Uso de una expresion landa
         listap.stream().forEach(cam -> {
             String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
@@ -106,7 +134,7 @@ public class ControlRCamionero {
         }
     }
 
-    private void ObtenerIDTable(java.awt.event.MouseEvent evt) {
+    private void ObtenerIDTable() {
         id_Camionero = "";
         DefaultTableModel tm = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
         id_Camionero = String.valueOf(tm.getValueAt(vistaCam.getTablaDeRegistros().getSelectedRow(), 0));

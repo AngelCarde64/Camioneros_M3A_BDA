@@ -4,6 +4,8 @@ import Modelo.*;
 import Vista.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 
@@ -47,30 +49,39 @@ public class ControlMenuPrincipal {
                 switch (name) {
                     case "CAMIONEROS":
                         vistaMP.getjPanelCamioneros().setBackground(coloresbtnMenu[0]);
-                        vistaMP.getjLabeltituloCamioneros().setText(name);
 
                         VistaRCamionero VRCamionero = new VistaRCamionero();
                         ModeloCamionero modeloCamionero = new ModeloCamionero();
-                        ControlRegistroCamionero CRCamionero = new ControlRegistroCamionero(VRCamionero, modeloCamionero);
+                        ControlRCamionero CRCamionero = new ControlRCamionero(VRCamionero, modeloCamionero);
                         CRCamionero.iniciarControl();
-                        VRCamionero.setSize(1067, 520);
-                        VRCamionero.setLocation(0, 0);
-                        vistaMP.getjPanelIncio().removeAll();
-                        vistaMP.getjPanelIncio().add(VRCamionero, BorderLayout.CENTER);
+                        // --> Necesario para que se adapte al ancho de toda la pantalla.
+                        vistaMP.getjPanelContent().setLayout(new GridBagLayout());
+                        vistaMP.getjPanelContent().remove(vistaMP.getjPanelIncio());
+                        GridBagConstraints gbc = new GridBagConstraints();
+                        // --> Para colocar debajo o alado de un elemento que ya esta en interfaz
+                        gbc.gridx = 0;
+                        gbc.gridy = 1;
+                        gbc.weightx = 1.0;
+                        gbc.weighty = 1.0;
+                        gbc.fill = GridBagConstraints.BOTH;
+                        vistaMP.getjPanelContent().add(VRCamionero, gbc);
+
+                        // --> Necesarios para evitar errores y que se muestre todo de manera correcta
                         vistaMP.revalidate();
-                        vistaMP.getjPanelIncio().repaint();
+                        vistaMP.getjPanelContent().repaint();
+                        // --> el método pack() busca el tamaño adecuado para la ventana, 
+                        // -> considerando el tamaño y posición de los componentes contenidos en ella, 
+                        // -> y modifica el tamaño de la ventana para adaptarse a ellos.
+                        vistaMP.pack();
                         break;
                     case "PAQUETES":
                         vistaMP.getjPanelPaquetes().setBackground(coloresbtnMenu[0]);
-                        vistaMP.getjLabeltituloCamioneros().setText(name);
                         break;
                     case "CAMIONES":
                         vistaMP.getjPanelCamiones().setBackground(coloresbtnMenu[0]);
-                        vistaMP.getjLabeltituloCamioneros().setText(name);
                         break;
                     case "TURNOS DE CONDUCCIÓN":
                         vistaMP.getjPanelTurnosConducc().setBackground(coloresbtnMenu[0]);
-                        vistaMP.getjLabeltituloCamioneros().setText(name);
                         break;
                 }
             }

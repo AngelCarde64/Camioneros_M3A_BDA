@@ -6,7 +6,7 @@ import Vista.VistaRCamionero;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class ControlRegistroCamionero {
+public class ControlRCamionero {
 
     private VistaRCamionero vistaCam;
     private ModeloCamionero modeloCamionero;
@@ -14,12 +14,13 @@ public class ControlRegistroCamionero {
     private Validaciones vali = new Validaciones();
     private String id_Camionero = "", criterio = "";
 
-    public ControlRegistroCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
+    public ControlRCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
         this.vistaCam = vistaCam;
         this.modeloCamionero = modeloCamionero;
     }
 
     public void iniciarControl() {
+        CargarCamioneros();
         vistaCam.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ObtenerIDTable(evt);

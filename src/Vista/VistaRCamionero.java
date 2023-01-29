@@ -24,6 +24,8 @@ public class VistaRCamionero extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelTop1 = new javax.swing.JPanel();
+        jLabeltituloCamioneros1 = new javax.swing.JLabel();
         ContentRegistro = new javax.swing.JPanel();
         PanelOpciones = new javax.swing.JPanel();
         jButtonBuscar = new javax.swing.JButton();
@@ -57,6 +59,36 @@ public class VistaRCamionero extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jSpinnerPoblacion = new javax.swing.JSpinner();
         PorcionTXT = new javax.swing.JLabel();
+
+        setLayout(new java.awt.BorderLayout());
+
+        jPanelTop1.setBackground(new java.awt.Color(248, 171, 75));
+
+        jLabeltituloCamioneros1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabeltituloCamioneros1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabeltituloCamioneros1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabeltituloCamioneros1.setText("INGRESO DE CAMIONEROS");
+        jLabeltituloCamioneros1.setFocusable(false);
+        jLabeltituloCamioneros1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout jPanelTop1Layout = new javax.swing.GroupLayout(jPanelTop1);
+        jPanelTop1.setLayout(jPanelTop1Layout);
+        jPanelTop1Layout.setHorizontalGroup(
+            jPanelTop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanelTop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabeltituloCamioneros1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1116, Short.MAX_VALUE))
+        );
+        jPanelTop1Layout.setVerticalGroup(
+            jPanelTop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 63, Short.MAX_VALUE)
+            .addGroup(jPanelTop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelTop1Layout.createSequentialGroup()
+                    .addComponent(jLabeltituloCamioneros1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        add(jPanelTop1, java.awt.BorderLayout.PAGE_START);
 
         ContentRegistro.setBackground(new java.awt.Color(236, 236, 236));
 
@@ -143,7 +175,7 @@ public class VistaRCamionero extends javax.swing.JPanel {
                         .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         PanelOpcionesLayout.setVerticalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +193,7 @@ public class VistaRCamionero extends javax.swing.JPanel {
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
+                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         CambiarDatosPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -278,7 +310,7 @@ public class VistaRCamionero extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator5)
-                            .addComponent(jFieldDNI, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
+                            .addComponent(jFieldDNI))))
                 .addGap(21, 21, 21))
         );
         JPanelDatosCamioneroLayout.setVerticalGroup(
@@ -333,10 +365,10 @@ public class VistaRCamionero extends javax.swing.JPanel {
                 .addComponent(PanelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(4, 4, 4)
                 .addGroup(ContentRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollCami, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollCami)
                     .addGroup(ContentRegistroLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(CambiarDatosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CambiarDatosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                         .addGap(8, 8, 8))))
         );
         ContentRegistroLayout.setVerticalGroup(
@@ -351,25 +383,10 @@ public class VistaRCamionero extends javax.swing.JPanel {
                     .addComponent(CambiarDatosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ContentRegistroLayout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addComponent(jScrollCami))))
+                        .addComponent(jScrollCami, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE))))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
-        );
+        add(ContentRegistro, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     public JLabel getjLabelSinCoincidencias() {
@@ -492,6 +509,10 @@ public class VistaRCamionero extends javax.swing.JPanel {
     private javax.swing.JTextField jFieldtelefono;
     private javax.swing.JLabel jLabelID;
     private javax.swing.JLabel jLabelSinCoincidencias;
+    public javax.swing.JLabel jLabeltituloCamioneros;
+    private javax.swing.JLabel jLabeltituloCamioneros1;
+    private javax.swing.JPanel jPanelTop;
+    private javax.swing.JPanel jPanelTop1;
     private javax.swing.JScrollPane jScrollCami;
     private javax.swing.JScrollPane jScrollPaneCam;
     private javax.swing.JSeparator jSeparator2;

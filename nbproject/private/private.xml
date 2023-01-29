@@ -24,10 +24,10 @@
             <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Imagenes/camion.png</file>
         </group>
         <group name="Programacion_VisualAD">
+            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Modelo/ModeloCamionero.java</file>
             <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlMenuPrincipal.java</file>
             <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Vista/VistaRCamionero.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Vista/VistaRegistroCamionero.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlRegistroCamionero.java</file>
+            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlRCamionero.java</file>
             <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Vista/VistaMenuPrincipal.java</file>
         </group>
     </open-files>

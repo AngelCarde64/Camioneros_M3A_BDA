@@ -28,7 +28,7 @@ public class ModeloCamionero extends Camionero {
         sql += "OR UPPER(cami_id_Direccion) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cami_sueldo) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cami_poblacion) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(cami_correo) like UPPER('%" + filtro + "%') ";
+//        sql += "OR UPPER(cami_correo) like UPPER('%" + filtro + "%') ";
         ResultSet rs = conpg.consulta(sql);
         List<Camionero> lista = new ArrayList<Camionero>();
         try {
@@ -41,7 +41,7 @@ public class ModeloCamionero extends Camionero {
                 camionero.setId_Direccion(rs.getString("cami_id_Direccion"));
                 camionero.setSueldo(rs.getDouble("cami_sueldo"));
                 camionero.setPoblacion(rs.getString("cami_poblacion"));
-                camionero.setCorreo(rs.getString("cami_correo"));
+//                camionero.setCorreo(rs.getString("cami_correo"));
                 lista.add(camionero);
             }
         } catch (SQLException ex) {

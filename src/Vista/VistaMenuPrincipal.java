@@ -30,10 +30,8 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jLabelIconTC = new javax.swing.JLabel();
         jLabel1TConduccion = new javax.swing.JLabel();
         jPanelContent = new javax.swing.JPanel();
-        jPanelTop = new javax.swing.JPanel();
-        jLabeltituloCamioneros = new javax.swing.JLabel();
         jPanelIncio = new javax.swing.JPanel();
-        jLabelBienvenido = new javax.swing.JLabel();
+        jLabelBienvenido2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,75 +115,47 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanelCamiones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addComponent(jPanelTurnosConducc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         jPanelContent.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanelTop.setBackground(new java.awt.Color(248, 171, 75));
+        jPanelIncio.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabeltituloCamioneros.setBackground(new java.awt.Color(255, 255, 255));
-        jLabeltituloCamioneros.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
-        jLabeltituloCamioneros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltituloCamioneros.setText("INGRESO DE CAMIONEROS");
-        jLabeltituloCamioneros.setFocusable(false);
-        jLabeltituloCamioneros.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
-        jPanelTop.setLayout(jPanelTopLayout);
-        jPanelTopLayout.setHorizontalGroup(
-            jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1169, Short.MAX_VALUE)
-            .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabeltituloCamioneros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1169, Short.MAX_VALUE))
-        );
-        jPanelTopLayout.setVerticalGroup(
-            jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 65, Short.MAX_VALUE)
-            .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabeltituloCamioneros, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
-        );
-
-        jPanelIncio.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabelBienvenido.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
-        jLabelBienvenido.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelBienvenido.setText("BIENVENIDO A TU SISTEMA DE ENVIO DE PAQUETERÍA PREFERIDO");
+        jLabelBienvenido2.setFont(new java.awt.Font("Segoe UI Semibold", 3, 18)); // NOI18N
+        jLabelBienvenido2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelBienvenido2.setText("BIENVENIDO A TU SISTEMA DE ENVIO DE PAQUETERÍA PREFERIDO");
 
         javax.swing.GroupLayout jPanelIncioLayout = new javax.swing.GroupLayout(jPanelIncio);
         jPanelIncio.setLayout(jPanelIncioLayout);
         jPanelIncioLayout.setHorizontalGroup(
             jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelIncioLayout.createSequentialGroup()
-                .addGap(310, 310, 310)
-                .addComponent(jLabelBienvenido))
+            .addGap(0, 1169, Short.MAX_VALUE)
+            .addGroup(jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelIncioLayout.createSequentialGroup()
+                    .addGap(311, 311, 311)
+                    .addComponent(jLabelBienvenido2)
+                    .addContainerGap(311, Short.MAX_VALUE)))
         );
         jPanelIncioLayout.setVerticalGroup(
             jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelIncioLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabelBienvenido)
-                .addContainerGap(546, Short.MAX_VALUE))
+            .addGap(0, 708, Short.MAX_VALUE)
+            .addGroup(jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelIncioLayout.createSequentialGroup()
+                    .addGap(25, 25, 25)
+                    .addComponent(jLabelBienvenido2)
+                    .addContainerGap(658, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanelContentLayout = new javax.swing.GroupLayout(jPanelContent);
         jPanelContent.setLayout(jPanelContentLayout);
         jPanelContentLayout.setHorizontalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelIncio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelIncio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelContentLayout.setVerticalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelContentLayout.createSequentialGroup()
-                .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(631, 631, 631))
-            .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelContentLayout.createSequentialGroup()
-                    .addGap(75, 75, 75)
-                    .addComponent(jPanelIncio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jPanelIncio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
@@ -248,15 +218,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     public void setjPanelTurnosConducc(JPanel jPanelTurnosConducc) {
         this.jPanelTurnosConducc = jPanelTurnosConducc;
     }
-
-    public JLabel getjLabeltituloCamioneros() {
-        return jLabeltituloCamioneros;
-    }
-
-    public void setjLabeltituloCamioneros(JLabel jLabeltituloCamioneros) {
-        this.jLabeltituloCamioneros = jLabeltituloCamioneros;
-    }
-
+    
     public JPanel getjPanelIncio() {
         return jPanelIncio;
     }
@@ -278,7 +240,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Content;
     private javax.swing.JLabel jLabel1TConduccion;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelBienvenido;
+    private javax.swing.JLabel jLabelBienvenido2;
     private javax.swing.JLabel jLabelCamioneros;
     private javax.swing.JLabel jLabelCamiones;
     private javax.swing.JLabel jLabelIconC;
@@ -286,14 +248,12 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelIconP;
     private javax.swing.JLabel jLabelIconTC;
     private javax.swing.JLabel jLabelPaquetes;
-    private javax.swing.JLabel jLabeltituloCamioneros;
     private javax.swing.JPanel jPanelCamioneros;
     private javax.swing.JPanel jPanelCamiones;
     public javax.swing.JPanel jPanelContent;
-    public javax.swing.JPanel jPanelIncio;
+    private javax.swing.JPanel jPanelIncio;
     private javax.swing.JPanel jPanelMenuLateral;
     private javax.swing.JPanel jPanelPaquetes;
-    private javax.swing.JPanel jPanelTop;
     private javax.swing.JPanel jPanelTurnosConducc;
     // End of variables declaration//GEN-END:variables
 }

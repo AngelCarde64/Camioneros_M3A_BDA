@@ -19,10 +19,14 @@ public class ModeloDirrecciones extends Dirrecciones {
     }
 
     public List<Dirrecciones> ListarDirrecciones(String filtro) {
-        String sql = "select * from Dirrecciones where ";
-        sql += " UPPER(dir_id) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(dir_calle_P) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(dir_calle_S) like UPPER('%" + filtro + "%') ";
+        String sql = "";
+        if (filtro.isEmpty()) {
+            sql = "select * from Dirrecciones";
+        } else {
+            sql = "select * from Dirrecciones where UPPER(dir_id) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(dir_calle_P) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(dir_calle_S) like UPPER('%" + filtro + "%') ";
+        }
         ResultSet rs = conpg.consulta(sql);
         List<Dirrecciones> lista = new ArrayList<Dirrecciones>();
         try {

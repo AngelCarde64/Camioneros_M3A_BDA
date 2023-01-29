@@ -31,7 +31,12 @@ public class ControlRegistroCamionero {
         });
     }
 
+    // --> Se llenaran todos los datos en la tabla
     public void LlenarTabla() {
+
+    }
+    
+    public void Cargar() {
 
     }
 
@@ -54,7 +59,7 @@ public class ControlRegistroCamionero {
             LlenarTabla();
         } else {
             vistaCam.getjLabelSinCoincidencias().setVisible(false);
-//            CargarPersonas();
+            CargarPersonas();
         }
     }
 

@@ -48,6 +48,7 @@ public class ControlMenuPrincipal {
                     case "CAMIONEROS":
                         vistaMP.getjPanelCamioneros().setBackground(coloresbtnMenu[0]);
                         vistaMP.getjLabeltituloCamioneros().setText(name);
+                        
 //                        vistaMp.getjPanelContent().
                         break;
                     case "PAQUETES":

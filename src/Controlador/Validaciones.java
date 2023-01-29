@@ -1,23 +1,14 @@
 package Controlador;
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
-import java.util.Date;
-
 // --> ¡¡ POR ACTUALIZAR !!
 public class Validaciones {
 
     public int valiCedula(String cedula) {
         //si la cedula es una cadena numerica
         if (cedula.matches("[0-9]{10}")) {
-
             int numero = 0, suma = 0, resultado = 0;
-
             for (int i = 0; i < cedula.length(); i++) {
-
                 numero = Integer.parseInt(String.valueOf(cedula.charAt(i)));
-
                 if (i % 2 == 0) {
                     numero = numero * 2;
 
@@ -25,32 +16,24 @@ public class Validaciones {
                         numero = numero - 9;
                     }
                 }
-
                 suma = suma + numero;
-
             }
             if (suma % 10 != 0) {
                 resultado = 10 - (suma % 10);
-
                 if (resultado == numero) {
-
                     //si la cedula es correcta
                     return 0;
                 } else {
-
                     //si la cedula no es valida
                     return 1;
                 }
             } else {
-
                 return 0;
             }
-            //la cedula contiene letras o no cumple con el formato
+        //la cedula contiene letras o no cumple con el formato
         } else {
-
-            return 2;
+            return 1;
         }
-
     }
 
     public boolean validarNombre(String nomAp) {
@@ -58,8 +41,6 @@ public class Validaciones {
     }
 
     public void IngresarSoloNumeros(java.awt.event.KeyEvent evt) {
-
-        System.out.println("SAASAS");
         char validarnum = evt.getKeyChar();
         if (validarnum < '0' || validarnum > '9') {
             evt.consume();

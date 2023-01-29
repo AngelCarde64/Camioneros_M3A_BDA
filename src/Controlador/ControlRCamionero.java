@@ -26,7 +26,7 @@ public class ControlRCamionero {
         // --> Obtener ID de Direcciones
         ModeloDirrecciones MDirreciones = new ModeloDirrecciones();
         listaDirecciones = MDirreciones.ListarDirrecciones("");
-        System.out.println(listaDirecciones);
+        System.out.println(MDirreciones.ListarDirrecciones("").get(0).getId());
         vistaCam.getjCBoxIDDirecciones().removeAllItems();
 
         for (Dirrecciones listD : listaDirecciones) {

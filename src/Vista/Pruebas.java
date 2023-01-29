@@ -121,12 +121,12 @@ public class Pruebas extends javax.swing.JFrame {
     private void jButtonInsertarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarAActionPerformed
         // TODO add your handling code here:
         ModeloCamion mo= new ModeloCamion();
-        mo.setNro_Placa("dsddsa");
-        mo.setId(12);
-        mo.setPotencia("123");
-        mo.setTipo("ddd");
-        mo.setModelo("dadad");
-        
+        System.out.println("Lista de camiones:   "+ mo.ListarCamion("").get(0).getId());
+//        mo.setNro_Placa("dsddsa");
+//        mo.setId(12);
+//        mo.setPotencia("123");
+//        mo.setTipo("ddd");
+//        mo.setModelo("dadad");
     }//GEN-LAST:event_jButtonInsertarAActionPerformed
 
     private void jButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarActionPerformed

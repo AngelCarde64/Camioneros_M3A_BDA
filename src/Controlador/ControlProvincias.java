@@ -5,10 +5,9 @@
  */
 package Controlador;
 
-import Modelo.Dirrecciones;
-import Modelo.ModeloDirrecciones;
-import Vista.VistaRegistroDirrecciones;
-import Vista.VistaRegistroPaquetes;
+import Modelo.ModeloProvincia;
+import Modelo.Provincia;
+import Vista.VistaRegistroProvincia;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -17,68 +16,70 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author LENOVO
  */
-public class ControladorDirecciones {
-    private VistaRegistroDirrecciones VistaDirecciones;
-    private ModeloDirrecciones modelo;
-    private Validaciones vali = new Validaciones();
+public class ControlProvincias {
+    private VistaRegistroProvincia vistaProvincias;
+    private ModeloProvincia modeloProv;
+     private Validaciones vali = new Validaciones();
     private String id_Direccion = "", criterio = "";
 
-    public ControladorDirecciones(VistaRegistroDirrecciones VistaPaquetes, ModeloDirrecciones modelo) {
-        this.VistaDirecciones = VistaPaquetes;
-        this.modelo = modelo;
+    public ControlProvincias(VistaRegistroProvincia vistaProvincias, ModeloProvincia modeloProv) {
+        this.vistaProvincias = vistaProvincias;
+        this.modeloProv = modeloProv;
     }
-    public void LlenarTablaBusqueda() {
-
-    }
+    
     public void iniciarControl() {
         CargarDirecciones();
         // --> Add listeners
-        VistaDirecciones.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
+        vistaProvincias.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ObtenerIDTable(evt);
             }
         });
-        VistaDirecciones.getJtextFieldBuscarPaquete().addKeyListener(new java.awt.event.KeyAdapter() {
+        vistaProvincias.getJtextFieldBuscarPaquete().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Buscar();
             }
         });
         // --> Desactivar elementos que van a estar ocultos al principio
-        VistaDirecciones.getjLabelSinCoincidencias().setVisible(false);
+        vistaProvincias.getjLabelSinCoincidencias().setVisible(false);
     }
     
     public void CargarDirecciones() {
         // Para darle forma al modelo de la tabla
         DefaultTableModel mTabla;
-        mTabla = (DefaultTableModel) VistaDirecciones.getTablaDeRegistros().getModel();
+        mTabla = (DefaultTableModel) vistaProvincias.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        List<Dirrecciones> listap = modelo.ListarDirrecciones("");
+        List<Provincia> listap = modeloProv.ListarProvincia("");
 
         // Uso de una expresion landa
         listap.stream().forEach(cam -> {
-            String[] filaNueva = {String.valueOf(cam.getId()), cam.getCalle_P(),cam.getCalle_S()};
+            String[] filaNueva = {String.valueOf(cam.getCod_provincia()), cam.getNombre()};
             mTabla.addRow(filaNueva);
         });
     }
     
     
     public void Buscar() {
-        criterio = VistaDirecciones.getJtextFieldBuscarPaquete().getText().trim();
+        criterio = vistaProvincias.getJtextFieldBuscarPaquete().getText().trim();
 
         if (!criterio.equals("")) {
             LlenarTablaBusqueda();
         } else {
-            VistaDirecciones.getjLabelSinCoincidencias().setVisible(false);
+            vistaProvincias.getjLabelSinCoincidencias().setVisible(false);
             CargarDirecciones();
         }
     }
     
+    public void LlenarTablaBusqueda() {
+
+    }
+    
      public void Insertar() {
-        ModeloDirrecciones MCamionero = new ModeloDirrecciones();
+        ModeloProvincia MCamionero = new ModeloProvincia();
         MCamionero = RecuperarDatos(MCamionero);
 
-        if (MCamionero.CrearDirrecciones()== null) {
+        if (MCamionero.CrearProvincia()== null) {
             JOptionPane.showMessageDialog(null,
                     "Dirección creada satisfactoriamente.");
             CargarDirecciones();
@@ -89,16 +90,16 @@ public class ControladorDirecciones {
         }
     }
      
-     public ModeloDirrecciones RecuperarDatos(ModeloDirrecciones MCami) {
-        MCami.setCalle_P(VistaDirecciones.getjFieldNombreRA1().getText());
-        MCami.setCalle_S(VistaDirecciones.getjFieldCalleS().getText());
+     public ModeloProvincia RecuperarDatos(ModeloProvincia MCami) {
+        MCami.setNombre(vistaProvincias.getjFieldNombreRA1().getText());
+       
 //        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
         return MCami;
     }
      
      private void ObtenerIDTable(java.awt.event.MouseEvent evt) {
         id_Direccion = "";
-        DefaultTableModel tm = (DefaultTableModel) VistaDirecciones.getTablaDeRegistros().getModel();
-        id_Direccion = String.valueOf(tm.getValueAt(VistaDirecciones.getTablaDeRegistros().getSelectedRow(), 0));
+        DefaultTableModel tm = (DefaultTableModel) vistaProvincias.getTablaDeRegistros().getModel();
+        id_Direccion = String.valueOf(tm.getValueAt(vistaProvincias.getTablaDeRegistros().getSelectedRow(), 0));
     }
 }

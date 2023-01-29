@@ -22,7 +22,7 @@ public class ControlRCamionero {
 
     public void iniciarControl() {
         CargarCamioneros();
-        // --> Add listeners
+        // --> Add listeners1
         vistaCam.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ObtenerIDTable(evt);

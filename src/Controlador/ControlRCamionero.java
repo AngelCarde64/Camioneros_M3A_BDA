@@ -12,7 +12,8 @@ public class ControlRCamionero {
     private ModeloCamionero modeloCamionero;
 
     private Validaciones vali = new Validaciones();
-    private String id_Camionero = "", criterio = "";
+    private String criterio = "";
+    private int id_Camionero;
     // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
     private List<Dirrecciones> listaDirecciones;
 
@@ -25,12 +26,11 @@ public class ControlRCamionero {
         CargarCamioneros();
         // --> Obtener ID de Direcciones
         ModeloDirrecciones MDirreciones = new ModeloDirrecciones();
-        listaDirecciones = MDirreciones.ListarDirrecciones("");
-        System.out.println(MDirreciones.ListarDirrecciones("").get(0).getId());
+//        listaDirecciones = MDirreciones.ListarDirrecciones("");
+        System.out.println("LISTAA: " + MDirreciones.ListarDirrecciones(""));
         vistaCam.getjCBoxIDDirecciones().removeAllItems();
 
         for (Dirrecciones listD : listaDirecciones) {
-            //----> Añadir las opciones al combo box
             vistaCam.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getId()));
         }
 
@@ -67,7 +67,18 @@ public class ControlRCamionero {
 
     // --> Se llenaran todos los datos en la tabla
     public void LlenarTablaBusqueda() {
+        // Para darle forma al modelo de la tabla
+        DefaultTableModel mTabla;
+        mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
+        mTabla.setNumRows(0);
 
+        List<Camionero> listap = modeloCamionero.ListarCamioneros(criterio);
+        // Uso de una expresion landa
+        listap.stream().forEach(cam -> {
+            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
+                cam.getTelefono(), cam.getPoblacion(), cam.getId_Direccion(), String.valueOf(cam.getSueldo()), cam.getId_Direccion()};
+            mTabla.addRow(filaNueva);
+        });
     }
 
     public void CargarCamioneros() {
@@ -77,7 +88,6 @@ public class ControlRCamionero {
         mTabla.setNumRows(0);
 
         List<Camionero> listap = modeloCamionero.ListarCamioneros("");
-        System.out.println("LISTA:  " + listap);
         // Uso de una expresion landa
         listap.stream().forEach(cam -> {
             String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
@@ -106,7 +116,31 @@ public class ControlRCamionero {
     }
 
     public void Eliminar() {
+        if (id_Camionero == 0) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!\n"
+                    + "Por favor Selecciona un camionero",
+                    "Error al eliminar al Camionero", JOptionPane.ERROR_MESSAGE);
+        } else {
+            int respuesta = 0;
 
+            respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
+            if (respuesta == 0) {
+                ModeloCamionero MCamionero = new ModeloCamionero(id_Camionero, "", "", "", "", "", 0, "");
+
+                if (MCamionero.DeleteCamionero() == null) {
+                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
+                    id_Camionero = 0;
+                    CargarCamioneros();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
+                            "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+                    id_Camionero = 0;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Cancelado");
+                id_Camionero = 0;
+            }
+        }
     }
 
     /**
@@ -135,8 +169,8 @@ public class ControlRCamionero {
     }
 
     private void ObtenerIDTable() {
-        id_Camionero = "";
+        id_Camionero = 0;
         DefaultTableModel tm = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
-        id_Camionero = String.valueOf(tm.getValueAt(vistaCam.getTablaDeRegistros().getSelectedRow(), 0));
+        id_Camionero = (int) tm.getValueAt(vistaCam.getTablaDeRegistros().getSelectedRow(), 0);
     }
 }

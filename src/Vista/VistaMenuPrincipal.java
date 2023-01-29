@@ -55,11 +55,14 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelCamionerosLayout.setHorizontalGroup(
             jPanelCamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCamionerosLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabelIconC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelCamionerosLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabelCamioneros, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelCamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCamionerosLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabelIconC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelCamionerosLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabelCamioneros, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCamionerosLayout.setVerticalGroup(
             jPanelCamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,11 +87,14 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelPaquetesLayout.setHorizontalGroup(
             jPanelPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPaquetesLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabelIconP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelPaquetesLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabelPaquetes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPaquetesLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabelIconP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelPaquetesLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabelPaquetes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelPaquetesLayout.setVerticalGroup(
             jPanelPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,11 +119,14 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelCamionesLayout.setHorizontalGroup(
             jPanelCamionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCamionesLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabelIconCa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelCamionesLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabelCamiones, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelCamionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCamionesLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabelIconCa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelCamionesLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabelCamiones, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelCamionesLayout.setVerticalGroup(
             jPanelCamionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,11 +151,14 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelTurnosConduccLayout.setHorizontalGroup(
             jPanelTurnosConduccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTurnosConduccLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabelIconTC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanelTurnosConduccLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1TConduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelTurnosConduccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTurnosConduccLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabelIconTC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelTurnosConduccLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel1TConduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanelTurnosConduccLayout.setVerticalGroup(
             jPanelTurnosConduccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,16 +174,16 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelMenuLateral.setLayout(jPanelMenuLateralLayout);
         jPanelMenuLateralLayout.setHorizontalGroup(
             jPanelMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCamioneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelPaquetes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelCamiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelTurnosConducc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelMenuLateralLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jPanelMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(Barra_img, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                    .addComponent(Barra_img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(50, 50, 50))
+            .addComponent(jPanelPaquetes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelCamiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelTurnosConducc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelCamioneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelMenuLateralLayout.setVerticalGroup(
             jPanelMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,12 +215,12 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelIncio.setLayout(jPanelIncioLayout);
         jPanelIncioLayout.setHorizontalGroup(
             jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1169, Short.MAX_VALUE)
+            .addGap(0, 1259, Short.MAX_VALUE)
             .addGroup(jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelIncioLayout.createSequentialGroup()
                     .addGap(311, 311, 311)
                     .addComponent(jLabelBienvenido2)
-                    .addContainerGap(311, Short.MAX_VALUE)))
+                    .addContainerGap(401, Short.MAX_VALUE)))
         );
         jPanelIncioLayout.setVerticalGroup(
             jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,7 +236,9 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelContent.setLayout(jPanelContentLayout);
         jPanelContentLayout.setHorizontalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelIncio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContentLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelIncio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelContentLayout.setVerticalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +251,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContentLayout.createSequentialGroup()
                 .addComponent(jPanelMenuLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1169, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(ContentLayout.createSequentialGroup()
                 .addGap(290, 290, 290)
                 .addComponent(jPanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

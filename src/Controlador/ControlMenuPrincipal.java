@@ -2,7 +2,6 @@ package Controlador;
 
 import Modelo.*;
 import Vista.*;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

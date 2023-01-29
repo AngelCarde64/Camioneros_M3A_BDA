@@ -44,61 +44,134 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
 
         jPanelCamioneros.setBackground(new java.awt.Color(245, 222, 179));
         jPanelCamioneros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelCamioneros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelIconC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/empleado.png"))); // NOI18N
-        jPanelCamioneros.add(jLabelIconC, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1, 50, 60));
 
         jLabelCamioneros.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jLabelCamioneros.setText("CAMIONEROS");
-        jPanelCamioneros.add(jLabelCamioneros, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 110, 20));
+
+        javax.swing.GroupLayout jPanelCamionerosLayout = new javax.swing.GroupLayout(jPanelCamioneros);
+        jPanelCamioneros.setLayout(jPanelCamionerosLayout);
+        jPanelCamionerosLayout.setHorizontalGroup(
+            jPanelCamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCamionerosLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabelIconC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelCamionerosLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabelCamioneros, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelCamionerosLayout.setVerticalGroup(
+            jPanelCamionerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCamionerosLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jLabelIconC, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelCamionerosLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabelCamioneros))
+        );
 
         jPanelPaquetes.setBackground(new java.awt.Color(245, 222, 179));
         jPanelPaquetes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelPaquetes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelIconP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/paquete.png"))); // NOI18N
-        jPanelPaquetes.add(jLabelIconP, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1, 50, 60));
 
         jLabelPaquetes.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jLabelPaquetes.setText("PAQUETES");
-        jPanelPaquetes.add(jLabelPaquetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 90, 20));
+
+        javax.swing.GroupLayout jPanelPaquetesLayout = new javax.swing.GroupLayout(jPanelPaquetes);
+        jPanelPaquetes.setLayout(jPanelPaquetesLayout);
+        jPanelPaquetesLayout.setHorizontalGroup(
+            jPanelPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPaquetesLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabelIconP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelPaquetesLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabelPaquetes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelPaquetesLayout.setVerticalGroup(
+            jPanelPaquetesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPaquetesLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jLabelIconP, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelPaquetesLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabelPaquetes))
+        );
 
         jPanelCamiones.setBackground(new java.awt.Color(245, 222, 179));
         jPanelCamiones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelCamiones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelIconCa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/camion.png"))); // NOI18N
-        jPanelCamiones.add(jLabelIconCa, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1, 50, 60));
 
         jLabelCamiones.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jLabelCamiones.setText("CAMIONES");
-        jPanelCamiones.add(jLabelCamiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 90, 20));
+
+        javax.swing.GroupLayout jPanelCamionesLayout = new javax.swing.GroupLayout(jPanelCamiones);
+        jPanelCamiones.setLayout(jPanelCamionesLayout);
+        jPanelCamionesLayout.setHorizontalGroup(
+            jPanelCamionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCamionesLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabelIconCa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelCamionesLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabelCamiones, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelCamionesLayout.setVerticalGroup(
+            jPanelCamionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCamionesLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jLabelIconCa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelCamionesLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabelCamiones))
+        );
 
         jPanelTurnosConducc.setBackground(new java.awt.Color(245, 222, 179));
         jPanelTurnosConducc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelTurnosConducc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelIconTC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/TURNO.png"))); // NOI18N
-        jPanelTurnosConducc.add(jLabelIconTC, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 1, 50, 60));
 
         jLabel1TConduccion.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jLabel1TConduccion.setText("TURNOS DE CONDUCCIÓN");
-        jPanelTurnosConducc.add(jLabel1TConduccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 180, 20));
+
+        javax.swing.GroupLayout jPanelTurnosConduccLayout = new javax.swing.GroupLayout(jPanelTurnosConducc);
+        jPanelTurnosConducc.setLayout(jPanelTurnosConduccLayout);
+        jPanelTurnosConduccLayout.setHorizontalGroup(
+            jPanelTurnosConduccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTurnosConduccLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabelIconTC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelTurnosConduccLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel1TConduccion, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelTurnosConduccLayout.setVerticalGroup(
+            jPanelTurnosConduccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTurnosConduccLayout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jLabelIconTC, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelTurnosConduccLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1TConduccion))
+        );
 
         javax.swing.GroupLayout jPanelMenuLateralLayout = new javax.swing.GroupLayout(jPanelMenuLateral);
         jPanelMenuLateral.setLayout(jPanelMenuLateralLayout);
         jPanelMenuLateralLayout.setHorizontalGroup(
             jPanelMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCamioneros, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanelPaquetes, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanelCamiones, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanelTurnosConducc, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelCamioneros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelPaquetes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelCamiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelTurnosConducc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelMenuLateralLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jPanelMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(Barra_img, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Barra_img, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
         jPanelMenuLateralLayout.setVerticalGroup(
             jPanelMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +203,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelIncio.setLayout(jPanelIncioLayout);
         jPanelIncioLayout.setHorizontalGroup(
             jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1169, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelIncioLayout.createSequentialGroup()
                     .addGap(311, 311, 311)
@@ -162,7 +235,9 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         Content.setLayout(ContentLayout);
         ContentLayout.setHorizontalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMenuLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(ContentLayout.createSequentialGroup()
+                .addComponent(jPanelMenuLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(1169, 1169, 1169))
             .addGroup(ContentLayout.createSequentialGroup()
                 .addGap(290, 290, 290)
                 .addComponent(jPanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

@@ -52,27 +52,11 @@ public class ControlMenuPrincipal {
 
                         VistaRCamionero VRCamionero = new VistaRCamionero();
                         ModeloCamionero modeloCamionero = new ModeloCamionero();
+
                         ControlRCamionero CRCamionero = new ControlRCamionero(VRCamionero, modeloCamionero);
                         CRCamionero.iniciarControl();
-                        // --> Necesario para que se adapte al ancho de toda la pantalla.
-                        vistaMP.getjPanelContent().setLayout(new GridBagLayout());
-                        vistaMP.getjPanelContent().remove(vistaMP.getjPanelIncio());
-                        GridBagConstraints gbc = new GridBagConstraints();
-                        // --> Para colocar debajo o alado de un elemento que ya esta en interfaz
-                        gbc.gridx = 0;
-                        gbc.gridy = 1;
-                        gbc.weightx = 1.0;
-                        gbc.weighty = 1.0;
-                        gbc.fill = GridBagConstraints.BOTH;
-                        vistaMP.getjPanelContent().add(VRCamionero, gbc);
 
-                        // --> Necesarios para evitar errores y que se muestre todo de manera correcta
-                        vistaMP.revalidate();
-                        vistaMP.getjPanelContent().repaint();
-                        // --> el método pack() busca el tamaño adecuado para la ventana, 
-                        // -> considerando el tamaño y posición de los componentes contenidos en ella, 
-                        // -> y modifica el tamaño de la ventana para adaptarse a ellos.
-                        vistaMP.pack();
+                        SetNewPanelContent(VRCamionero);
                         break;
                     case "PAQUETES":
                         vistaMP.getjPanelPaquetes().setBackground(coloresbtnMenu[0]);
@@ -124,6 +108,28 @@ public class ControlMenuPrincipal {
                 }
             }
         });
+    }
+
+    private void SetNewPanelContent(JPanel newPanel) {
+        // --> Necesario para que se adapte al ancho de toda la pantalla.
+        vistaMP.getjPanelContent().setLayout(new GridBagLayout());
+        vistaMP.getjPanelContent().removeAll();
+        GridBagConstraints gbc = new GridBagConstraints();
+        // --> Para colocar debajo o alado de un elemento que ya esta en interfaz
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.5;
+        gbc.fill = GridBagConstraints.BOTH;
+        vistaMP.getjPanelContent().add(newPanel, gbc);
+
+        // --> Necesarios para evitar errores y que se muestre todo de manera correcta
+        vistaMP.revalidate();
+        vistaMP.getjPanelContent().repaint();
+        // --> el método pack() busca el tamaño adecuado para la ventana, 
+        // -> considerando el tamaño y posición de los componentes contenidos en ella, 
+        // -> y modifica el tamaño de la ventana para adaptarse a ellos.
+        vistaMP.pack();
     }
 
     /**

@@ -53,7 +53,7 @@ public class ControlMenuPrincipal {
                         ModeloCamionero modeloCamionero = new ModeloCamionero();
                         ControlRegistroCamionero CRCamionero = new ControlRegistroCamionero(VRCamionero, modeloCamionero);
                         CRCamionero.iniciarControl();
-                        VRCamionero.setSize(960, 730);
+                        VRCamionero.setSize(1067, 520);
                         VRCamionero.setLocation(0, 0);
                         vistaMP.getjPanelIncio().removeAll();
                         vistaMP.getjPanelIncio().add(VRCamionero, BorderLayout.CENTER);

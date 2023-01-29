@@ -126,7 +126,6 @@ public class Pruebas extends javax.swing.JFrame {
         mo.setPotencia("123");
         mo.setTipo("ddd");
         mo.setModelo("dadad");
-        mo.CrearDirrecciones();
         
     }//GEN-LAST:event_jButtonInsertarAActionPerformed
 

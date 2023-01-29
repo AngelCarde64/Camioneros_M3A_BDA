@@ -3,13 +3,8 @@ package Controlador;
 import Modelo.Camionero;
 import Modelo.ModeloCamionero;
 import Vista.VistaRegistroCamionero;
-import java.awt.Image;
 import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.ws.Holder;
 
 public class ControlRegistroCamionero {
 
@@ -48,27 +43,13 @@ public class ControlRegistroCamionero {
         mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        List<Camionero> listap = modelo.listarPersonas("");
-        Holder<Integer> i = new Holder<>(0);
+        List<Camionero> listap = modeloCamionero.ListarCamioneros("");
 
         // Uso de una expresion landa
-        listap.stream().forEach(pe -> {
-            String[] filaNueva = {pe.getIdPersona(), pe.getNombre(), pe.getApellido(),
-                pe.getFechanacimiento().toString(), pe.getTelefono(), pe.getSexo(), String.valueOf(pe.getSueldo()),
-                String.valueOf(pe.getCupo())};
+        listap.stream().forEach(cam -> {
+            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
+                cam.getTelefono(), cam.getPoblacion(), cam.getId_Direccion(), String.valueOf(cam.getSueldo()), cam.getId_Direccion()};
             mTabla.addRow(filaNueva);
-//            //Llenar imagen
-            Image foto = pe.getFoto();
-            if (foto != null) {
-                Image nimg = foto.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                ImageIcon icono = new ImageIcon(nimg);
-                render.setIcon(icono);
-                vistaCam.getTblPersonas().setValueAt(new JLabel(icono), i.value, 8);
-            } else {
-                vistaCam.getTblPersonas().setValueAt(null, i.value, 8);
-            }
-
-            i.value++;
         });
     }
 

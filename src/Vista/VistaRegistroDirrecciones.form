@@ -484,9 +484,6 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TablaDeRegistrosMouseClicked"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -506,9 +503,6 @@
                   <Border info="null"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMostrar1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="JtextFieldBuscarPaquete">
               <Properties>
@@ -517,10 +511,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="BUSCAR UNA DIRECCION"/>
               </Properties>
-              <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JtextFieldBuscarPaqueteMousePressed"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JtextFieldBuscarPaqueteKeyReleased"/>
-              </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="ContentButtonsIME">
               <Properties>
@@ -564,9 +554,6 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonInsertarAActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonModificarA">
                   <Properties>
@@ -584,9 +571,6 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModificarAActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonEliminarA">
                   <Properties>
@@ -604,9 +588,6 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEliminarAActionPerformed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -932,9 +913,6 @@
                         <Property name="text" type="java.lang.String" value="Subir Foto"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSubirFotoRAnimalActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

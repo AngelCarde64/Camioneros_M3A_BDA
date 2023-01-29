@@ -68,6 +68,7 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         paneIngCamres = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -305,11 +306,6 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
             }
         });
         TablaDeRegistros.setRowHeight(30);
-        TablaDeRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TablaDeRegistrosMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(TablaDeRegistros);
 
         jButtonMostrar1.setBackground(new java.awt.Color(102, 153, 255));
@@ -317,24 +313,9 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
         jButtonMostrar1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonMostrar1.setText("Buscar");
         jButtonMostrar1.setBorder(null);
-        jButtonMostrar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMostrar1ActionPerformed(evt);
-            }
-        });
 
         JtextFieldBuscarPaquete.setForeground(new java.awt.Color(102, 102, 102));
         JtextFieldBuscarPaquete.setText("BUSCAR UNA DIRECCION");
-        JtextFieldBuscarPaquete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                JtextFieldBuscarPaqueteMousePressed(evt);
-            }
-        });
-        JtextFieldBuscarPaquete.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                JtextFieldBuscarPaqueteKeyReleased(evt);
-            }
-        });
 
         ContentButtonsIME.setOpaque(false);
 
@@ -343,33 +324,18 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
         jButtonInsertarA.setForeground(new java.awt.Color(255, 255, 255));
         jButtonInsertarA.setText("Insertar");
         jButtonInsertarA.setBorder(null);
-        jButtonInsertarA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonInsertarAActionPerformed(evt);
-            }
-        });
 
         jButtonModificarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonModificarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jButtonModificarA.setForeground(new java.awt.Color(255, 255, 255));
         jButtonModificarA.setText("Modificar");
         jButtonModificarA.setBorder(null);
-        jButtonModificarA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonModificarAActionPerformed(evt);
-            }
-        });
 
         jButtonEliminarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonEliminarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jButtonEliminarA.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminarA.setText("Eliminar");
         jButtonEliminarA.setBorder(null);
-        jButtonEliminarA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarAActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout ContentButtonsIMELayout = new javax.swing.GroupLayout(ContentButtonsIME);
         ContentButtonsIME.setLayout(ContentButtonsIMELayout);
@@ -516,11 +482,6 @@ public class VistaRegistroDirrecciones extends javax.swing.JFrame {
         jButtonSubirFotoRAnimal.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSubirFotoRAnimal.setText("Subir Foto");
         jButtonSubirFotoRAnimal.setToolTipText("");
-        jButtonSubirFotoRAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSubirFotoRAnimalActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout ContentRAparte1Layout = new javax.swing.GroupLayout(ContentRAparte1);
         ContentRAparte1.setLayout(ContentRAparte1Layout);

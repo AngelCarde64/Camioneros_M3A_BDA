@@ -2,19 +2,19 @@ package Controlador;
 
 import Modelo.Camionero;
 import Modelo.ModeloCamionero;
-import Vista.VistaRegistroCamionero;
+import Vista.VistaRCamionero;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class ControlRegistroCamionero {
 
-    private VistaRegistroCamionero vistaCam;
+    private VistaRCamionero vistaCam;
     private ModeloCamionero modeloCamionero;
 
     private Validaciones vali = new Validaciones();
     private String id_Camionero = "", criterio = "";
 
-    public ControlRegistroCamionero(VistaRegistroCamionero vistaCam, ModeloCamionero modeloCamionero) {
+    public ControlRegistroCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
         this.vistaCam = vistaCam;
         this.modeloCamionero = modeloCamionero;
     }

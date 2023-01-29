@@ -1,10 +1,10 @@
 package Controlador;
 
-import Vista.VistaMenuPrincipal;
+import Modelo.*;
+import Vista.*;
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.MouseEvent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ControlMenuPrincipal {
@@ -48,8 +48,17 @@ public class ControlMenuPrincipal {
                     case "CAMIONEROS":
                         vistaMP.getjPanelCamioneros().setBackground(coloresbtnMenu[0]);
                         vistaMP.getjLabeltituloCamioneros().setText(name);
-                        
-//                        vistaMp.getjPanelContent().
+
+                        VistaRCamionero VRCamionero = new VistaRCamionero();
+                        ModeloCamionero modeloCamionero = new ModeloCamionero();
+                        ControlRegistroCamionero CRCamionero = new ControlRegistroCamionero(VRCamionero, modeloCamionero);
+                        CRCamionero.iniciarControl();
+                        VRCamionero.setSize(960, 730);
+                        VRCamionero.setLocation(0, 0);
+                        vistaMP.getjPanelIncio().removeAll();
+                        vistaMP.getjPanelIncio().add(VRCamionero, BorderLayout.CENTER);
+                        vistaMP.revalidate();
+                        vistaMP.getjPanelIncio().repaint();
                         break;
                     case "PAQUETES":
                         vistaMP.getjPanelPaquetes().setBackground(coloresbtnMenu[0]);

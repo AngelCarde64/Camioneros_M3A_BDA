@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Vista;
 
@@ -14,9 +14,9 @@ import javax.swing.JTextField;
  *
  * @author User
  */
-public class VistaRegistroCamionero extends javax.swing.JFrame {
+public class VistaRCamionero extends javax.swing.JPanel {
 
-    public VistaRegistroCamionero() {
+    public VistaRCamionero() {
         initComponents();
     }
 
@@ -58,8 +58,6 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
         jSpinnerPoblacion = new javax.swing.JSpinner();
         PorcionTXT = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         ContentRegistro.setBackground(new java.awt.Color(236, 236, 236));
 
         PanelOpciones.setBackground(new java.awt.Color(255, 255, 255));
@@ -69,57 +67,27 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
         jButtonBuscar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.setBorder(null);
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
-            }
-        });
 
         jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("Buscar en Animales");
-        jTextFieldBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldBuscarMousePressed(evt);
-            }
-        });
-        jTextFieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldBuscarKeyReleased(evt);
-            }
-        });
 
         jButtonInsertarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonInsertarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jButtonInsertarA.setForeground(new java.awt.Color(255, 255, 255));
         jButtonInsertarA.setText("Insertar");
         jButtonInsertarA.setBorder(null);
-        jButtonInsertarA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonInsertarAActionPerformed(evt);
-            }
-        });
 
         jButtonModificarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonModificarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jButtonModificarA.setForeground(new java.awt.Color(255, 255, 255));
         jButtonModificarA.setText("Modificar");
         jButtonModificarA.setBorder(null);
-        jButtonModificarA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonModificarAActionPerformed(evt);
-            }
-        });
 
         jButtonEliminarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonEliminarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jButtonEliminarA.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminarA.setText("Eliminar");
         jButtonEliminarA.setBorder(null);
-        jButtonEliminarA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarAActionPerformed(evt);
-            }
-        });
 
         jLabelSinCoincidencias.setForeground(new java.awt.Color(204, 0, 0));
         jLabelSinCoincidencias.setText("No hay coincidencias");
@@ -153,18 +121,13 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
             }
         });
         TablaDeRegistros.setRowHeight(30);
-        TablaDeRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TablaDeRegistrosMouseClicked(evt);
-            }
-        });
         jScrollPaneCam.setViewportView(TablaDeRegistros);
 
         javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneCam, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jScrollPaneCam)
             .addGroup(PanelOpcionesLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +161,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE))
+                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
         );
 
         CambiarDatosPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -370,7 +333,7 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                 .addComponent(PanelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(4, 4, 4)
                 .addGroup(ContentRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollCami)
+                    .addComponent(jScrollCami, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(ContentRegistroLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(CambiarDatosPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -391,8 +354,8 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                         .addComponent(jScrollCami))))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -407,8 +370,6 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
                 .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     public JLabel getjLabelSinCoincidencias() {
@@ -506,35 +467,6 @@ public class VistaRegistroCamionero extends javax.swing.JFrame {
     public void setjTextFieldBuscar(JTextField jTextFieldBuscar) {
         this.jTextFieldBuscar = jTextFieldBuscar;
     }
-
-
-    private void TablaDeRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaDeRegistrosMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TablaDeRegistrosMouseClicked
-
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
-
-    private void jTextFieldBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldBuscarMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscarMousePressed
-
-    private void jTextFieldBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscarKeyReleased
-
-    private void jButtonInsertarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonInsertarAActionPerformed
-
-    private void jButtonModificarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonModificarAActionPerformed
-
-    private void jButtonEliminarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEliminarAActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CambiarDatosPanel;

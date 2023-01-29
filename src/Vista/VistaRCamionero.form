@@ -144,7 +144,10 @@
                       </Group>
                       <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPaneCam" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPaneCam" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -496,7 +499,7 @@
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="IDtxt" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFieldDNI" pref="243" max="32767" attributes="0"/>
+                                  <Component id="jFieldDNI" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
@@ -505,21 +508,31 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jFieldsueldo" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jCBoxIDDirecciones" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jFieldtelefono" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="Nombretxt" min="-2" pref="97" max="-2" attributes="0"/>
                                       <Component id="jFieldNombre" max="32767" attributes="0"/>
                                       <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="telefonoTxt" min="-2" pref="97" max="-2" attributes="0"/>
-                                      <Component id="telefonoTxt1" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <Component id="SueldoTxt" min="-2" pref="97" max="-2" attributes="0"/>
-                                      <Component id="jSeparator4" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="PorcionTXT" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
+                                          <Component id="SueldoTxt1" min="-2" pref="13" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jSpinnerPoblacion" min="-2" pref="102" max="-2" attributes="0"/>
+                                          <Component id="jFieldsueldo" min="-2" pref="261" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="Nombretxt" min="-2" pref="97" max="-2" attributes="0"/>
+                                              <Component id="telefonoTxt" min="-2" pref="97" max="-2" attributes="0"/>
+                                              <Component id="telefonoTxt1" min="-2" pref="120" max="-2" attributes="0"/>
+                                              <Component id="SueldoTxt" min="-2" pref="97" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="PorcionTXT" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jSpinnerPoblacion" min="-2" pref="102" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -566,10 +579,15 @@
                               <Component id="SueldoTxt" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jFieldsueldo" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jFieldsueldo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="SueldoTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jSeparator4" min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -724,8 +742,11 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jFieldsueldo">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="1"/>
+                    </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="66" red="66" type="rgb"/>
+                      <Color blue="33" green="c6" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
@@ -763,6 +784,20 @@
                       <Color blue="66" green="66" red="66" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="SueldoTxt1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="66" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Times New Roman" size="19" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="$"/>
                   </Properties>
                 </Component>
               </SubComponents>

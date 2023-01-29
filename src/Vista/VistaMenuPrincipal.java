@@ -203,7 +203,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jPanelIncio.setLayout(jPanelIncioLayout);
         jPanelIncioLayout.setHorizontalGroup(
             jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1169, Short.MAX_VALUE)
             .addGroup(jPanelIncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelIncioLayout.createSequentialGroup()
                     .addGap(311, 311, 311)
@@ -236,8 +236,8 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         ContentLayout.setHorizontalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContentLayout.createSequentialGroup()
-                .addComponent(jPanelMenuLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(1169, 1169, 1169))
+                .addComponent(jPanelMenuLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1169, Short.MAX_VALUE))
             .addGroup(ContentLayout.createSequentialGroup()
                 .addGap(290, 290, 290)
                 .addComponent(jPanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

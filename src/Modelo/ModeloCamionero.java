@@ -19,8 +19,7 @@ public class ModeloCamionero extends Camionero {
     }
 
     public List<Camionero> ListarCamioneros(String filtro) {
-        //--> No es recomendable usar un select *. Solo sacar  la informacion que es necesaria mostrar.
-        String sql = "select * from Camionero where "; //Campos de la base de datos.
+        String sql = "select * from Camionero where ";
         sql += " UPPER(cami_id) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cami_dni) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cami_nombre) like UPPER('%" + filtro + "%') ";

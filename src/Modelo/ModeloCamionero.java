@@ -14,8 +14,8 @@ public class ModeloCamionero extends Camionero {
     public ModeloCamionero() {
     }
 
-    public ModeloCamionero(int id, String dni, String nombre, String telefono, String direccion, String id_Direccion, double sueldo, String poblacion) {
-        super(id, dni, nombre, telefono, direccion, id_Direccion, sueldo, poblacion);
+    public ModeloCamionero(int id, String dni, String nombre, String telefono, String poblacion, String id_Direccion, double sueldo, String correo) {
+        super(id, dni, nombre, telefono, poblacion, id_Direccion, sueldo, correo);
     }
 
     public List<Camionero> ListarCamioneros(String filtro) {
@@ -28,6 +28,7 @@ public class ModeloCamionero extends Camionero {
         sql += "OR UPPER(cami_id_Direccion) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cami_sueldo) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cami_poblacion) like UPPER('%" + filtro + "%') ";
+        sql += "OR UPPER(cami_correo) like UPPER('%" + filtro + "%') ";
         ResultSet rs = conpg.consulta(sql);
         List<Camionero> lista = new ArrayList<Camionero>();
         try {
@@ -37,9 +38,10 @@ public class ModeloCamionero extends Camionero {
                 camionero.setDni(rs.getString("cami_dni"));
                 camionero.setNombre(rs.getString("cami_nombre"));
                 camionero.setTelefono(rs.getString("cami_telefono"));
-                camionero.setDireccion(rs.getString("cami_id_Direccion"));
+                camionero.setId_Direccion(rs.getString("cami_id_Direccion"));
                 camionero.setSueldo(rs.getDouble("cami_sueldo"));
                 camionero.setPoblacion(rs.getString("cami_poblacion"));
+                camionero.setCorreo(rs.getString("cami_correo"));
                 lista.add(camionero);
             }
         } catch (SQLException ex) {
@@ -55,15 +57,16 @@ public class ModeloCamionero extends Camionero {
     }
 
     public SQLException CrearCamionero() {
-        String sql = "INSERT INTO Camionero (cami_dni, cami_nombre, cami_telefono, cami_id_Direccion, cami_sueldo, cami_poblacion)";
-        sql += " VALUES ('" + getDni() + "','" + getNombre() + "','" + getTelefono() + "','" + getDireccion()
-                + "','" + getId_Direccion() + "','" + getSueldo() + "','" + getPoblacion() + "')";
+        String sql = "INSERT INTO Camionero (cami_dni, cami_nombre, cami_telefono, cami_id_Direccion, cami_sueldo, cami_poblacion, cami_correo)";
+        sql += " VALUES ('" + getDni() + "','" + getNombre() + "','" + getTelefono() + "','" + getId_Direccion()
+                + "','" + getId_Direccion() + "','" + getSueldo() + "','" + getPoblacion() + "','" + getCorreo() + "')";
         return conpg.accion(sql);
     }
 
     public SQLException ActualizarCamionero() {
         String sql = "UPDATE Camionero SET cami_dni = '" + getDni() + "', cami_nombre = '" + getNombre() + "', cami_telefono = '" + getTelefono()
-                + "', cami_id_Direccion = '" + getId_Direccion() + "', cami_sueldo = '" + getSueldo() + "', cami_poblacion = '" + getPoblacion() + "'";
+                + "', cami_id_Direccion = '" + getId_Direccion() + "', cami_sueldo = '" + getSueldo()
+                + "', cami_poblacion = '" + getPoblacion() + "', cami_correo = '" + getCorreo() + "'";
         sql += "WHERE cami_id = '" + getId() + "';";
         return conpg.accion(sql);
     }
@@ -87,9 +90,10 @@ public class ModeloCamionero extends Camionero {
                 MCamionero.setDni(rs.getString("cami_dni"));
                 MCamionero.setNombre(rs.getString("cami_nombre"));
                 MCamionero.setTelefono(rs.getString("cami_telefono"));
-                MCamionero.setDireccion(rs.getString("cami_id_Direccion"));
+                MCamionero.setId_Direccion(rs.getString("cami_id_Direccion"));
                 MCamionero.setSueldo(rs.getDouble("cami_sueldo"));
                 MCamionero.setPoblacion(rs.getString("cami_poblacion"));
+                MCamionero.setCorreo(rs.getString("cami_correo"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ModeloCamionero.class.getName()).log(Level.SEVERE, null, ex);

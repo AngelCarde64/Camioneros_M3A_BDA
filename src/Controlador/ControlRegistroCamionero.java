@@ -45,7 +45,7 @@ public class ControlRegistroCamionero {
     public void CargarCamioneros() {
         // Para darle forma al modelo de la tabla
         DefaultTableModel mTabla;
-        mTabla = (DefaultTableModel) vistaCam.getTblPersonas().getModel();
+        mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
         List<Camionero> listap = modelo.listarPersonas("");

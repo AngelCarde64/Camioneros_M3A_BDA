@@ -6,23 +6,23 @@ public class Camionero {
     private String dni;
     private String nombre;
     private String telefono;
-    private String direccion;
+    private String poblacion;
     private String id_Direccion;
     private double sueldo;
-    private String poblacion;
+    private String correo;
 
     public Camionero() {
     }
 
-    public Camionero(int id, String dni, String nombre, String telefono, String direccion, String id_Direccion, double sueldo, String poblacion) {
+    public Camionero(int id, String dni, String nombre, String telefono, String poblacion, String id_Direccion, double sueldo, String correo) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.direccion = direccion;
+        this.poblacion = poblacion;
         this.id_Direccion = id_Direccion;
         this.sueldo = sueldo;
-        this.poblacion = poblacion;
+        this.correo = correo;
     }
 
     public int getId() {
@@ -57,12 +57,12 @@ public class Camionero {
         this.telefono = telefono;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getPoblacion() {
+        return poblacion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setPoblacion(String poblacion) {
+        this.poblacion = poblacion;
     }
 
     public String getId_Direccion() {
@@ -81,12 +81,11 @@ public class Camionero {
         this.sueldo = sueldo;
     }
 
-    public String getPoblacion() {
-        return poblacion;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setPoblacion(String poblacion) {
-        this.poblacion = poblacion;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
-
 }

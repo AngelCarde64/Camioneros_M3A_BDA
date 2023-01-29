@@ -112,7 +112,18 @@ public class ControlRCamionero {
     }
 
     public void Modificar() {
+        ModeloCamionero MCamionero = new ModeloCamionero();
+        MCamionero = RecuperarDatos(MCamionero);
 
+        if (MCamionero.ActualizarCamionero() == null) {
+            JOptionPane.showMessageDialog(null,
+                    "Camionero modificado satisfactoriamente.");
+            CargarCamioneros();
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al modificar al Camionero!\n"
+                    + "Por favor corriga estos errores:",
+                    "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void Eliminar() {

@@ -10,10 +10,10 @@ public class PgConect {
     Connection con;
     Statement st;
     //192.168.1.5=localhost
-    String cadenaConexion = "jdbc:oracle:thin:@192.168.1.5:1521/xepdb1";
+    String cadenaConexion = "jdbc:oracle:thin:@localhost:1521/xe";
     // ---> CAMBIAR POR UN USUARIO CON MENOS PRIVILEGIOS
-    String pgUsuario = "secretaria";
-    String pgPassword = "123456";
+    String pgUsuario = "GUIA";
+    String pgPassword = "1234";
 
     public PgConect() {
         try {

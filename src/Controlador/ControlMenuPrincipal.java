@@ -35,7 +35,6 @@ public class ControlMenuPrincipal {
         evtMouseBtn(vistaMP.getjPanelCamiones(), "CAMIONES");
         evtMouseBtn(vistaMP.getjPanelTurnosConducc(), "TURNOS DE CONDUCCIÓN");
         evtMouseBtn(vistaMP.getjPanelClientes(), "CLIENTES");
-//        vistaMP.getjPanelCamioneros().addActionListener(l -> buscar());
     }
 
     private void evtMouseBtn(JPanel panel, String name) {
@@ -75,11 +74,11 @@ public class ControlMenuPrincipal {
                     case "TURNOS DE CONDUCCIÓN":
                         vistaMP.getjPanelTurnosConducc().setBackground(coloresbtnMenu[0]);
                         break;
-                         case "CLIENTES":
+                    case "CLIENTES":
                         vistaMP.getjPanelClientes().setBackground(coloresbtnMenu[0]);
-                        VistaRegistroCliente VRCliente= new VistaRegistroCliente();
+                        VistaRegistroCliente VRCliente = new VistaRegistroCliente();
                         ModeloCliente modeloCliente = new ModeloCliente();
-                        ControlCliente1 CCliente = new ControlCliente1(VRCliente,modeloCliente);
+                        ControlCliente CCliente = new ControlCliente(VRCliente, modeloCliente);
                         CCliente.iniciarControl();
                         SetNewPanelContent(VRCliente);
                         break;

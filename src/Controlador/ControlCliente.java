@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 //import javax.mail.internet.InternetAddress;
 //import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
-public class ControlCliente1 {
+public class ControlCliente {
 
     private VistaRegistroCliente vistaCli;
     private ModeloCliente modeloCliente;
@@ -29,7 +29,7 @@ public class ControlCliente1 {
     private int id_Cliente;
     private List<Cliente> listaClientes;
 
-public ControlCliente1(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente) {
+public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente) {
         this.vistaCli = vistaCli;
         this.modeloCliente = modeloCliente;
     }

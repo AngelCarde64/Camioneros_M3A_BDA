@@ -5,6 +5,19 @@
 package Vista;
 
 import Modelo.ModeloCamion;
+import Modelo.ModeloCamionero;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 /**
  *
@@ -119,14 +132,50 @@ public class Pruebas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     private void jButtonInsertarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarAActionPerformed
-        // TODO add your handling code here:
-        ModeloCamion mo= new ModeloCamion();
-        System.out.println("Lista de camiones:   "+ mo.ListarCamion("").get(0).getId());
+        try {
+            // TODO add your handling code here:
+            ModeloCamion mo= new ModeloCamion();
+            System.out.println("Lista de camiones:   "+ mo.ListarCamion("").get(0).getId());
 //        mo.setNro_Placa("dsddsa");
 //        mo.setId(12);
 //        mo.setPotencia("123");
 //        mo.setTipo("ddd");
 //        mo.setModelo("dadad");
+String correo = "josias.aldaz.est@tecazuay.edu.ec";
+String contraseña="mflikbynvbrbzesn";
+ModeloCamionero modelo_camionero= new ModeloCamionero();
+modelo_camionero.setCorreo("adrysdiaz1991@gmail.com");
+String correodestino= modelo_camionero.getCorreo();
+Properties p = new Properties();
+p.put("mail.smtp.host", "smtp.gmail.com");
+p.setProperty("mail.smtp.starttls.enable", "true");
+p.put("mail.smtp.ssl", "smtp.gmail.com");
+p.setProperty("mail.smtp.port", "587");
+p.setProperty("mail.smtp.user", correo);
+p.setProperty("mail.smtp.auth", "true");
+
+Session s = Session.getDefaultInstance(p);
+BodyPart texto = new MimeBodyPart();
+texto.setText("PUEDE REVISAR SU HORARIO ENTRANDO AL SISTEMA");//cuerpo
+BodyPart adjunto = new MimeBodyPart();
+//           adjunto.setDataHandler(new DataHandler(new FileDataSource(ruta)));
+//           adjunto.setFileName(file.getName());
+MimeMultipart m = new MimeMultipart();
+m.addBodyPart(texto);
+m.addBodyPart(adjunto);
+
+
+MimeMessage mensaje = new MimeMessage(s);
+mensaje.setFrom(new InternetAddress(correo));
+mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(correodestino));
+mensaje.setSubject("SU HORARIO PARA EL PRESENTE MES");//asunto
+mensaje.setContent(m);//cuerpo adjunto
+Transport t = s.getTransport("smtp");
+t.connect(correo,contraseña);
+t.sendMessage(mensaje, mensaje.getAllRecipients());
+        } catch (MessagingException ex) {
+            Logger.getLogger(Pruebas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonInsertarAActionPerformed
 
     private void jButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarActionPerformed

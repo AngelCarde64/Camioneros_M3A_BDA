@@ -90,8 +90,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="PanelOpciones" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="CambiarDatosPanel" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollCami" min="-2" max="-2" attributes="0"/>
@@ -135,7 +136,7 @@
                               <Component id="jButtonEliminarA" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextFieldBuscar" pref="440" max="32767" attributes="0"/>
+                              <Component id="jTextFieldBuscar" pref="434" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                               <Component id="jButtonBuscar" min="-2" pref="93" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>

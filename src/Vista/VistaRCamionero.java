@@ -171,7 +171,7 @@ public class VistaRCamionero extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                        .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                        .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
                         .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -452,6 +452,7 @@ public class VistaRCamionero extends javax.swing.JPanel {
         ContentRegistroLayout.setHorizontalGroup(
             ContentRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContentRegistroLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(PanelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ContentRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,9 +486,19 @@ public class VistaRCamionero extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void jFieldsueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldsueldoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFieldsueldoActionPerformed
+=======
+    public JLabel getjLabelID() {
+        return jLabelID;
+    }
+
+    public void setjLabelID(JLabel jLabelID) {
+        this.jLabelID = jLabelID;
+    }
+>>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
 
     public JLabel getjLabelSinCoincidencias() {
         return jLabelSinCoincidencias;

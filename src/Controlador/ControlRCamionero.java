@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.*;
 import Vista.*;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +24,7 @@ public class ControlRCamionero {
     private VistaRCamionero vistaCam;
     private ModeloCamionero modeloCamionero;
 
-    private Validaciones vali = new Validaciones();
+    private Validaciones validaciones = new Validaciones();
     private String criterio = "";
     private int id_Camionero;
     // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
@@ -38,6 +39,7 @@ public class ControlRCamionero {
     private Session mSession;
     private MimeMessage mCorreo;
     private List<Dirrecciones> listaDirecciones;
+    private List<Camionero> listaCamioneros;
 
     public ControlRCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
         this.vistaCam = vistaCam;
@@ -56,7 +58,10 @@ public class ControlRCamionero {
                     + " - " + listD.getCalle_P() + " - " + listD.getCalle_S()));
         }
 
-        // --> Add listeners
+        // --> Add listeners MOUSE LISTENER
+        
+        
+        
         vistaCam.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
@@ -78,12 +83,46 @@ public class ControlRCamionero {
                 ObtenerIDTable();
             }
         });
-        vistaCam.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                Buscar();
+        vistaCam.getjTextFieldBuscar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (vistaCam.getjTextFieldBuscar().getText().contains("Buscar")) {
+                    vistaCam.getjTextFieldBuscar().setText("");
+                    vistaCam.getjTextFieldBuscar().setForeground(Color.black);
+                }
             }
         });
+
+        
+        
+        // --> Key Listener
+        
+        
+        vistaCam.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                if (evt.getKeyChar() == '\n') {
+                    Buscar();
+                }
+            }
+        });
+
+        vistaCam.getjFieldDNI().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validaciones.IngresarSoloNumeros(evt);
+            }
+        });
+
+        vistaCam.getjFieldtelefono().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validaciones.IngresarSoloNumeros(evt);
+            }
+        });
+
+        
+        
+        
         // --> Desactivar elementos que van a estar ocultos al principio
+        
+       
         vistaCam.getjLabelSinCoincidencias().setVisible(false);
     }
 
@@ -94,13 +133,25 @@ public class ControlRCamionero {
         mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        List<Camionero> listap = modeloCamionero.ListarCamioneros(criterio);
+        listaCamioneros = modeloCamionero.ListarCamioneros(criterio);
         // Uso de una expresion landa
+<<<<<<< HEAD
         listap.stream().forEach(cam -> {
             String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
                 cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
             mTabla.addRow(filaNueva);
         });
+=======
+        if (!listaCamioneros.isEmpty()) {
+            listaCamioneros.stream().forEach(cam -> {
+                String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
+                    cam.getTelefono(), cam.getPoblacion(), String.valueOf(cam.getSueldo()), String.valueOf(cam.getId_Direccion())};
+                mTabla.addRow(filaNueva);
+            });
+        } else {
+            vistaCam.getjLabelSinCoincidencias().setVisible(true);
+        }
+>>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
     }
 
     public void CargarCamioneros() {
@@ -109,11 +160,17 @@ public class ControlRCamionero {
         mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        List<Camionero> listap = modeloCamionero.ListarCamioneros("");
+        listaCamioneros = modeloCamionero.ListarCamioneros("");
         // Uso de una expresion landa
+<<<<<<< HEAD
         listap.stream().forEach(cam -> {
              String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
                 cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
+=======
+        listaCamioneros.stream().forEach(cam -> {
+            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
+                cam.getTelefono(), cam.getPoblacion(), String.valueOf(cam.getSueldo()), String.valueOf(cam.getId_Direccion())};
+>>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
             mTabla.addRow(filaNueva);
         });
     }
@@ -189,11 +246,36 @@ public class ControlRCamionero {
         MCami.setNombre(vistaCam.getjFieldNombre().getText());
         MCami.setTelefono(vistaCam.getjFieldtelefono().getText());
         MCami.setPoblacion(vistaCam.getjSpinnerPoblacion().getValue().toString());
+<<<<<<< HEAD
         MCami.setSueldo((Double.parseDouble(vistaCam.getjFieldsueldo().getText().toString())));
 //        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
         MCami.setId_Direccion(2);
         MCami.setCorreo(vistaCam.getJfieldcorreo().getText().trim());
+=======
+        MCami.setSueldo(Double.parseDouble(vistaCam.getjFieldsueldo().getText()));
+        System.out.println(Double.parseDouble(vistaCam.getjFieldsueldo().getText()));
+        MCami.setId_Direccion((listaDirecciones.get(vistaCam.getjCBoxIDDirecciones().getSelectedIndex()).getId()));
+>>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
         return MCami;
+    }
+
+    public void MostrarDatos() {
+        vistaCam.getjLabelID().setText(String.valueOf(listaCamioneros.get(id_Camionero).getId()));
+        vistaCam.getjFieldDNI().setText(listaCamioneros.get(id_Camionero).getDni());
+        vistaCam.getjFieldNombre().setText(listaCamioneros.get(id_Camionero).getNombre());
+        vistaCam.getjFieldtelefono().setText(listaCamioneros.get(id_Camionero).getTelefono());
+        vistaCam.getjSpinnerPoblacion().setValue(Double.parseDouble(listaCamioneros.get(id_Camionero).getPoblacion()));
+        vistaCam.getjCBoxIDDirecciones().setSelectedItem(listaCamioneros.get(id_Camionero).getId_Direccion());
+        vistaCam.getjFieldsueldo().setText(String.valueOf(listaCamioneros.get(id_Camionero).getSueldo()));
+    }
+
+    public void LimpiarDatos() {
+        vistaCam.getjFieldDNI().setText("");
+        vistaCam.getjFieldNombre().setText("");
+        vistaCam.getjFieldtelefono().setText("");
+        vistaCam.getjSpinnerPoblacion().setValue(0);
+        vistaCam.getjFieldsueldo().setText("");
+        vistaCam.getjCBoxIDDirecciones().setSelectedIndex(0);
     }
 
     public void Buscar() {
@@ -208,9 +290,9 @@ public class ControlRCamionero {
     }
 
     private void ObtenerIDTable() {
-        id_Camionero = 0;
-        DefaultTableModel tm = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
-        id_Camionero = (int) tm.getValueAt(vistaCam.getTablaDeRegistros().getSelectedRow(), 0);
+        id_Camionero = vistaCam.getTablaDeRegistros().convertRowIndexToModel(vistaCam.getTablaDeRegistros().getSelectedRow());
+        vistaCam.getTablaDeRegistros().removeAll();
+        MostrarDatos();
     }
     private void crearEmail() {
         emailTo = vistaCam.getJfieldcorreo().getText().trim();

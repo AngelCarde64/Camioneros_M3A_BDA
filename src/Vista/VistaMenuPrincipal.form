@@ -39,8 +39,8 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanelMenuLateral" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="1259" max="-2" attributes="0"/>
+                  <Component id="jPanelMenuLateral" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="1259" max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
@@ -70,14 +70,19 @@
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="Barra_img" max="32767" attributes="0"/>
+                          <Component id="Barra_img" pref="190" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jPanelPaquetes" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanelCamiones" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanelTurnosConducc" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanelCamioneros" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jPanelTurnosConducc" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanelCamiones" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanelPaquetes" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanelCamioneros" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -140,7 +145,7 @@
                                   <Component id="jLabelCamioneros" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="110" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -199,7 +204,7 @@
                                   <Component id="jLabelPaquetes" min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="130" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -258,7 +263,7 @@
                                   <Component id="jLabelCamiones" min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="130" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -317,7 +322,7 @@
                                   <Component id="jLabel1TConduccion" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="40" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -367,10 +372,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jPanelIncio" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jPanelIncio" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -390,7 +392,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="1259" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="311" max="-2" attributes="0"/>

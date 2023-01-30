@@ -34,6 +34,7 @@ public class ControlMenuPrincipal {
         evtMouseBtn(vistaMP.getjPanelPaquetes(), "PAQUETES");
         evtMouseBtn(vistaMP.getjPanelCamiones(), "CAMIONES");
         evtMouseBtn(vistaMP.getjPanelTurnosConducc(), "TURNOS DE CONDUCCIÓN");
+        evtMouseBtn(vistaMP.getjPanelClientes(), "CLIENTES");
 //        vistaMP.getjPanelCamioneros().addActionListener(l -> buscar());
     }
 
@@ -74,6 +75,14 @@ public class ControlMenuPrincipal {
                     case "TURNOS DE CONDUCCIÓN":
                         vistaMP.getjPanelTurnosConducc().setBackground(coloresbtnMenu[0]);
                         break;
+                         case "CLIENTES":
+                        vistaMP.getjPanelClientes().setBackground(coloresbtnMenu[0]);
+                        VistaRegistroCliente VRCliente= new VistaRegistroCliente();
+                        ModeloCliente modeloCliente = new ModeloCliente();
+                        ControlCliente1 CCliente = new ControlCliente1(VRCliente,modeloCliente);
+                        CCliente.iniciarControl();
+                        SetNewPanelContent(VRCliente);
+                        break;
                 }
             }
 
@@ -93,6 +102,9 @@ public class ControlMenuPrincipal {
                     case "TURNOS DE CONDUCCIÓN":
                         vistaMP.getjPanelTurnosConducc().setBackground(coloresbtnMenu[0]);
                         break;
+                    case "CLIENTES":
+                        vistaMP.getjPanelClientes().setBackground(coloresbtnMenu[0]);
+                        break;
                 }
             }
 
@@ -111,6 +123,9 @@ public class ControlMenuPrincipal {
                         break;
                     case "TURNOS DE CONDUCCIÓN":
                         vistaMP.getjPanelTurnosConducc().setBackground(coloresbtnMenu[1]);
+                        break;
+                    case "CLIENTES":
+                        vistaMP.getjPanelClientes().setBackground(coloresbtnMenu[1]);
                         break;
                 }
             }
@@ -149,5 +164,6 @@ public class ControlMenuPrincipal {
         vistaMP.getjPanelCamiones().setBackground(coloresbtnMenu[1]);
         vistaMP.getjPanelPaquetes().setBackground(coloresbtnMenu[1]);
         vistaMP.getjPanelTurnosConducc().setBackground(coloresbtnMenu[1]);
+        vistaMP.getjPanelClientes().setBackground(coloresbtnMenu[1]);
     }
 }

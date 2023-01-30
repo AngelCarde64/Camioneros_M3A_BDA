@@ -78,7 +78,7 @@
                       </Group>
                       <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jPanelDirecciones" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanelClientes" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -102,7 +102,7 @@
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Component id="jPanelTurnosConducc" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Component id="jPanelDirecciones" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanelClientes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="jLabel3" pref="72" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -342,7 +342,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanelDirecciones">
+            <Container class="javax.swing.JPanel" name="jPanelClientes">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="b3" green="de" red="f5" type="rgb"/>

@@ -56,16 +56,12 @@ public class ModeloCamionero extends Camionero {
     }
 
     public SQLException CrearCamionero() {
-<<<<<<< HEAD
+
         String sql = "INSERT INTO Camionero (cami_dni, cami_nombre, cami_telefono, cami_id_Direccion, cami_sueldo, cami_poblacion, cami_correo)";
         sql += " VALUES ('" + getDni() + "','" + getNombre() + "','" + getTelefono()
                 + "','" + getId_Direccion() + "','" + getSueldo() + "','" + getPoblacion() + "','" + getCorreo() + "')";
-=======
-        String sql = "INSERT INTO Camionero (cami_dni, cami_nombre, cami_telefono, cami_id_Direccion, cami_sueldo, cami_poblacion)";
-        sql += " VALUES ('" + getDni() + "','" + getNombre() + "','" + getTelefono() + "','" + getId_Direccion()
-                + "','" + getSueldo() + "','" + getPoblacion() + "')";
-//        + "','" + getCorreo() - cami_correo
->>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
+
+       
         return conpg.accion(sql);
     }
 

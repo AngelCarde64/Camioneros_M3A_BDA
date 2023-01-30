@@ -486,11 +486,10 @@ public class VistaRCamionero extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
     private void jFieldsueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldsueldoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFieldsueldoActionPerformed
-=======
+
     public JLabel getjLabelID() {
         return jLabelID;
     }
@@ -498,7 +497,7 @@ public class VistaRCamionero extends javax.swing.JPanel {
     public void setjLabelID(JLabel jLabelID) {
         this.jLabelID = jLabelID;
     }
->>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
+
 
     public JLabel getjLabelSinCoincidencias() {
         return jLabelSinCoincidencias;

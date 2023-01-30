@@ -40,6 +40,7 @@ public class ControlRCamionero {
     private MimeMessage mCorreo;
     private List<Dirrecciones> listaDirecciones;
     private List<Camionero> listaCamioneros;
+    private List<Camionero> listaCamioneros2;
 
     public ControlRCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
         this.vistaCam = vistaCam;
@@ -135,23 +136,18 @@ public class ControlRCamionero {
 
         listaCamioneros = modeloCamionero.ListarCamioneros(criterio);
         // Uso de una expresion landa
-<<<<<<< HEAD
-        listap.stream().forEach(cam -> {
-            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
-            mTabla.addRow(filaNueva);
-        });
-=======
+
+
         if (!listaCamioneros.isEmpty()) {
             listaCamioneros.stream().forEach(cam -> {
                 String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                    cam.getTelefono(), cam.getPoblacion(), String.valueOf(cam.getSueldo()), String.valueOf(cam.getId_Direccion())};
+                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
                 mTabla.addRow(filaNueva);
             });
         } else {
             vistaCam.getjLabelSinCoincidencias().setVisible(true);
         }
->>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
+
     }
 
     public void CargarCamioneros() {
@@ -160,17 +156,14 @@ public class ControlRCamionero {
         mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        listaCamioneros = modeloCamionero.ListarCamioneros("");
+        listaCamioneros2 = modeloCamionero.ListarCamioneros("");
         // Uso de una expresion landa
-<<<<<<< HEAD
-        listap.stream().forEach(cam -> {
-             String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
+
+        listaCamioneros2.stream().forEach(cam -> {
+              String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
                 cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
-=======
-        listaCamioneros.stream().forEach(cam -> {
-            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                cam.getTelefono(), cam.getPoblacion(), String.valueOf(cam.getSueldo()), String.valueOf(cam.getId_Direccion())};
->>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
+                mTabla.addRow(filaNueva);
+         
             mTabla.addRow(filaNueva);
         });
     }
@@ -246,16 +239,11 @@ public class ControlRCamionero {
         MCami.setNombre(vistaCam.getjFieldNombre().getText());
         MCami.setTelefono(vistaCam.getjFieldtelefono().getText());
         MCami.setPoblacion(vistaCam.getjSpinnerPoblacion().getValue().toString());
-<<<<<<< HEAD
+
         MCami.setSueldo((Double.parseDouble(vistaCam.getjFieldsueldo().getText().toString())));
 //        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
-        MCami.setId_Direccion(2);
         MCami.setCorreo(vistaCam.getJfieldcorreo().getText().trim());
-=======
-        MCami.setSueldo(Double.parseDouble(vistaCam.getjFieldsueldo().getText()));
-        System.out.println(Double.parseDouble(vistaCam.getjFieldsueldo().getText()));
         MCami.setId_Direccion((listaDirecciones.get(vistaCam.getjCBoxIDDirecciones().getSelectedIndex()).getId()));
->>>>>>> 19986e3e5f62ff177a1b72eb5c384f3d832c0017
         return MCami;
     }
 

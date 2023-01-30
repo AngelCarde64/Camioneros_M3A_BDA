@@ -5,7 +5,19 @@ import Vista.*;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+//Importacion para email
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
 public class ControlRCamionero {
 
     private VistaRCamionero vistaCam;
@@ -15,6 +27,16 @@ public class ControlRCamionero {
     private String criterio = "";
     private int id_Camionero;
     // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
+    //--> Atributos para email
+    private static String emailFrom = "adrysdiaz1991@gmail.com";
+    private static String passwordFrom = "jsplaeoxoykcrgym";
+    private String emailTo;
+    private String subject;
+    private String content;
+
+    private Properties mProperties;
+    private Session mSession;
+    private MimeMessage mCorreo;
     private List<Dirrecciones> listaDirecciones;
 
     public ControlRCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
@@ -76,7 +98,7 @@ public class ControlRCamionero {
         // Uso de una expresion landa
         listap.stream().forEach(cam -> {
             String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                cam.getTelefono(), cam.getPoblacion(), cam.getId_Direccion(), String.valueOf(cam.getSueldo()), cam.getId_Direccion()};
+                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
             mTabla.addRow(filaNueva);
         });
     }
@@ -90,8 +112,8 @@ public class ControlRCamionero {
         List<Camionero> listap = modeloCamionero.ListarCamioneros("");
         // Uso de una expresion landa
         listap.stream().forEach(cam -> {
-            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                cam.getTelefono(), cam.getPoblacion(), cam.getId_Direccion(), String.valueOf(cam.getSueldo()), cam.getId_Direccion()};
+             String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
+                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
             mTabla.addRow(filaNueva);
         });
     }
@@ -101,8 +123,12 @@ public class ControlRCamionero {
         MCamionero = RecuperarDatos(MCamionero);
 
         if (MCamionero.CrearCamionero() == null) {
+            crearEmail();
+                    sendEmail();
             JOptionPane.showMessageDialog(null,
                     "Camionero creado satisfactoriamente.");
+           
+                       
             CargarCamioneros();
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear al Camionero!\n"
@@ -136,7 +162,7 @@ public class ControlRCamionero {
 
             respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
             if (respuesta == 0) {
-                ModeloCamionero MCamionero = new ModeloCamionero(id_Camionero, "", "", "", "", "", 0, "");
+                ModeloCamionero MCamionero = new ModeloCamionero(id_Camionero, "", "", "", "", 0, 0, "");
 
                 if (MCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
@@ -163,8 +189,10 @@ public class ControlRCamionero {
         MCami.setNombre(vistaCam.getjFieldNombre().getText());
         MCami.setTelefono(vistaCam.getjFieldtelefono().getText());
         MCami.setPoblacion(vistaCam.getjSpinnerPoblacion().getValue().toString());
-        MCami.setSueldo((Double.parseDouble(vistaCam.getjFieldsueldo().toString())));
+        MCami.setSueldo((Double.parseDouble(vistaCam.getjFieldsueldo().getText().toString())));
 //        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
+        MCami.setId_Direccion(2);
+        MCami.setCorreo(vistaCam.getJfieldcorreo().getText().trim());
         return MCami;
     }
 
@@ -183,5 +211,52 @@ public class ControlRCamionero {
         id_Camionero = 0;
         DefaultTableModel tm = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
         id_Camionero = (int) tm.getValueAt(vistaCam.getTablaDeRegistros().getSelectedRow(), 0);
+    }
+    private void crearEmail() {
+        emailTo = vistaCam.getJfieldcorreo().getText().trim();
+        mProperties = new Properties();
+        subject = "Pagequeteria";
+        content = "Felicidades usted esta contratado";
+        
+         // Simple mail transfer protocol
+        mProperties.put("mail.smtp.host", "smtp.gmail.com");
+        mProperties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        mProperties.setProperty("mail.smtp.starttls.enable", "true");
+        mProperties.setProperty("mail.smtp.port", "587");
+        mProperties.setProperty("mail.smtp.user",emailFrom);
+        mProperties.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
+        mProperties.setProperty("mail.smtp.auth", "true");
+        
+        mSession = Session.getDefaultInstance(mProperties);
+        
+        
+        try {
+            mCorreo = new MimeMessage(mSession);
+            mCorreo.setFrom(new InternetAddress(emailFrom));
+            mCorreo.setRecipient(Message.RecipientType.TO, new InternetAddress(emailTo));
+            mCorreo.setSubject(subject);
+            mCorreo.setText(content, "ISO-8859-1", "html");
+                     
+            
+        } catch (AddressException ex) {
+            Logger.getLogger(ControlRCamionero.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
+            Logger.getLogger(ControlRCamionero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void sendEmail() {
+        try {
+            Transport mTransport = mSession.getTransport("smtp");
+            mTransport.connect(emailFrom, passwordFrom);
+            mTransport.sendMessage(mCorreo, mCorreo.getRecipients(Message.RecipientType.TO));
+            mTransport.close();
+            
+            JOptionPane.showMessageDialog(null, "Correo enviado");
+        } catch (NoSuchProviderException ex) {
+            Logger.getLogger(ControlRCamionero.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
+            Logger.getLogger(ControlRCamionero.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

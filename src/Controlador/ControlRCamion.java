@@ -123,7 +123,7 @@ public class ControlRCamion {
 
             respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
             if (respuesta == 0) {
-                ModeloCamionero MCamionero = new ModeloCamionero(id_Camion, "", "", "", "", "", 0, "");
+                ModeloCamionero MCamionero = new ModeloCamionero(id_Camion, "", "", "", "", 0, 0, "");
 
                 if (MCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");

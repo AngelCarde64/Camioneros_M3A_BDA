@@ -7,14 +7,14 @@ public class Camionero {
     private String nombre;
     private String telefono;
     private String poblacion;
-    private String id_Direccion;
+    private int id_Direccion;
     private double sueldo;
     private String correo;
 
     public Camionero() {
     }
 
-    public Camionero(int id, String dni, String nombre, String telefono, String poblacion, String id_Direccion, double sueldo, String correo) {
+    public Camionero(int id, String dni, String nombre, String telefono, String poblacion, int id_Direccion, double sueldo, String correo) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
@@ -65,11 +65,11 @@ public class Camionero {
         this.poblacion = poblacion;
     }
 
-    public String getId_Direccion() {
+    public int getId_Direccion() {
         return id_Direccion;
     }
 
-    public void setId_Direccion(String id_Direccion) {
+    public void setId_Direccion(int id_Direccion) {
         this.id_Direccion = id_Direccion;
     }
 

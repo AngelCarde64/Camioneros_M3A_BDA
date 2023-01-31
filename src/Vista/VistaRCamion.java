@@ -29,6 +29,7 @@ public class VistaRCamion extends javax.swing.JPanel {
         jLabelSinCoincidencias = new javax.swing.JLabel();
         jScrollPaneCam = new javax.swing.JScrollPane();
         TablaDeRegistros = new javax.swing.JTable();
+        jButtonActualizar = new javax.swing.JButton();
         CambiarDatosPanel = new javax.swing.JPanel();
         Datostxt = new javax.swing.JLabel();
         MensajeingresoTxt = new javax.swing.JLabel();
@@ -87,7 +88,7 @@ public class VistaRCamion extends javax.swing.JPanel {
 
         jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("  Buscar camioneros ...");
-        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(164, 164, 164))); // NOI18N
+        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(164, 164, 164))); // NOI18N
 
         jButtonInsertarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonInsertarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -141,6 +142,12 @@ public class VistaRCamion extends javax.swing.JPanel {
         TablaDeRegistros.setRowHeight(30);
         jScrollPaneCam.setViewportView(TablaDeRegistros);
 
+        jButtonActualizar.setBackground(new java.awt.Color(137, 107, 197));
+        jButtonActualizar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonActualizar.setText("Actualizar");
+        jButtonActualizar.setBorder(null);
+
         javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
@@ -153,7 +160,10 @@ public class VistaRCamion extends javax.swing.JPanel {
                         .addGap(10, 10, 10)
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PanelOpcionesLayout.createSequentialGroup()
                         .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
@@ -179,9 +189,10 @@ public class VistaRCamion extends javax.swing.JPanel {
                     .addComponent(jButtonInsertarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPaneCam)
+                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -242,7 +253,7 @@ public class VistaRCamion extends javax.swing.JPanel {
                     .addGroup(CambiarDatosPanelLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(jLabelID)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollCami.setBackground(new java.awt.Color(255, 255, 255));
@@ -397,6 +408,14 @@ public class VistaRCamion extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getjButtonActualizar() {
+        return jButtonActualizar;
+    }
+
+    public void setjButtonActualizar(JButton jButtonActualizar) {
+        this.jButtonActualizar = jButtonActualizar;
+    }
+
     public JLabel getjLabelID() {
         return jLabelID;
     }
@@ -504,6 +523,7 @@ public class VistaRCamion extends javax.swing.JPanel {
     private javax.swing.JLabel NroPlacaTXT;
     private javax.swing.JPanel PanelOpciones;
     private javax.swing.JTable TablaDeRegistros;
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminarA;
     private javax.swing.JButton jButtonInsertarA;

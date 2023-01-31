@@ -180,6 +180,7 @@ public class ControlRCamionero {
                     "Camionero creado satisfactoriamente.");
 
             CargarCamioneros();
+            LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear al Camionero!\n"
                     + "¡¡Error al intentar crear al camionero!!",
@@ -194,6 +195,7 @@ public class ControlRCamionero {
         if (MCamionero.ActualizarCamionero() == null) {
             JOptionPane.showMessageDialog(null,
                     "Camionero modificado satisfactoriamente.");
+            LimpiarDatos();
             CargarCamioneros();
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar al Camionero!\n"
@@ -276,6 +278,7 @@ public class ControlRCamionero {
             mssDEError += "\n - Ingrese un correo valido";
             return null;
         }
+     
 
         MCami.setPoblacion(vistaCam.getjSpinnerPoblacion().getValue().toString());
 
@@ -291,6 +294,7 @@ public class ControlRCamionero {
         vistaCam.getjSpinnerPoblacion().setValue(Double.parseDouble(listaCamioneros.get(id_Camionero).getPoblacion()));
         vistaCam.getjCBoxIDDirecciones().setSelectedItem(listaCamioneros.get(id_Camionero).getId_Direccion());
         vistaCam.getjFieldsueldo().setText(String.valueOf(listaCamioneros.get(id_Camionero).getSueldo()));
+        vistaCam.getJfieldcorreo().setText(String.valueOf(listaCamioneros.get(id_Camionero).getCorreo()));
     }
 
     public void LimpiarDatos() {

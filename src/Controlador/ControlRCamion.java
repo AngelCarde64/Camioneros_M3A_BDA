@@ -133,6 +133,7 @@ public class ControlRCamion {
                     "Camion creado satisfactoriamente.");
 
             CargarCamiones();
+            LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear al Camion!\n"
                     + "¡¡Error al intentar crear al camion!!",
@@ -148,6 +149,7 @@ public class ControlRCamion {
             JOptionPane.showMessageDialog(null,
                     "Camionero modificado satisfactoriamente.");
             CargarCamiones();
+            LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar al Camion!\n"
                     + "Por favor corriga estos errores:",

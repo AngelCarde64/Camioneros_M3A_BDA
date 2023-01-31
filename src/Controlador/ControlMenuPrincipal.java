@@ -58,6 +58,8 @@ public class ControlMenuPrincipal {
                         SetNewPanelContent(VRCamionero);
                         break;
                     case "PAQUETES":
+                        break;
+                    case "CAMIONES":
                         vistaMP.getjPanelCamiones().setBackground(coloresbtnMenu[0]);
 
                         VistaRCamion VRCamion = new VistaRCamion();
@@ -67,9 +69,6 @@ public class ControlMenuPrincipal {
                         CRCamion.iniciarControl();
 
                         SetNewPanelContent(VRCamion);
-                        break;
-                    case "CAMIONES":
-                        vistaMP.getjPanelCamiones().setBackground(coloresbtnMenu[0]);
                         break;
                     case "TURNOS DE CONDUCCIÓN":
                         vistaMP.getjPanelTurnosConducc().setBackground(coloresbtnMenu[0]);

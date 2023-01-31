@@ -9,8 +9,8 @@ public class PgConect {
     //--> Link de descarga de driver: https://www.oracle.com/database/technologies/appdev/jdbc.html
     Connection con;
     Statement st;
-    //192.168.1.5=localhost
-    String cadenaConexion = "jdbc:oracle:thin:@192.168.43.211:1521/xepdb1";
+    //192.168.43.211=localhost
+    String cadenaConexion = "jdbc:oracle:thin:@localhost:1521/xepdb1";
     // ---> CAMBIAR POR UN USUARIO CON MENOS PRIVILEGIOS
     String pgUsuario = "secretaria";
     String pgPassword = "123456";

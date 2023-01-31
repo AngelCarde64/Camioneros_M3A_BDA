@@ -72,6 +72,11 @@ public class ControlMenuPrincipal {
                         break;
                     case "TURNOS DE CONDUCCIÓN":
                         vistaMP.getjPanelTurnosConducc().setBackground(coloresbtnMenu[0]);
+                        VistaRegistroTConduccion VTC = new VistaRegistroTConduccion();
+                        ModeloTurnoDeConduccion modeloTC = new ModeloTurnoDeConduccion();
+                        ControlRTConduccion CTC = new ControlRTConduccion(VTC, modeloTC);
+                        CTC.iniciarControl();
+                        SetNewPanelContent(VTC);
                         break;
                     case "CLIENTES":
                         vistaMP.getjPanelClientes().setBackground(coloresbtnMenu[0]);

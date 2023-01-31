@@ -5,15 +5,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PgConect {
-
     //--> Link de descarga de driver: https://www.oracle.com/database/technologies/appdev/jdbc.html
     Connection con;
     Statement st;
     //192.168.43.211=localhost
-    String cadenaConexion = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+    String cadenaConexion = "jdbc:oracle:thin:@localhost:1521/xe";
     // ---> CAMBIAR POR UN USUARIO CON MENOS PRIVILEGIOS
-    String pgUsuario = "secretaria";
-    String pgPassword = "123456";
+    String pgUsuario = "GUIA";
+    String pgPassword = "1234";
 
     public PgConect() {
         try {

@@ -59,6 +59,8 @@ public class ControlRCamionero {
         }
 
         // --> Add listeners MOUSE LISTENER
+        
+        
         vistaCam.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
@@ -90,6 +92,8 @@ public class ControlRCamionero {
         });
 
         // --> Key Listener
+        
+        
         vistaCam.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 if (evt.getKeyChar() == '\n') {
@@ -109,8 +113,15 @@ public class ControlRCamionero {
                 validaciones.IngresarSoloNumeros(evt);
             }
         });
+        vistaCam.getjFieldNombre().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validaciones.IngresarSoloLetras(evt);
+            }
+        });
 
         // --> Desactivar elementos que van a estar ocultos al principio
+        
+        
         vistaCam.getjLabelSinCoincidencias().setVisible(false);
     }
 

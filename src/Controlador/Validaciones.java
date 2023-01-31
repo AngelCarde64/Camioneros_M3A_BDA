@@ -73,6 +73,13 @@ public class Validaciones {
         }
     }
 
+    public void IngresarSoloLetras(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+            evt.consume();  // ignorar el evento de teclado
+        }
+    }
+
     public boolean valiString(String cadena) {
         return cadena.matches("[a-zA-z]{3,15}[\\s]{0,1}[a-zA-z]{0,15}");
     }

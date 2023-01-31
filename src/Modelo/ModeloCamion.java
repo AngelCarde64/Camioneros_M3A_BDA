@@ -20,9 +20,14 @@ public class ModeloCamion extends Camion {
 
     public List<Camion> ListarCamion(String filtro) {
         String sql = "";
-        
+
         if (filtro.isEmpty()) {
-            sql = "select * from Camion";
+            sql = "select * from Camion where ";
+            sql += "UPPER(cam_id) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cam_nro_Placa) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cam_modelo) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cam_tipo) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cam_potencia) like UPPER('%" + filtro + "%') ";
         } else {
             sql = "select * from Camion where ";
             sql += "UPPER(cam_id) like UPPER('%" + filtro + "%') ";
@@ -31,7 +36,7 @@ public class ModeloCamion extends Camion {
             sql += "OR UPPER(cam_tipo) like UPPER('%" + filtro + "%') ";
             sql += "OR UPPER(cam_potencia) like UPPER('%" + filtro + "%') ";
         }
-        
+
         ResultSet rs = conpg.consulta(sql);
         List<Camion> lista = new ArrayList<Camion>();
         try {

@@ -4,7 +4,6 @@ import Modelo.*;
 import Vista.*;
 import java.awt.Color;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //Importacion para email
 import java.util.Properties;
@@ -19,13 +18,14 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+
 public class ControlRCamionero {
 
     private VistaRCamionero vistaCam;
     private ModeloCamionero modeloCamionero;
 
     private Validaciones validaciones = new Validaciones();
-    private String criterio = "";
+    private String criterio = "", mssDEError = "";
     private int id_Camionero;
     // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
     //--> Atributos para email
@@ -40,7 +40,6 @@ public class ControlRCamionero {
     private MimeMessage mCorreo;
     private List<Dirrecciones> listaDirecciones;
     private List<Camionero> listaCamioneros;
-    private List<Camionero> listaCamioneros2;
 
     public ControlRCamionero(VistaRCamionero vistaCam, ModeloCamionero modeloCamionero) {
         this.vistaCam = vistaCam;
@@ -60,9 +59,6 @@ public class ControlRCamionero {
         }
 
         // --> Add listeners MOUSE LISTENER
-        
-        
-        
         vistaCam.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
@@ -93,11 +89,7 @@ public class ControlRCamionero {
             }
         });
 
-        
-        
         // --> Key Listener
-        
-        
         vistaCam.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 if (evt.getKeyChar() == '\n') {
@@ -118,12 +110,7 @@ public class ControlRCamionero {
             }
         });
 
-        
-        
-        
         // --> Desactivar elementos que van a estar ocultos al principio
-        
-       
         vistaCam.getjLabelSinCoincidencias().setVisible(false);
     }
 
@@ -137,11 +124,10 @@ public class ControlRCamionero {
         listaCamioneros = modeloCamionero.ListarCamioneros(criterio);
         // Uso de una expresion landa
 
-
         if (!listaCamioneros.isEmpty()) {
             listaCamioneros.stream().forEach(cam -> {
                 String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
+                    cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()), String.valueOf(cam.getId_Direccion()), cam.getCorreo()};
                 mTabla.addRow(filaNueva);
             });
         } else {
@@ -156,14 +142,12 @@ public class ControlRCamionero {
         mTabla = (DefaultTableModel) vistaCam.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        listaCamioneros2 = modeloCamionero.ListarCamioneros("");
+        listaCamioneros = modeloCamionero.ListarCamioneros("");
         // Uso de una expresion landa
 
-        listaCamioneros2.stream().forEach(cam -> {
-              String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
-                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
-                mTabla.addRow(filaNueva);
-         
+        listaCamioneros.stream().forEach(cam -> {
+            String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
+                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()), String.valueOf(cam.getId_Direccion()), cam.getCorreo()};
             mTabla.addRow(filaNueva);
         });
     }
@@ -172,17 +156,22 @@ public class ControlRCamionero {
         ModeloCamionero MCamionero = new ModeloCamionero();
         MCamionero = RecuperarDatos(MCamionero);
 
+        if (!mssDEError.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Error al crear al Camionero!\n"
+                    + "Por favor corriga estos errores:" + mssDEError,
+                    "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         if (MCamionero.CrearCamionero() == null) {
             crearEmail();
-                    sendEmail();
+            sendEmail();
             JOptionPane.showMessageDialog(null,
                     "Camionero creado satisfactoriamente.");
-           
-                       
+
             CargarCamioneros();
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear al Camionero!\n"
-                    + "Por favor corriga estos errores:",
+                    + "¡¡Error al intentar crear al camionero!!",
                     "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -235,14 +224,50 @@ public class ControlRCamionero {
      * se llenaran los datos.
      */
     public ModeloCamionero RecuperarDatos(ModeloCamionero MCami) {
-        MCami.setDni(vistaCam.getjFieldDNI().getText());
-        MCami.setNombre(vistaCam.getjFieldNombre().getText());
-        MCami.setTelefono(vistaCam.getjFieldtelefono().getText());
+        mssDEError = "";
+        boolean ValiCRepetida = !MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
+
+        if (validaciones.valiCedula(vistaCam.getjFieldDNI().getText()) == 0) {
+            if (ValiCRepetida) {
+                mssDEError += "\n - La cedula ingresada ya existe";
+                return null;
+            }
+            MCami.setDni(vistaCam.getjFieldDNI().getText());
+        } else {
+            mssDEError += "\n - Ingrese un numero de cedula valido";
+            return null;
+        }
+
+        if (!vistaCam.getjFieldNombre().getText().isEmpty()) {
+            MCami.setNombre(vistaCam.getjFieldNombre().getText());
+        } else {
+            mssDEError += "\n - Ingrese un nombre.";
+            return null;
+        }
+
+        if (!vistaCam.getjFieldtelefono().getText().isEmpty()) {
+            MCami.setTelefono(vistaCam.getjFieldtelefono().getText());
+        } else {
+            mssDEError += "\n - Ingrese un numero de telefono.";
+            return null;
+        }
+
+        if (!vistaCam.getjFieldsueldo().getText().isEmpty()) {
+            MCami.setSueldo((Double.parseDouble(vistaCam.getjFieldsueldo().getText())));
+        } else {
+            mssDEError += "\n - Ingrese un valor para el sueldo.";
+            return null;
+        }
+
+        if (validaciones.isValidEmail(vistaCam.getJfieldcorreo().getText().trim())) {
+            MCami.setCorreo(vistaCam.getJfieldcorreo().getText().trim());
+        } else {
+            mssDEError += "\n - Ingrese un correo valido";
+            return null;
+        }
+
         MCami.setPoblacion(vistaCam.getjSpinnerPoblacion().getValue().toString());
 
-        MCami.setSueldo((Double.parseDouble(vistaCam.getjFieldsueldo().getText().toString())));
-//        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
-        MCami.setCorreo(vistaCam.getJfieldcorreo().getText().trim());
         MCami.setId_Direccion((listaDirecciones.get(vistaCam.getjCBoxIDDirecciones().getSelectedIndex()).getId()));
         return MCami;
     }
@@ -282,32 +307,31 @@ public class ControlRCamionero {
         vistaCam.getTablaDeRegistros().removeAll();
         MostrarDatos();
     }
+
     private void crearEmail() {
         emailTo = vistaCam.getJfieldcorreo().getText().trim();
         mProperties = new Properties();
         subject = "Pagequeteria";
         content = "Felicidades usted esta contratado";
-        
-         // Simple mail transfer protocol
+
+        // Simple mail transfer protocol
         mProperties.put("mail.smtp.host", "smtp.gmail.com");
         mProperties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         mProperties.setProperty("mail.smtp.starttls.enable", "true");
         mProperties.setProperty("mail.smtp.port", "587");
-        mProperties.setProperty("mail.smtp.user",emailFrom);
+        mProperties.setProperty("mail.smtp.user", emailFrom);
         mProperties.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
         mProperties.setProperty("mail.smtp.auth", "true");
-        
+
         mSession = Session.getDefaultInstance(mProperties);
-        
-        
+
         try {
             mCorreo = new MimeMessage(mSession);
             mCorreo.setFrom(new InternetAddress(emailFrom));
             mCorreo.setRecipient(Message.RecipientType.TO, new InternetAddress(emailTo));
             mCorreo.setSubject(subject);
             mCorreo.setText(content, "ISO-8859-1", "html");
-                     
-            
+
         } catch (AddressException ex) {
             Logger.getLogger(ControlRCamionero.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MessagingException ex) {
@@ -321,7 +345,7 @@ public class ControlRCamionero {
             mTransport.connect(emailFrom, passwordFrom);
             mTransport.sendMessage(mCorreo, mCorreo.getRecipients(Message.RecipientType.TO));
             mTransport.close();
-            
+
             JOptionPane.showMessageDialog(null, "Correo enviado");
         } catch (NoSuchProviderException ex) {
             Logger.getLogger(ControlRCamionero.class.getName()).log(Level.SEVERE, null, ex);

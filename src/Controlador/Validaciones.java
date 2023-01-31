@@ -1,7 +1,14 @@
 package Controlador;
 
 // --> ¡¡ POR ACTUALIZAR !!
+import java.awt.event.KeyEvent;
+import java.util.regex.Pattern;
+import javax.swing.JTextField;
+
 public class Validaciones {
+
+    // ---> Se lo usara para limitar a 10 los numeros que se pueden ingresar en un jTextField
+    private int contador = 0;
 
     public int valiCedula(String cedula) {
         //si la cedula es una cadena numerica
@@ -30,7 +37,7 @@ public class Validaciones {
             } else {
                 return 0;
             }
-        //la cedula contiene letras o no cumple con el formato
+            //la cedula contiene letras o no cumple con el formato
         } else {
             return 1;
         }
@@ -41,8 +48,27 @@ public class Validaciones {
     }
 
     public void IngresarSoloNumeros(java.awt.event.KeyEvent evt) {
+        // --> Validacion extra por si el usuario borra de golpe todos los numeros y por si pega.
+        JTextField txt = (JTextField) evt.getComponent();
+        if (txt.getText().equals("")) {
+            contador = 0;
+        } else if (txt.getText().length() >= 10) {
+            contador = 10;
+        }
+
         char validarnum = evt.getKeyChar();
-        if (validarnum < '0' || validarnum > '9') {
+        if (validarnum >= '0' && validarnum <= '9') {
+            if (contador < 10) {
+                contador++;
+            } else {
+                evt.consume();
+            }
+            //--> Hacer un decremento al contador cuando borre numeros
+        } else if (validarnum == KeyEvent.VK_BACK_SPACE || validarnum == KeyEvent.VK_DELETE) {
+            if (contador > 0) {
+                contador--;
+            }
+        } else {
             evt.consume();
         }
     }
@@ -50,4 +76,18 @@ public class Validaciones {
     public boolean valiString(String cadena) {
         return cadena.matches("[a-zA-z]{3,15}[\\s]{0,1}[a-zA-z]{0,15}");
     }
+
+    public boolean isValidEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        return pat.matcher(email).matches();
+    }
+
 }

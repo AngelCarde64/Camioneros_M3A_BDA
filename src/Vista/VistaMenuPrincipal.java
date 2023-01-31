@@ -361,7 +361,6 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     public void setjPanelClientes(JPanel jPanelClientes) {
         this.jPanelClientes = jPanelClientes;
     }
-     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Barra_img;

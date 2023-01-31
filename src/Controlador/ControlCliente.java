@@ -4,21 +4,9 @@ import Modelo.*;
 import Vista.*;
 import java.awt.Color;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-//Importacion para email
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-//import javax.mail.Message;
-//import javax.mail.MessagingException;
-//import javax.mail.NoSuchProviderException;
-//import javax.mail.Session;
-//import javax.mail.Transport;
-//import javax.mail.internet.AddressException;
-//import javax.mail.internet.InternetAddress;
-//import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+
 public class ControlCliente {
 
     private VistaRegistroCliente vistaCli;
@@ -29,19 +17,17 @@ public class ControlCliente {
     private int id_Cliente;
     private List<Cliente> listaClientes;
 
-public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente) {
+    public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente) {
         this.vistaCli = vistaCli;
         this.modeloCliente = modeloCliente;
     }
 
     public void iniciarControl() {
-        
+
         // --> Obtener ID de Direcciones
-       
         // --> Add listeners MOUSE LISTENER
-        
         CargarClientes();
-        
+
         vistaCli.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
@@ -72,11 +58,7 @@ public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente
             }
         });
 
-        
-        
         // --> Key Listener
-        
-        
         vistaCli.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 if (evt.getKeyChar() == '\n') {
@@ -97,12 +79,7 @@ public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente
             }
         });
 
-        
-        
-        
         // --> Desactivar elementos que van a estar ocultos al principio
-        
-       
         vistaCli.getjLabelSinCoincidencias().setVisible(false);
     }
 
@@ -134,26 +111,26 @@ public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente
 
     public void CargarClientes() {
         // Para darle forma al modelo de la tabla
-        
+
         DefaultTableModel pTabla = (DefaultTableModel) vistaCli.getTablaR().getModel();
         pTabla.setNumRows(0);
 
         listaClientes = modeloCliente.ListarCliente("");
-        
+
         // Uso de una expresion landa
 //        listap.stream().forEach(cam -> {
 //             String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
 //                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
-
         listaClientes.stream().forEach(cam -> {
             String[] filaNueva = {String.valueOf(cam.getId()), cam.getDni(), cam.getNombre(),
                 cam.getTelefono()};
 
             pTabla.addRow(filaNueva);
-            
+
         });
-    
-}
+
+    }
+
     public void Insertar() {
         ModeloCliente MCliente = new ModeloCliente();
         MCliente = RecuperarDatos(MCliente);
@@ -163,8 +140,7 @@ public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente
 //                    sendEmail();
             JOptionPane.showMessageDialog(null,
                     "Cliente creado satisfactoriamente.");
-           
-                       
+
             CargarClientes();
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear al Cliente!\n"
@@ -177,7 +153,7 @@ public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente
         ModeloCliente MCliente = new ModeloCliente();
         MCliente = RecuperarDatos(MCliente);
 
-        if (MCliente.ActualizarCliente()== null) {
+        if (MCliente.ActualizarCliente() == null) {
             JOptionPane.showMessageDialog(null,
                     "Cliente modificado satisfactoriamente.");
             CargarClientes();
@@ -200,7 +176,7 @@ public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente
             if (respuesta == 0) {
                 ModeloCliente MCliente = new ModeloCliente(id_Cliente, "", "", "");
 
-                if (MCliente.BorrarCliente()== null) {
+                if (MCliente.BorrarCliente() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
                     id_Cliente = 0;
                     CargarClientes();
@@ -224,9 +200,7 @@ public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente
         MCli.setDni(vistaCli.getjFieldDNI().getText());
         MCli.setNombre(vistaCli.getjFieldNombre().getText());
         MCli.setTelefono(vistaCli.getjFieldtelefono().getText());
-        
 
-        
         return MCli;
     }
 
@@ -235,7 +209,7 @@ public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente
         vistaCli.getjFieldDNI().setText(listaClientes.get(id_Cliente).getDni());
         vistaCli.getjFieldNombre().setText(listaClientes.get(id_Cliente).getNombre());
         vistaCli.getjFieldtelefono().setText(listaClientes.get(id_Cliente).getTelefono());
-        
+
     }
 
     public void LimpiarDatos() {

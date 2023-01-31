@@ -19,15 +19,21 @@ public class ModeloCamionero extends Camionero {
     }
 
     public List<Camionero> ListarCamioneros(String filtro) {
-        String sql = "select * from Camionero where ";
-        sql += " UPPER(cami_id) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(cami_dni) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(cami_nombre) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(cami_telefono) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(cami_id_Direccion) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(cami_sueldo) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(cami_poblacion) like UPPER('%" + filtro + "%') ";
-        sql += "OR UPPER(cami_correo) like UPPER('%" + filtro + "%') ";
+        String sql = "";
+
+        if (filtro.isEmpty()) {
+            sql = "select * from Camionero";
+        } else {
+            sql = "select * from Camionero where ";
+            sql += "UPPER(cami_id) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cami_dni) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cami_nombre) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cami_telefono) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cami_id_Direccion) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cami_sueldo) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cami_poblacion) like UPPER('%" + filtro + "%') ";
+            sql += "OR UPPER(cami_correo) like UPPER('%" + filtro + "%') ";
+        }
         ResultSet rs = conpg.consulta(sql);
         List<Camionero> lista = new ArrayList<Camionero>();
         try {
@@ -56,12 +62,9 @@ public class ModeloCamionero extends Camionero {
     }
 
     public SQLException CrearCamionero() {
-
         String sql = "INSERT INTO Camionero (cami_dni, cami_nombre, cami_telefono, cami_id_Direccion, cami_sueldo, cami_poblacion, cami_correo)";
         sql += " VALUES ('" + getDni() + "','" + getNombre() + "','" + getTelefono()
                 + "','" + getId_Direccion() + "','" + getSueldo() + "','" + getPoblacion() + "','" + getCorreo() + "')";
-
-       
         return conpg.accion(sql);
     }
 
@@ -78,10 +81,6 @@ public class ModeloCamionero extends Camionero {
         return conpg.accion(sql);
     }
 
-    /**
-     * ---> Para buscar al camionero segun el id y obtener los datos para poner
-     * en los jtexfield.
-     */
     public ModeloCamionero MostrarDatosCamionero(String id) {
         String sql = "select * from Camionero where cami_id = '" + id + "'";
         ResultSet rs = conpg.consulta(sql);

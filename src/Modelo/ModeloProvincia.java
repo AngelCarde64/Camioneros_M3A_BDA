@@ -19,7 +19,7 @@ public class ModeloProvincia extends Provincia {
     }
 
     public List<Provincia> ListarProvincia(String filtro) {
-        String sql = "select * from Provincia where ";
+        String sql = "select * from PROVINCIA where ";
         sql += " UPPER(pro_codigo_provincia) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(pro_nombre) like UPPER('%" + filtro + "%') ";
         ResultSet rs = conpg.consulta(sql);
@@ -44,24 +44,24 @@ public class ModeloProvincia extends Provincia {
     }
 
     public SQLException CrearProvincia() {
-        String sql = "INSERT INTO Provincia (pro_nombre)";
-        sql += " VALUES ('" + getNombre() + "','" + "')";
+        String sql = "INSERT INTO PROVINCIA (pro_nombre)";
+        sql += " VALUES ('" + getNombre() +"')";
         return conpg.accion(sql);
     }
 
     public SQLException ActualizarProvincia() {
-        String sql = "UPDATE Provincia SET pro_nombre = '" + getNombre() + "';";
+        String sql = "UPDATE PROVINCIA SET pro_nombre = '" + getNombre() + "';";
         sql += "WHERE pro_codigo_provincia = '" + getCod_provincia() + "';";
         return conpg.accion(sql);
     }
 
     public SQLException DeleteProvincia() {
-        String sql = "DELETE FROM Provincia WHERE pro_codigo_provincia ='" + getCod_provincia() + "';";
+        String sql = "DELETE FROM PROVINCIA WHERE pro_codigo_provincia ='" + getCod_provincia() + "';";
         return conpg.accion(sql);
     }
 
     public ModeloProvincia MostrarDatosProvincia(String id) {
-        String sql = "select * from Provincia where pro_codigo_provincia = '" + id + "'";
+        String sql = "select * from PROVINCIA where pro_codigo_provincia = '" + id + "'";
         ResultSet rs = conpg.consulta(sql);
         ModeloProvincia MProvincia = new ModeloProvincia();
         try {

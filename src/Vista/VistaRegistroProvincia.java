@@ -1,14 +1,51 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Vista;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class VistaRegistroProvincia extends javax.swing.JFrame {
+/**
+ *
+ * @author LENOVO
+ */
+public class VistaRegistroProvincia extends javax.swing.JPanel {
 
+    /**
+     * Creates new form VistaRegistroProvincia
+     */
     public VistaRegistroProvincia() {
         initComponents();
+    }
+
+    public JPanel getCambiarDatosPanel() {
+        return CambiarDatosPanel;
+    }
+
+    public void setCambiarDatosPanel(JPanel CambiarDatosPanel) {
+        this.CambiarDatosPanel = CambiarDatosPanel;
+    }
+
+    public JPanel getContentRAparte1() {
+        return ContentRAparte1;
+    }
+
+    public void setContentRAparte1(JPanel ContentRAparte1) {
+        this.ContentRAparte1 = ContentRAparte1;
+    }
+
+    public JButton getjButtonEliminarA() {
+        return jButtonEliminarA;
+    }
+
+    public void setjButtonEliminarA(JButton jButtonEliminarA) {
+        this.jButtonEliminarA = jButtonEliminarA;
     }
 
     public JButton getjButtonInsertarA() {
@@ -27,22 +64,28 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
         this.jButtonModificarA = jButtonModificarA;
     }
 
-
-
-    public JButton getjButtonMostrar1() {
-        return jButtonMostrar1;
+    public JButton getjButtonMostrar() {
+        return jButtonMostrar;
     }
 
-    public void setjButtonMostrar1(JButton jButtonMostrar1) {
-        this.jButtonMostrar1 = jButtonMostrar1;
+    public void setjButtonMostrar(JButton jButtonMostrar) {
+        this.jButtonMostrar = jButtonMostrar;
     }
 
-    public JButton getjButtonEliminarA() {
-        return jButtonEliminarA;
+    public JTextField getjFieldNombreRA() {
+        return jFieldNombreRA;
     }
 
-    public void setjButtonEliminarA(JButton jButtonEliminarA) {
-        this.jButtonEliminarA = jButtonEliminarA;
+    public void setjFieldNombreRA(JTextField jFieldNombreRA) {
+        this.jFieldNombreRA = jFieldNombreRA;
+    }
+
+    public JLabel getjLabelSinCoincidencias() {
+        return jLabelSinCoincidencias;
+    }
+
+    public void setjLabelSinCoincidencias(JLabel jLabelSinCoincidencias) {
+        this.jLabelSinCoincidencias = jLabelSinCoincidencias;
     }
 
     public JTable getTablaDeRegistros() {
@@ -61,40 +104,26 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
         this.JtextFieldBuscarPaquete = JtextFieldBuscarPaquete;
     }
 
-    public JLabel getjLabelSinCoincidencias() {
-        return jLabelSinCoincidencias;
-    }
-
-    public void setjLabelSinCoincidencias(JLabel jLabelSinCoincidencias) {
-        this.jLabelSinCoincidencias = jLabelSinCoincidencias;
-    }
-
-    public JTextField getjFieldNombreRA1() {
-        return jFieldNombrePROV;
-    }
-
-    public void setjFieldNombreRA1(JTextField jFieldNombreRA) {
-        this.jFieldNombrePROV = jFieldNombreRA;
-    }
-
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelTop1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         ContentRegistro = new javax.swing.JPanel();
         PanelOpciones = new javax.swing.JPanel();
         jLabelSinCoincidencias = new javax.swing.JLabel();
         jLabelIconTipo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaDeRegistros = new javax.swing.JTable();
-        jButtonMostrar1 = new javax.swing.JButton();
+        jButtonMostrar = new javax.swing.JButton();
         JtextFieldBuscarPaquete = new javax.swing.JTextField();
         ContentButtonsIME = new javax.swing.JPanel();
         jButtonInsertarA = new javax.swing.JButton();
         jButtonModificarA = new javax.swing.JButton();
         jButtonEliminarA = new javax.swing.JButton();
+        jButtonActualizar = new javax.swing.JButton();
         CambiarDatosPanel = new javax.swing.JPanel();
         Datostxt = new javax.swing.JLabel();
         MensajeingresoTxt = new javax.swing.JLabel();
@@ -105,9 +134,27 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
         ContentRAparte1 = new javax.swing.JPanel();
         Nombretxt = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jFieldNombrePROV = new javax.swing.JTextField();
+        jFieldNombreRA = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanelTop1.setBackground(new java.awt.Color(248, 171, 75));
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PROVINCIAS");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanelTop1Layout = new javax.swing.GroupLayout(jPanelTop1);
+        jPanelTop1.setLayout(jPanelTop1Layout);
+        jPanelTop1Layout.setHorizontalGroup(
+            jPanelTop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTop1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1084, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 29, Short.MAX_VALUE))
+        );
+        jPanelTop1Layout.setVerticalGroup(
+            jPanelTop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+        );
 
         ContentRegistro.setBackground(new java.awt.Color(236, 236, 236));
 
@@ -147,11 +194,11 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
         TablaDeRegistros.setRowHeight(30);
         jScrollPane2.setViewportView(TablaDeRegistros);
 
-        jButtonMostrar1.setBackground(new java.awt.Color(102, 153, 255));
-        jButtonMostrar1.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        jButtonMostrar1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonMostrar1.setText("Buscar");
-        jButtonMostrar1.setBorder(null);
+        jButtonMostrar.setBackground(new java.awt.Color(102, 153, 255));
+        jButtonMostrar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonMostrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonMostrar.setText("Buscar");
+        jButtonMostrar.setBorder(null);
 
         JtextFieldBuscarPaquete.setForeground(new java.awt.Color(102, 102, 102));
         JtextFieldBuscarPaquete.setText("BUSCAR UNA PROVINCIA");
@@ -194,6 +241,17 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
             .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jButtonActualizar.setBackground(new java.awt.Color(137, 107, 197));
+        jButtonActualizar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonActualizar.setText("Actualizar");
+        jButtonActualizar.setBorder(null);
+        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
@@ -208,13 +266,15 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(JtextFieldBuscarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButtonMostrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelOpcionesLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(ContentButtonsIME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ContentButtonsIME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         PanelOpcionesLayout.setVerticalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,12 +285,17 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JtextFieldBuscarPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonMostrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
-                .addComponent(ContentButtonsIME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                        .addComponent(ContentButtonsIME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         CambiarDatosPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -300,8 +365,8 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
-        jFieldNombrePROV.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldNombrePROV.setBorder(null);
+        jFieldNombreRA.setForeground(new java.awt.Color(102, 102, 102));
+        jFieldNombreRA.setBorder(null);
 
         javax.swing.GroupLayout ContentRAparte1Layout = new javax.swing.GroupLayout(ContentRAparte1);
         ContentRAparte1.setLayout(ContentRAparte1Layout);
@@ -314,7 +379,7 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
                         .addComponent(Nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ContentRAparte1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jFieldNombrePROV, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jFieldNombreRA, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ContentRAparte1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -326,7 +391,7 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(Nombretxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFieldNombrePROV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFieldNombreRA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(293, 293, 293))
@@ -381,24 +446,30 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
                         .addComponent(jScrollPCDAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelTop1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(47, 47, 47))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addComponent(ContentRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanelTop1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 590, Short.MAX_VALUE)))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CambiarDatosAnimales;
@@ -414,13 +485,16 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
     private javax.swing.JPanel PanelOpciones;
     private javax.swing.JTable TablaDeRegistros;
     private javax.swing.JLabel idForATxt;
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonEliminarA;
     private javax.swing.JButton jButtonInsertarA;
     private javax.swing.JButton jButtonModificarA;
-    private javax.swing.JButton jButtonMostrar1;
-    private javax.swing.JTextField jFieldNombrePROV;
+    private javax.swing.JButton jButtonMostrar;
+    private javax.swing.JTextField jFieldNombreRA;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelIconTipo;
     private javax.swing.JLabel jLabelSinCoincidencias;
+    private javax.swing.JPanel jPanelTop1;
     private javax.swing.JScrollPane jScrollPCDAnimal;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;

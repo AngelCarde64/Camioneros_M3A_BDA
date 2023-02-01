@@ -63,14 +63,14 @@ public class ModeloCamionero extends Camionero {
     }
 
     public SQLException CrearCamionero() {
-        String sql = "INSERT INTO Camionero (cami_dni, cami_nombre, cami_telefono, cami_id_Direccion, cami_sueldo, cami_poblacion, cami_correo)";
+        String sql = "INSERT INTO CAMIONERO (cami_dni, cami_nombre, cami_telefono, cami_id_Direccion, cami_sueldo, cami_poblacion, cami_correo)";
         sql += " VALUES ('" + getDni() + "','" + getNombre() + "','" + getTelefono()
                 + "','" + getId_Direccion() + "','" + getSueldo() + "','" + getPoblacion() + "','" + getCorreo() + "')";
         return conpg.accion(sql);
     }
 
     public SQLException ActualizarCamionero() {
-        String sql = "UPDATE Camionero SET cami_dni = '" + getDni() + "', cami_nombre = '" + getNombre() + "', cami_telefono = '" + getTelefono()
+        String sql = "UPDATE CAMIONERO SET cami_dni = '" + getDni() + "', cami_nombre = '" + getNombre() + "', cami_telefono = '" + getTelefono()
                 + "', cami_id_Direccion = '" + getId_Direccion() + "', cami_sueldo = '" + getSueldo()
                 + "', cami_poblacion = '" + getPoblacion() + "', cami_correo = '" + getCorreo() + "'";
         sql += "WHERE cami_id = '" + getId() + "'";
@@ -78,12 +78,12 @@ public class ModeloCamionero extends Camionero {
     }
 
     public SQLException DeleteCamionero() {
-        String sql = "DELETE FROM Camionero WHERE cami_id ='" + getId() + "'";
+        String sql = "DELETE FROM CAMIONERO WHERE cami_id ='" + getId() + "'";
         return conpg.accion(sql);
     }
 
     public ModeloCamionero MostrarDatosCamionero(String id) {
-        String sql = "select * from Camionero where cami_id = '" + id + "'";
+        String sql = "select * from CAMIONERO where cami_id = '" + id + "'";
         ResultSet rs = conpg.consulta(sql);
         ModeloCamionero MCamionero = new ModeloCamionero();
         try {

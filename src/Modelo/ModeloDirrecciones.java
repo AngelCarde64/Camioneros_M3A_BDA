@@ -50,7 +50,7 @@ public class ModeloDirrecciones extends Dirrecciones {
     }
 
     public SQLException CrearDirrecciones() {
-        String sql = "INSERT INTO Dirrecciones (dir_calle_P, dir_calle_S)";
+        String sql = "INSERT INTO Dirrecciones (dir_calle_p, dir_calle_s)";
         sql += " VALUES ('" + getCalle_P() + "','" + getCalle_S() + "')";
         return conpg.accion(sql);
     }

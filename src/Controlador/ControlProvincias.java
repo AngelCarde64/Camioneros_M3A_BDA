@@ -27,7 +27,7 @@ public class ControlProvincias {
         this.modeloProv = modeloProv;
     }
     
-    public void iniciarControl() {
+    public void iniciarControl(){
         CargarDirecciones();
         // --> Add listeners
         vistaProvincias.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
@@ -42,6 +42,12 @@ public class ControlProvincias {
         });
         // --> Desactivar elementos que van a estar ocultos al principio
         vistaProvincias.getjLabelSinCoincidencias().setVisible(false);
+        
+        vistaProvincias.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Insertar();
+            }
+        });
     }
     
     public void CargarDirecciones() {
@@ -81,17 +87,17 @@ public class ControlProvincias {
 
         if (MCamionero.CrearProvincia()== null) {
             JOptionPane.showMessageDialog(null,
-                    "Dirección creada satisfactoriamente.");
+                    "Provincia creada satisfactoriamente.");
             CargarDirecciones();
         } else {
-            JOptionPane.showMessageDialog(null, "Error al crear al Camionero!\n"
+            JOptionPane.showMessageDialog(null, "Error al crear la Provincia!\n"
                     + "Por favor corriga estos errores:",
-                    "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+                    "Error al crear la Provincia", JOptionPane.ERROR_MESSAGE);
         }
     }
      
      public ModeloProvincia RecuperarDatos(ModeloProvincia MCami) {
-        MCami.setNombre(vistaProvincias.getjFieldNombreRA1().getText());
+        MCami.setNombre(vistaProvincias.getjFieldNombreRA().getText());
        
 //        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
         return MCami;

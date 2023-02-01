@@ -98,7 +98,12 @@ public class ControlMenuPrincipal {
                         SetNewPanelContent(VRprovincias);
                         break;
                     case "DIRECCIONES":
-                        
+                        vistaMP.getjPanelDirecciones().setBackground(coloresbtnMenu[0]);
+                        VistaRegistroDirecciones VRDirecciones = new VistaRegistroDirecciones();
+                        ModeloDirrecciones modeloDireccion = new ModeloDirrecciones();
+                        ControladorDirecciones CRDirecciones = new ControladorDirecciones(VRDirecciones, modeloDireccion);
+                        CRDirecciones.iniciarControl();
+                        SetNewPanelContent(VRDirecciones);
                         break;
                         
                 }

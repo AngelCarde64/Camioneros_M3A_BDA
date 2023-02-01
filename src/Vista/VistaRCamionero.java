@@ -95,7 +95,7 @@ public class VistaRCamionero extends javax.swing.JPanel {
 
         jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("  Buscar camioneros ...");
-        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(164, 164, 164))); // NOI18N
+        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 10), new java.awt.Color(164, 164, 164))); // NOI18N
 
         jButtonInsertarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonInsertarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N

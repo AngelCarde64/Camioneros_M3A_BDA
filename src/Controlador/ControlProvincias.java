@@ -42,6 +42,12 @@ public class ControlProvincias {
         });
         // --> Desactivar elementos que van a estar ocultos al principio
         vistaProvincias.getjLabelSinCoincidencias().setVisible(false);
+        
+        vistaProvincias.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Insertar();
+            }
+        });
     }
     
     public void CargarDirecciones() {

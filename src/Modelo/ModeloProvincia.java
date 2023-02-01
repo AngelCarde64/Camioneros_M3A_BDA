@@ -45,7 +45,7 @@ public class ModeloProvincia extends Provincia {
 
     public SQLException CrearProvincia() {
         String sql = "INSERT INTO PROVINCIA (pro_nombre)";
-        sql += " VALUES ('" + getNombre() + "','" + "')";
+        sql += " VALUES ('" + getNombre() +"')";
         return conpg.accion(sql);
     }
 

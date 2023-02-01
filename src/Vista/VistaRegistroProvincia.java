@@ -70,11 +70,11 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
     }
 
     public JTextField getjFieldNombreRA1() {
-        return jFieldNombreRA1;
+        return jFieldNombrePROV;
     }
 
     public void setjFieldNombreRA1(JTextField jFieldNombreRA) {
-        this.jFieldNombreRA1 = jFieldNombreRA;
+        this.jFieldNombrePROV = jFieldNombreRA;
     }
 
     
@@ -105,7 +105,7 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
         ContentRAparte1 = new javax.swing.JPanel();
         Nombretxt = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jFieldNombreRA1 = new javax.swing.JTextField();
+        jFieldNombrePROV = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -300,8 +300,8 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
-        jFieldNombreRA1.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldNombreRA1.setBorder(null);
+        jFieldNombrePROV.setForeground(new java.awt.Color(102, 102, 102));
+        jFieldNombrePROV.setBorder(null);
 
         javax.swing.GroupLayout ContentRAparte1Layout = new javax.swing.GroupLayout(ContentRAparte1);
         ContentRAparte1.setLayout(ContentRAparte1Layout);
@@ -314,7 +314,7 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
                         .addComponent(Nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ContentRAparte1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jFieldNombreRA1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jFieldNombrePROV, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ContentRAparte1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -326,7 +326,7 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(Nombretxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFieldNombreRA1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFieldNombrePROV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(293, 293, 293))
@@ -418,7 +418,7 @@ public class VistaRegistroProvincia extends javax.swing.JFrame {
     private javax.swing.JButton jButtonInsertarA;
     private javax.swing.JButton jButtonModificarA;
     private javax.swing.JButton jButtonMostrar1;
-    private javax.swing.JTextField jFieldNombreRA1;
+    private javax.swing.JTextField jFieldNombrePROV;
     private javax.swing.JLabel jLabelIconTipo;
     private javax.swing.JLabel jLabelSinCoincidencias;
     private javax.swing.JScrollPane jScrollPCDAnimal;

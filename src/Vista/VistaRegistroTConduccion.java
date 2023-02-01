@@ -1,6 +1,8 @@
 package Vista;
 
+import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -35,14 +37,13 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         jScrollCami = new javax.swing.JScrollPane();
         JPanelDatosCamionero = new javax.swing.JPanel();
         ID_CamioneroTXT = new javax.swing.JLabel();
-        jFieldjFieldIDCamionero = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
-        telefonoTxt = new javax.swing.JLabel();
-        jFieldtelefono = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         ID_CamioneroTXT1 = new javax.swing.JLabel();
-        jFieldjFieldIDCamionero1 = new javax.swing.JTextField();
-        jSeparator6 = new javax.swing.JSeparator();
+        jDateChooserFechaInicio = new com.toedter.calendar.JDateChooser();
+        fecha_inicioTXT = new javax.swing.JLabel();
+        jDateChooserFechaFin = new com.toedter.calendar.JDateChooser();
+        fecha_fin_TXT = new javax.swing.JLabel();
+        jCBoxIDCamionero = new javax.swing.JComboBox<>();
+        jCBoxIDCamion = new javax.swing.JComboBox<>();
 
         jPanelTop1.setBackground(new java.awt.Color(248, 171, 75));
 
@@ -251,34 +252,28 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         ID_CamioneroTXT.setForeground(new java.awt.Color(102, 102, 102));
         ID_CamioneroTXT.setText("ID Camionero:");
 
-        jFieldjFieldIDCamionero.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldjFieldIDCamionero.setBorder(null);
-        jFieldjFieldIDCamionero.setMinimumSize(new java.awt.Dimension(30, 16));
-
-        jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-
-        telefonoTxt.setBackground(new java.awt.Color(0, 102, 255));
-        telefonoTxt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        telefonoTxt.setForeground(new java.awt.Color(102, 102, 102));
-        telefonoTxt.setText("Telefono:");
-
-        jFieldtelefono.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldtelefono.setBorder(null);
-
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-
         ID_CamioneroTXT1.setBackground(new java.awt.Color(0, 102, 255));
         ID_CamioneroTXT1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ID_CamioneroTXT1.setForeground(new java.awt.Color(102, 102, 102));
         ID_CamioneroTXT1.setText("ID Camionero:");
 
-        jFieldjFieldIDCamionero1.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldjFieldIDCamionero1.setBorder(null);
-        jFieldjFieldIDCamionero1.setMinimumSize(new java.awt.Dimension(30, 16));
+        jDateChooserFechaInicio.setDateFormatString("dd MMM yyyy");
 
-        jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        fecha_inicioTXT.setBackground(new java.awt.Color(0, 102, 255));
+        fecha_inicioTXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        fecha_inicioTXT.setForeground(new java.awt.Color(102, 102, 102));
+        fecha_inicioTXT.setText("Fecha Inicio:");
+
+        jDateChooserFechaFin.setDateFormatString("dd-MMM-yyyy");
+
+        fecha_fin_TXT.setBackground(new java.awt.Color(0, 102, 255));
+        fecha_fin_TXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        fecha_fin_TXT.setForeground(new java.awt.Color(102, 102, 102));
+        fecha_fin_TXT.setText("Fecha Fin:");
+
+        jCBoxIDCamionero.setBorder(null);
+
+        jCBoxIDCamion.setBorder(null);
 
         javax.swing.GroupLayout JPanelDatosCamioneroLayout = new javax.swing.GroupLayout(JPanelDatosCamionero);
         JPanelDatosCamionero.setLayout(JPanelDatosCamioneroLayout);
@@ -286,50 +281,49 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
             JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(telefonoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFieldtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
+                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
+                        .addComponent(fecha_fin_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooserFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
+                        .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ID_CamioneroTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFieldjFieldIDCamionero1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addComponent(ID_CamioneroTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFieldjFieldIDCamionero, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(fecha_inicioTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooserFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCBoxIDCamion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
+                        .addComponent(ID_CamioneroTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCBoxIDCamionero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(31, 31, 31))
         );
         JPanelDatosCamioneroLayout.setVerticalGroup(
             JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(1, 1, 1)
+                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ID_CamioneroTXT)
+                    .addComponent(jCBoxIDCamionero, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ID_CamioneroTXT1)
+                    .addComponent(jCBoxIDCamion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooserFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(ID_CamioneroTXT))
-                    .addComponent(jFieldjFieldIDCamionero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(9, 9, 9)
+                        .addComponent(fecha_inicioTXT)))
+                .addGap(18, 18, 18)
                 .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooserFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(ID_CamioneroTXT1))
-                    .addComponent(jFieldjFieldIDCamionero1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(telefonoTxt)
-                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jFieldtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(409, 409, 409))
+                        .addGap(9, 9, 9)
+                        .addComponent(fecha_fin_TXT)))
+                .addContainerGap())
         );
 
         jScrollCami.setViewportView(JPanelDatosCamionero);
@@ -372,6 +366,38 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
                 .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    public JComboBox<String> getjCBoxIDCamion() {
+        return jCBoxIDCamion;
+    }
+
+    public void setjCBoxIDCamion(JComboBox<String> jCBoxIDCamion) {
+        this.jCBoxIDCamion = jCBoxIDCamion;
+    }
+
+    public JComboBox<String> getjCBoxIDCamionero() {
+        return jCBoxIDCamionero;
+    }
+
+    public void setjCBoxIDCamionero(JComboBox<String> jCBoxIDCamionero) {
+        this.jCBoxIDCamionero = jCBoxIDCamionero;
+    }
+
+    public JDateChooser getjDateChooserFechaFin() {
+        return jDateChooserFechaFin;
+    }
+
+    public void setjDateChooserFechaFin(JDateChooser jDateChooserFechaFin) {
+        this.jDateChooserFechaFin = jDateChooserFechaFin;
+    }
+
+    public JDateChooser getjDateChooserFechaInicio() {
+        return jDateChooserFechaInicio;
+    }
+
+    public void setjDateChooserFechaInicio(JDateChooser jDateChooserFechaInicio) {
+        this.jDateChooserFechaInicio = jDateChooserFechaInicio;
+    }
 
     public JLabel getjLabelID() {
         return jLabelID;
@@ -429,30 +455,6 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         this.jButtonModificarA = jButtonModificarA;
     }
 
-    public JTextField getjFieldDNI() {
-        return jFieldjFieldIDCamionero;
-    }
-
-    public void setjFieldDNI(JTextField jFieldDNI) {
-        this.jFieldjFieldIDCamionero = jFieldDNI;
-    }
-
-    public JTextField getjFieldNombre() {
-        return jFieldIDCamion2;
-    }
-
-    public void setjFieldNombre(JTextField jFieldNombre) {
-        this.jFieldIDCamion2 = jFieldNombre;
-    }
-
-    public JTextField getjFieldtelefono() {
-        return jFieldtelefono;
-    }
-
-    public void setjFieldtelefono(JTextField jFieldtelefono) {
-        this.jFieldtelefono = jFieldtelefono;
-    }
-
     public JTextField getjTextFieldBuscar() {
         return jTextFieldBuscar;
     }
@@ -460,7 +462,7 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
     public void setjTextFieldBuscar(JTextField jTextFieldBuscar) {
         this.jTextFieldBuscar = jTextFieldBuscar;
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CambiarDatosPanel;
@@ -473,23 +475,22 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
     private javax.swing.JLabel MensajeingresoTxt;
     private javax.swing.JPanel PanelOpciones;
     private javax.swing.JTable TablaDeRegistros;
+    private javax.swing.JLabel fecha_fin_TXT;
+    private javax.swing.JLabel fecha_inicioTXT;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminarA;
     private javax.swing.JButton jButtonInsertarA;
     private javax.swing.JButton jButtonModificarA;
-    private javax.swing.JTextField jFieldjFieldIDCamionero;
-    private javax.swing.JTextField jFieldjFieldIDCamionero1;
-    private javax.swing.JTextField jFieldtelefono;
+    private javax.swing.JComboBox<String> jCBoxIDCamion;
+    private javax.swing.JComboBox<String> jCBoxIDCamionero;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaFin;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaInicio;
     private javax.swing.JLabel jLabelID;
     private javax.swing.JLabel jLabelSinCoincidencias;
     public javax.swing.JLabel jLabeltituloCamioneros1;
     private javax.swing.JPanel jPanelTop1;
     private javax.swing.JScrollPane jScrollCami;
     private javax.swing.JScrollPane jScrollPaneCam;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTextFieldBuscar;
-    private javax.swing.JLabel telefonoTxt;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,19 +1,17 @@
 package Modelo;
 
-import java.util.Date;
-
 public class TurnoDeConduccion {
 
     private String id;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private java.sql.Date fechaInicio;
+    private java.sql.Date fechaFin;
     private int cami_id;
     private int cam_id;
 
     public TurnoDeConduccion() {
     }
 
-    public TurnoDeConduccion(String id, Date fechaInicio, Date fechaFin, int tur_cami_id, int tur_cam_id) {
+    public TurnoDeConduccion(String id, java.sql.Date fechaInicio, java.sql.Date fechaFin, int tur_cami_id, int tur_cam_id) {
         this.id = id;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -29,19 +27,19 @@ public class TurnoDeConduccion {
         this.id = id;
     }
 
-    public Date getFechaInicio() {
+    public java.sql.Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(java.sql.Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public java.sql.Date getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(java.sql.Date fechaFin) {
         this.fechaFin = fechaFin;
     }
 

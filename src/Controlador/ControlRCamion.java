@@ -14,7 +14,7 @@ public class ControlRCamion {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "", mssDEError = "";
-    private int id_Camion;
+    private int seleccionado;
 
     private List<Camion> listaCamiones;
 
@@ -114,7 +114,7 @@ public class ControlRCamion {
 
     public void Insertar() {
         ModeloCamion MCamion = new ModeloCamion();
-        MCamion = RecuperarDatos(MCamion);
+        MCamion = RecuperarDatos(MCamion, false);
 
         if (!mssDEError.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Error al crear al Camion!\n"
@@ -137,7 +137,8 @@ public class ControlRCamion {
 
     public void Modificar() {
         ModeloCamion MCamion = new ModeloCamion();
-        MCamion = RecuperarDatos(MCamion);
+        MCamion = RecuperarDatos(MCamion, true);
+        MCamion.setId(listaCamiones.get(seleccionado).getId());
 
         if (MCamion.ActualizarCamion() == null) {
             JOptionPane.showMessageDialog(null,
@@ -152,7 +153,7 @@ public class ControlRCamion {
     }
 
     public void Eliminar() {
-        if (id_Camion == 0) {
+        if (seleccionado == 0) {
             JOptionPane.showMessageDialog(null, "Error al eliminar al Camion!\n"
                     + "Por favor Selecciona un camion",
                     "Error al eliminar al Camion", JOptionPane.ERROR_MESSAGE);
@@ -161,35 +162,33 @@ public class ControlRCamion {
 
             respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
             if (respuesta == 0) {
-                ModeloCamionero MCamionero = new ModeloCamionero(id_Camion, "", "", "", "", 0, 0, "");
+                ModeloCamion MCamion = new ModeloCamion(listaCamiones.get(seleccionado).getId(), "", "", "", "");
 
-                if (MCamionero.DeleteCamionero() == null) {
+                if (MCamion.DeleteCamion()== null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    id_Camion = 0;
+                    seleccionado = 0;
                     CargarCamiones();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
                             "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
-                    id_Camion = 0;
+                    seleccionado = 0;
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Cancelado");
-                id_Camion = 0;
+                seleccionado = 0;
             }
         }
     }
 
-    /**
-     * ---> Cuando se le da click en un elemento de la tabla en la parte derecha
-     * se llenaran los datos.
-     */
-    public ModeloCamion RecuperarDatos(ModeloCamion MCami) {
+    public ModeloCamion RecuperarDatos(ModeloCamion MCami, boolean isUpdate) {
         mssDEError = "";
-        boolean ValiCRepetida = !MCami.ListarCamion(VRCamion.getjFieldnro_Placa().getText()).isEmpty();
+        if (!isUpdate) {
+            boolean ValiCRepetida = !MCami.ListarCamion(VRCamion.getjFieldnro_Placa().getText()).isEmpty();
 
-        if (ValiCRepetida) {
-            mssDEError += "\n - El numero de placa ingresada ya existe";
-            return null;
+            if (ValiCRepetida) {
+                mssDEError += "\n - El numero de placa ingresada ya existe";
+                return null;
+            }
         }
         MCami.setNro_Placa(VRCamion.getjFieldnro_Placa().getText());
 
@@ -218,11 +217,11 @@ public class ControlRCamion {
     }
 
     public void MostrarDatos() {
-        VRCamion.getjLabelID().setText(String.valueOf(listaCamiones.get(id_Camion).getId()));
-        VRCamion.getjFieldnro_Placa().setText(listaCamiones.get(id_Camion).getNro_Placa());
-        VRCamion.getjFieldModelo().setText(listaCamiones.get(id_Camion).getModelo());
-        VRCamion.getjFieldTipo().setText(listaCamiones.get(id_Camion).getTipo());
-        VRCamion.getjFieldpotencia().setText(listaCamiones.get(id_Camion).getPotencia());
+        VRCamion.getjLabelID().setText(String.valueOf(listaCamiones.get(seleccionado).getId()));
+        VRCamion.getjFieldnro_Placa().setText(listaCamiones.get(seleccionado).getNro_Placa());
+        VRCamion.getjFieldModelo().setText(listaCamiones.get(seleccionado).getModelo());
+        VRCamion.getjFieldTipo().setText(listaCamiones.get(seleccionado).getTipo());
+        VRCamion.getjFieldpotencia().setText(listaCamiones.get(seleccionado).getPotencia());
     }
 
     public void LimpiarDatos() {
@@ -244,7 +243,7 @@ public class ControlRCamion {
     }
 
     private void ObtenerIDTable() {
-        id_Camion = VRCamion.getTablaDeRegistros().convertRowIndexToModel(VRCamion.getTablaDeRegistros().getSelectedRow());
+        seleccionado = VRCamion.getTablaDeRegistros().convertRowIndexToModel(VRCamion.getTablaDeRegistros().getSelectedRow());
         VRCamion.getTablaDeRegistros().removeAll();
         MostrarDatos();
     }

@@ -77,7 +77,7 @@ public class ModeloCamionero extends Camionero {
     }
 
     public SQLException DeleteCamionero() {
-        String sql = "DELETE FROM Camionero WHERE cami_id ='" + getId() + "';";
+        String sql = "DELETE FROM Camionero WHERE cami_id ='" + getId() + "'";
         return conpg.accion(sql);
     }
 

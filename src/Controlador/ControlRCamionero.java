@@ -232,16 +232,12 @@ public class ControlRCamionero {
      */
     public ModeloCamionero RecuperarDatos(ModeloCamionero MCami) {
         mssDEError = "";
-        boolean ValiCRepetida = !MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
+        boolean ValiCRepetida = MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
 
-        if (validaciones.valiCedula(vistaCam.getjFieldDNI().getText()) == 0) {
-            if (ValiCRepetida) {
-                mssDEError += "\n - La cedula ingresada ya existe";
-                return null;
-            }
+        if (ValiCRepetida) {
             MCami.setDni(vistaCam.getjFieldDNI().getText());
         } else {
-            mssDEError += "\n - Ingrese un numero de cedula valido";
+            mssDEError += "\n - La cedula ingresada ya existe";
             return null;
         }
 

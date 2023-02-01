@@ -177,30 +177,24 @@ public class ControlCliente {
     }
 
     public void Eliminar() {
-        if (seleccionado == 0) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar al Cliente!\n"
-                    + "Por favor Selecciona un cliente",
-                    "Error al eliminar al cliente", JOptionPane.ERROR_MESSAGE);
-        } else {
-            int respuesta = 0;
+        int respuesta = 0;
 
-            respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
-            if (respuesta == 0) {
-                ModeloCliente MCliente = new ModeloCliente(listaClientes.get(seleccionado).getId(), "", "", "");
+        respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
+        if (respuesta == 0) {
+            ModeloCliente MCliente = new ModeloCliente(listaClientes.get(seleccionado).getId(), "", "", "");
 
-                if (MCliente.BorrarCliente() == null) {
-                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    seleccionado = 0;
-                    CargarClientes();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
-                            "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
-                    seleccionado = 0;
-                }
+            if (MCliente.BorrarCliente() == null) {
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
+                seleccionado = 0;
+                CargarClientes();
             } else {
-                JOptionPane.showMessageDialog(null, "Cancelado");
+                JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
+                        "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
                 seleccionado = 0;
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Cancelado");
+            seleccionado = 0;
         }
     }
 

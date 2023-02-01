@@ -153,30 +153,24 @@ public class ControlRCamion {
     }
 
     public void Eliminar() {
-        if (seleccionado == 0) {
-            JOptionPane.showMessageDialog(null, "Error al eliminar al Camion!\n"
-                    + "Por favor Selecciona un camion",
-                    "Error al eliminar al Camion", JOptionPane.ERROR_MESSAGE);
-        } else {
-            int respuesta = 0;
+        int respuesta = 0;
 
-            respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
-            if (respuesta == 0) {
-                ModeloCamion MCamion = new ModeloCamion(listaCamiones.get(seleccionado).getId(), "", "", "", "");
+        respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
+        if (respuesta == 0) {
+            ModeloCamion MCamion = new ModeloCamion(listaCamiones.get(seleccionado).getId(), "", "", "", "");
 
-                if (MCamion.DeleteCamion()== null) {
-                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    seleccionado = 0;
-                    CargarCamiones();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
-                            "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
-                    seleccionado = 0;
-                }
+            if (MCamion.DeleteCamion() == null) {
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
+                seleccionado = 0;
+                CargarCamiones();
             } else {
-                JOptionPane.showMessageDialog(null, "Cancelado");
+                JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
+                        "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
                 seleccionado = 0;
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Cancelado");
+            seleccionado = 0;
         }
     }
 

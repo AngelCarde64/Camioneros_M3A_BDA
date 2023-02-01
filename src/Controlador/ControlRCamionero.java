@@ -26,7 +26,7 @@ public class ControlRCamionero {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "", mssDEError = "";
-    private int id_Camionero;
+    private int seleccionado;
     // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
     //--> Atributos para email
     private static String emailFrom = "adrysdiaz1991@gmail.com";
@@ -59,8 +59,6 @@ public class ControlRCamionero {
         }
 
         // --> Add listeners MOUSE LISTENER
-        
-        
         vistaCam.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
@@ -92,8 +90,6 @@ public class ControlRCamionero {
         });
 
         // --> Key Listener
-        
-        
         vistaCam.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 if (evt.getKeyChar() == '\n') {
@@ -118,7 +114,7 @@ public class ControlRCamionero {
                 validaciones.IngresarSoloLetras(evt);
             }
         });
-        
+
         vistaCam.getjFieldsueldo().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 validaciones.ValiSueldo(evt);
@@ -126,8 +122,6 @@ public class ControlRCamionero {
         });
 
         // --> Desactivar elementos que van a estar ocultos al principio
-        
-        
         vistaCam.getjLabelSinCoincidencias().setVisible(false);
     }
 
@@ -211,34 +205,7 @@ public class ControlRCamionero {
     }
 
     public void Eliminar() {
-//        if (id_Camionero == 0) {
-//            JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!\n"
-//                    + "Por favor Selecciona un camionero",
-//                    "Error al eliminar al Camionero", JOptionPane.ERROR_MESSAGE);
-//        } else {
-//            int respuesta = 0;
-//
-//            respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
-//            if (respuesta == 0) {
-//                ModeloCamionero MCamionero = new ModeloCamionero(id_Camionero, "", "", "", "", 0, 0, "");
-//
-//                if (MCamionero.DeleteCamionero() == null) {
-//                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
-//                    id_Camionero = 0;
-//                    CargarCamioneros();
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
-//                            "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
-//                    id_Camionero = 0;
-//                }
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Cancelado");
-//                id_Camionero = 0;
-//            }
-//        }
-            int fila = vistaCam.getTablaDeRegistros().getSelectedRow();
-
-        if (fila == -1) {
+        if (seleccionado == -1) {
             JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
         } else {
 
@@ -246,12 +213,12 @@ public class ControlRCamionero {
             if (response == JOptionPane.YES_OPTION) {
 
                 String cedula;
-                cedula = vistaCam.getTablaDeRegistros().getValueAt(fila, 0).toString();
+                cedula = vistaCam.getTablaDeRegistros().getValueAt(seleccionado, 0).toString();
                 modeloCamionero.setId(Integer.parseInt(cedula));
 
-                if (modeloCamionero.DeleteCamionero()==null) {
+                if (modeloCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
-                     MostrarDatos();//Actualizo la tabla con los datos
+                    MostrarDatos();//Actualizo la tabla con los datos
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
                 }
@@ -305,7 +272,6 @@ public class ControlRCamionero {
             mssDEError += "\n - Ingrese un correo valido";
             return null;
         }
-     
 
         MCami.setPoblacion(vistaCam.getjSpinnerPoblacion().getValue().toString());
 
@@ -314,14 +280,14 @@ public class ControlRCamionero {
     }
 
     public void MostrarDatos() {
-        vistaCam.getjLabelID().setText(String.valueOf(listaCamioneros.get(id_Camionero).getId()));
-        vistaCam.getjFieldDNI().setText(listaCamioneros.get(id_Camionero).getDni());
-        vistaCam.getjFieldNombre().setText(listaCamioneros.get(id_Camionero).getNombre());
-        vistaCam.getjFieldtelefono().setText(listaCamioneros.get(id_Camionero).getTelefono());
-        vistaCam.getjSpinnerPoblacion().setValue(Double.parseDouble(listaCamioneros.get(id_Camionero).getPoblacion()));
-        vistaCam.getjCBoxIDDirecciones().setSelectedItem(listaCamioneros.get(id_Camionero).getId_Direccion());
-        vistaCam.getjFieldsueldo().setText(String.valueOf(listaCamioneros.get(id_Camionero).getSueldo()));
-        vistaCam.getJfieldcorreo().setText(String.valueOf(listaCamioneros.get(id_Camionero).getCorreo()));
+        vistaCam.getjLabelID().setText(String.valueOf(listaCamioneros.get(seleccionado).getId()));
+        vistaCam.getjFieldDNI().setText(listaCamioneros.get(seleccionado).getDni());
+        vistaCam.getjFieldNombre().setText(listaCamioneros.get(seleccionado).getNombre());
+        vistaCam.getjFieldtelefono().setText(listaCamioneros.get(seleccionado).getTelefono());
+        vistaCam.getjSpinnerPoblacion().setValue(Double.parseDouble(listaCamioneros.get(seleccionado).getPoblacion()));
+        vistaCam.getjCBoxIDDirecciones().setSelectedItem(listaCamioneros.get(seleccionado).getId_Direccion());
+        vistaCam.getjFieldsueldo().setText(String.valueOf(listaCamioneros.get(seleccionado).getSueldo()));
+        vistaCam.getJfieldcorreo().setText(String.valueOf(listaCamioneros.get(seleccionado).getCorreo()));
     }
 
     public void LimpiarDatos() {
@@ -345,7 +311,7 @@ public class ControlRCamionero {
     }
 
     private void ObtenerIDTable() {
-         int fila = vistaCam.getTablaDeRegistros().getSelectedRow();
+        int fila = vistaCam.getTablaDeRegistros().getSelectedRow();
 
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
@@ -358,15 +324,15 @@ public class ControlRCamionero {
                 cedula = vistaCam.getTablaDeRegistros().getValueAt(fila, 0).toString();
                 modeloCamionero.setId(Integer.parseInt(cedula));
 
-                if (modeloCamionero.DeleteCamionero()==null) {
+                if (modeloCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
-                     MostrarDatos();//Actualizo la tabla con los datos
+                    MostrarDatos();//Actualizo la tabla con los datos
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
                 }
             }
         }
-       
+
     }
 
     private void crearEmail() {

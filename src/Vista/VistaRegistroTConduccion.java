@@ -257,10 +257,14 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         ID_CamioneroTXT1.setForeground(new java.awt.Color(102, 102, 102));
         ID_CamioneroTXT1.setText("ID Camionero:");
 
+        jDateChooserFechaInicio.setDateFormatString("dd MMM yyyy");
+
         fecha_inicioTXT.setBackground(new java.awt.Color(0, 102, 255));
         fecha_inicioTXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         fecha_inicioTXT.setForeground(new java.awt.Color(102, 102, 102));
         fecha_inicioTXT.setText("Fecha Inicio:");
+
+        jDateChooserFechaFin.setDateFormatString("dd-MMM-yyyy");
 
         fecha_fin_TXT.setBackground(new java.awt.Color(0, 102, 255));
         fecha_fin_TXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N

@@ -3,7 +3,6 @@ package Modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +14,7 @@ public class ModeloTurnoDeConduccion extends TurnoDeConduccion {
     public ModeloTurnoDeConduccion() {
     }
 
-    public ModeloTurnoDeConduccion(String id, Date fechaInicio, Date fechaFin, int tur_cami_id, int tur_cam_id) {
+    public ModeloTurnoDeConduccion(String id, java.sql.Date fechaInicio, java.sql.Date fechaFin, int tur_cami_id, int tur_cam_id) {
         super(id, fechaInicio, fechaFin, tur_cami_id, tur_cam_id);
     }
 
@@ -52,7 +51,7 @@ public class ModeloTurnoDeConduccion extends TurnoDeConduccion {
 
     public SQLException CrearTConduccion() {
         String sql = "INSERT INTO Turno_de_conduccion (tur_fecha_inicio, tur_fecha_fin, tur_cami_id, tur_cam_id)";
-        sql += " VALUES (to_date('" + getFechaInicio() + "', 'YYYY-MM-DD HH24:MI:SS'), to_date('" + getFechaFin() + "', 'YYYY-MM-DD HH24:MI:SS'), '" + getCami_id() + "', '" + getCam_id() + "')";
+        sql += " VALUES (to_date('" + getFechaInicio() + "', 'YYYY-MM-DD'), to_date('" + getFechaFin() + "', 'YYYY-MM-DD'), '" + getCami_id() + "', '" + getCam_id() + "')";
         return conpg.accion(sql);
     }
 

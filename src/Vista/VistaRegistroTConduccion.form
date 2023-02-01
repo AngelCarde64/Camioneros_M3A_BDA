@@ -569,6 +569,9 @@
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFechaInicio">
+                  <Properties>
+                    <Property name="dateFormatString" type="java.lang.String" value="dd MMM yyyy"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fecha_inicioTXT">
                   <Properties>
@@ -585,6 +588,9 @@
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFechaFin">
+                  <Properties>
+                    <Property name="dateFormatString" type="java.lang.String" value="dd-MMM-yyyy"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="fecha_fin_TXT">
                   <Properties>

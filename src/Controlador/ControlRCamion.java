@@ -179,7 +179,9 @@ public class ControlRCamion {
 
     public ModeloCamion RecuperarDatos(ModeloCamion MCami, boolean isUpdate) {
         mssDEError = "";
-        if (!isUpdate) {
+        if (isUpdate) {
+            MCami.setId(listaCamiones.get(seleccionado).getId());
+        } else {
             boolean ValiCRepetida = !MCami.ListarCamion(VRCamion.getjFieldnro_Placa().getText()).isEmpty();
 
             if (ValiCRepetida) {

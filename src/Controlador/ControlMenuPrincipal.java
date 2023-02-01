@@ -79,12 +79,12 @@ public class ControlMenuPrincipal {
                         SetNewPanelContent(VRCliente);
                         break;
                     case "PROVINCIAS":
-//                        vistaMP.getjPanelProvincias().setBackground(coloresbtnMenu[0]);
-//                        VistaRegistroProvincia VRprovincias = new VistaRegistroProvincia();
-//                        ModeloProvincia modeloProvincia = new ModeloProvincia();
-//                        ControlProvincias CRProvincia = new ControlProvincias(VRprovincias, modeloProvincia);
-//                        CRProvincia.iniciarControl();
-//                        SetNewPanelContent(VRprovincias);
+                        vistaMP.getjPanelProvincias().setBackground(coloresbtnMenu[0]);
+                        VistaRegistroProvincia VRprovincias = new VistaRegistroProvincia();
+                        ModeloProvincia modeloProvincia = new ModeloProvincia();
+                        ControlProvincias CRProvincia = new ControlProvincias(VRprovincias, modeloProvincia);
+                        CRProvincia.iniciarControl();
+                        SetNewPanelContent(VRprovincias);
                         break;
                 }
             }

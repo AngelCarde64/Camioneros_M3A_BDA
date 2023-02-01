@@ -91,7 +91,7 @@ public class ControlProvincias {
     }
      
      public ModeloProvincia RecuperarDatos(ModeloProvincia MCami) {
-        MCami.setNombre(vistaProvincias.getjFieldNombreRA1().getText());
+        MCami.setNombre(vistaProvincias.getjFieldNombreRA().getText());
        
 //        MCami.setId_Direccion(vistaCam.getjCBoxIDDirecciones().getSelectedIndex());
         return MCami;

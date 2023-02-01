@@ -33,6 +33,12 @@ public class ControlCliente {
                 Insertar();
             }
         });
+        
+        vistaCli.getjButtonActualizar().addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt){
+            CargarClientes();
+        }    
+        });
 
         vistaCli.getjButtonModificarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,7 +120,7 @@ public class ControlCliente {
 
         DefaultTableModel pTabla = (DefaultTableModel) vistaCli.getTablaR().getModel();
         pTabla.setNumRows(0);
-
+        
         listaClientes = modeloCliente.ListarCliente("");
 
         // Uso de una expresion landa
@@ -151,7 +157,7 @@ public class ControlCliente {
 
     public void Modificar() {
         ModeloCliente MCliente = new ModeloCliente();
-        MCliente = RecuperarDatos(MCliente);
+        MCliente = RecuperarDatos2(MCliente);
 
         if (MCliente.ActualizarCliente() == null) {
             JOptionPane.showMessageDialog(null,
@@ -197,6 +203,14 @@ public class ControlCliente {
      * se llenaran los datos.
      */
     public ModeloCliente RecuperarDatos(ModeloCliente MCli) {
+        MCli.setDni(vistaCli.getjFieldDNI().getText());
+        MCli.setNombre(vistaCli.getjFieldNombre().getText());
+        MCli.setTelefono(vistaCli.getjFieldtelefono().getText());
+
+        return MCli;
+    }
+    public ModeloCliente RecuperarDatos2(ModeloCliente MCli) {
+        MCli.setId(Integer.parseInt(vistaCli.getjLabelID().getText()));
         MCli.setDni(vistaCli.getjFieldDNI().getText());
         MCli.setNombre(vistaCli.getjFieldNombre().getText());
         MCli.setTelefono(vistaCli.getjFieldtelefono().getText());

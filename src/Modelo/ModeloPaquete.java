@@ -52,7 +52,7 @@ public class ModeloPaquete extends Paquete {
 
     public SQLException CrearPaquete() {
         String sql = "INSERT INTO Paqueteria (paq_codigo_paquete, paq_id_direccion, paq_descripcion, paq_destinatario)";
-        sql += " VALUES ('" + getCod_paquete() + "','" + getDireccion() + "','" + "','" + getDescripcion() + "','" + getDestinatario() + "','" + "')";
+        sql += " VALUES ('" + getCod_paquete() + "','" + getDireccion() + "','" + getDescripcion() + "','" + getDestinatario() + "')";
         return conpg.accion(sql);
     }
 

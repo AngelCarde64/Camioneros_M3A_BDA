@@ -1,7 +1,9 @@
 package Controlador;
 
 import Modelo.Cliente;
+import Modelo.ModeloCliente;
 import Modelo.Dirrecciones;
+import Modelo.ModeloDirrecciones;
 import Modelo.ModeloPaquete;
 import Modelo.Paquete;
 import Vista.VistaRegistroPaquetes;
@@ -13,10 +15,9 @@ public class ControlRPaquete {
 
     private VistaRegistroPaquetes vRPaquetes;
     private ModeloPaquete modeloPaquete;
-
     private Validaciones vali = new Validaciones();
     private String id_paquete = "", criterio = "";
-    private int seleccionado =-1;
+    private int seleccionado ;
     private List<Paquete> listaPaquetes;
     private List<Dirrecciones> listaDirecciones;
     private List<Cliente> listaClientes;
@@ -28,12 +29,63 @@ public class ControlRPaquete {
 
     public void iniciarControl() {
         // --> Desactivar elementos que van a estar ocultos al principio
+        //Cargar datos en el combobox
+        ModeloDirrecciones MDirreciones = new ModeloDirrecciones();
+        listaDirecciones = MDirreciones.ListarDirrecciones("");
+        vRPaquetes.getjCBoxIDDirecciones().removeAllItems();
+
+        for (Dirrecciones listD : listaDirecciones) {
+            vRPaquetes.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getId()
+                    + " - " + listD.getCalle_P() + " - " + listD.getCalle_S()));
+        }
+        
+        //Cargar datos combobox
+        ModeloCliente MCliente = new ModeloCliente();
+        listaClientes = MCliente.ListarCliente("");
+        vRPaquetes.getjCBoxIDDestinatario().removeAllItems();
+        for (Cliente listC : listaClientes) {
+            vRPaquetes.getjCBoxIDDestinatario().addItem(String.valueOf(listC.getId()
+                    + " - " + listC.getNombre()));
+        }
+        
+        
         vRPaquetes.getjLabelSinCoincidencias().setVisible(false);
         CargarPaquetes();
+        
+        
+        
+        vRPaquetes.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ObtenerIDTable();
+            }
+        });
+        
+        vRPaquetes.getjFieldCodP().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                vali.IngresarSoloNumeros(evt);
+            }
+        });
+        vRPaquetes.getjFieldDescripcion().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                vali.IngresarSoloLetras(evt);
+            }
+        });
+        
         
         vRPaquetes.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
+            }
+        });
+        
+        vRPaquetes.getjButtonModificarA().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Modificar();
+            }
+        });
+        vRPaquetes.getjButtonEliminarA().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Eliminar();
             }
         });
         

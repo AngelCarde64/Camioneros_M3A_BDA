@@ -14,23 +14,28 @@ public class ModeloTurnoDeConduccion extends TurnoDeConduccion {
     public ModeloTurnoDeConduccion() {
     }
 
-    public ModeloTurnoDeConduccion(String id, java.sql.Date fechaInicio, java.sql.Date fechaFin, int tur_cami_id, int tur_cam_id) {
+    public ModeloTurnoDeConduccion(int id, java.sql.Date fechaInicio, java.sql.Date fechaFin, int tur_cami_id, int tur_cam_id) {
         super(id, fechaInicio, fechaFin, tur_cami_id, tur_cam_id);
     }
 
     public List<TurnoDeConduccion> ListarTConduccion(String filtro) {
-        String sql = "select * from Turno_de_conduccion where ";
+        String sql="";
+        if(filtro.isEmpty()){
+            sql = "select * from Turno_de_conduccion ";
+        }else{
+         sql = "select * from Turno_de_conduccion where ";
         sql += " UPPER(tur_id_turno) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(tur_fecha_inicio) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(tur_fecha_fin) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(tur_cami_id) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(tur_cam_id) like UPPER('%" + filtro + "%') ";
+         }
         ResultSet rs = conpg.consulta(sql);
         List<TurnoDeConduccion> lista = new ArrayList<TurnoDeConduccion>();
         try {
             while (rs.next()) {
                 TurnoDeConduccion TConduccion = new TurnoDeConduccion();
-                TConduccion.setId(rs.getString("tur_id_turno"));
+                TConduccion.setId(rs.getInt("tur_id_turno"));
                 TConduccion.setFechaInicio(rs.getDate("tur_fecha_inicio"));
                 TConduccion.setFechaFin(rs.getDate("tur_fecha_fin"));
                 TConduccion.setCami_id(rs.getInt("tur_cami_id"));
@@ -56,14 +61,14 @@ public class ModeloTurnoDeConduccion extends TurnoDeConduccion {
     }
 
     public SQLException ActualizarTConduccion() {
-        String sql = "UPDATE Turno_de_conduccion SET tur_fecha_inicio = '" + getFechaInicio() + "', tur_fecha_fin = '" + getFechaFin()
-                + "', tur_cami_id = '" + getCami_id() + "', tur_cam_id = '" + getCam_id() + "'";
-        sql += "WHERE tur_id_turno = '" + getId() + "';";
+        String sql = "UPDATE Turno_de_conduccion SET tur_fecha_inicio = " + "to_date('" + getFechaInicio() + "', 'YYYY-MM-DD')" + ", tur_fecha_fin = " + "to_date('" + getFechaFin()+ "', 'YYYY-MM-DD')"
+                + ", tur_cami_id = '" + getCami_id() + "', tur_cam_id = '" + getCam_id() + "'";
+        sql += "WHERE tur_ID_turno = '" + getId() + "'";
         return conpg.accion(sql);
     }
 
     public SQLException DeleteTConduccion() {
-        String sql = "DELETE FROM Turno_de_conduccion WHERE tur_id_turno ='" + getId() + "';";
+        String sql = "DELETE FROM Turno_de_conduccion WHERE tur_id_turno ='" + getId() + "'";
         return conpg.accion(sql);
     }
 
@@ -73,7 +78,7 @@ public class ModeloTurnoDeConduccion extends TurnoDeConduccion {
         ModeloTurnoDeConduccion MCamionero = new ModeloTurnoDeConduccion();
         try {
             while (rs.next()) {
-                MCamionero.setId(rs.getString("tur_id_turno"));
+                MCamionero.setId(rs.getInt("tur_id_turno"));
                 MCamionero.setFechaInicio(rs.getDate("tur_fecha_inicio"));
                 MCamionero.setFechaFin(rs.getDate("tur_fecha_fin"));
                 MCamionero.setCami_id(rs.getInt("tur_cami_id"));

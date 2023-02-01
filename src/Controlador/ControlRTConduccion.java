@@ -14,7 +14,7 @@ public class ControlRTConduccion {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "", mssDEError = "";
-    private int id_TC;
+    private int id_TC=-1;
 
     private List<TurnoDeConduccion> listaTC;
     private List<Camion> listaCamion;
@@ -123,7 +123,7 @@ public class ControlRTConduccion {
 
     public void Insertar() {
         ModeloTurnoDeConduccion MTC = new ModeloTurnoDeConduccion();
-        MTC = RecuperarDatos(MTC);
+        MTC = RecuperarDatos(MTC,false);
 
         if (!mssDEError.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Error al crear al turno conducción!\n"
@@ -146,13 +146,14 @@ public class ControlRTConduccion {
 
     public void Modificar() {
         ModeloTurnoDeConduccion MTC = new ModeloTurnoDeConduccion();
-        MTC = RecuperarDatos(MTC);
-
+        MTC = RecuperarDatos(MTC,true);
+        MTC.setId(listaTC.get(id_TC).getId());
         if (MTC.ActualizarTConduccion() == null) {
             JOptionPane.showMessageDialog(null,
                     "Turno conducción fue modificado satisfactoriamente.");
-            LimpiarDatos();
+           
             CargarRT();
+             LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar al turno conducción!\n"
                     + "Por favor corriga estos errores:",
@@ -161,29 +162,23 @@ public class ControlRTConduccion {
     }
 
     public void Eliminar() {
-        if (id_TC == 0) {
+        if (id_TC == -1) {
             JOptionPane.showMessageDialog(null, "Error al eliminar al turno conducción!\n"
                     + "Por favor Selecciona un turno conducción",
                     "Error al eliminar al turno conducción", JOptionPane.ERROR_MESSAGE);
         } else {
-            int respuesta = 0;
+            int response = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                String cedula;
+                cedula = vistaTC.getTablaDeRegistros().getValueAt(id_TC, 0).toString();
+                modeloTC.setId(Integer.parseInt(cedula));
 
-            respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
-            if (respuesta == 0) {
-                ModeloCamionero MCamionero = new ModeloCamionero(id_TC, "", "", "", "", 0, 0, "");
-
-                if (MCamionero.DeleteCamionero() == null) {
-                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    id_TC = 0;
+                if (modeloTC.DeleteTConduccion()== null) {
+                    JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
                     CargarRT();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error al eliminar al turno conducción!",
-                            "Error al crear al turno conducción", JOptionPane.ERROR_MESSAGE);
-                    id_TC = 0;
+                    JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Cancelado");
-                id_TC = 0;
             }
         }
     }
@@ -192,8 +187,11 @@ public class ControlRTConduccion {
      * ---> Cuando se le da click en un elemento de la tabla en la parte derecha
      * se llenaran los datos.
      */
-    public ModeloTurnoDeConduccion RecuperarDatos(ModeloTurnoDeConduccion MTC) {
+    public ModeloTurnoDeConduccion RecuperarDatos(ModeloTurnoDeConduccion MTC,boolean isUpdate) {
         mssDEError = "";
+         if (isUpdate) {
+            MTC.setId(listaTC.get(id_TC).getId());
+        } 
         java.sql.Date fechaInicioSQL = new java.sql.Date(vistaTC.getjDateChooserFechaInicio().getDate().getTime());
         java.sql.Date fechaFinSQL = new java.sql.Date(vistaTC.getjDateChooserFechaFin().getDate().getTime());
 
@@ -211,7 +209,7 @@ public class ControlRTConduccion {
             return null;
         }
 
-        MTC.setCam_id((listaCamioneros.get(vistaTC.getjCBoxIDCamion().getSelectedIndex()).getId()));
+        MTC.setCam_id((listaCamion.get(vistaTC.getjCBoxIDCamion().getSelectedIndex()).getId()));
         MTC.setCami_id((listaCamioneros.get(vistaTC.getjCBoxIDCamionero().getSelectedIndex()).getId()));
         return MTC;
     }
@@ -229,6 +227,7 @@ public class ControlRTConduccion {
         vistaTC.getjCBoxIDCamionero().setSelectedIndex(0);
         vistaTC.getjDateChooserFechaInicio().setDate(null);
         vistaTC.getjDateChooserFechaFin().setDate(null);
+        vistaTC.getjLabelID().setText(null);
     }
 
     public void Buscar() {

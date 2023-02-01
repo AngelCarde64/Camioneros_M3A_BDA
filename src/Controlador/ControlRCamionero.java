@@ -118,6 +118,12 @@ public class ControlRCamionero {
                 validaciones.IngresarSoloLetras(evt);
             }
         });
+        
+        vistaCam.getjFieldsueldo().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validaciones.ValiSueldo(evt);
+            }
+        });
 
         // --> Desactivar elementos que van a estar ocultos al principio
         
@@ -240,7 +246,7 @@ public class ControlRCamionero {
         mssDEError = "";
         boolean ValiCRepetida = !MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
 
-        if (validaciones.valiCedula(vistaCam.getjFieldDNI().getText()) == 0) {
+        if (validaciones.valiCedula(vistaCam.getjFieldDNI().getText()) != 0) {
             if (ValiCRepetida) {
                 mssDEError += "\n - La cedula ingresada ya existe";
                 return null;

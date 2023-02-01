@@ -55,7 +55,7 @@ public class VistaRCamion extends javax.swing.JPanel {
         jLabeltituloCamioneros1.setBackground(new java.awt.Color(255, 255, 255));
         jLabeltituloCamioneros1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jLabeltituloCamioneros1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltituloCamioneros1.setText("INGRESO DE CAMION");
+        jLabeltituloCamioneros1.setText("CRUD DE CAMION");
         jLabeltituloCamioneros1.setFocusable(false);
         jLabeltituloCamioneros1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -115,24 +115,24 @@ public class VistaRCamion extends javax.swing.JPanel {
         TablaDeRegistros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         TablaDeRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nro. Placa", "Matricula", "Tipo", "Potencia", "Modelo"
+                "ID", "Nro. Placa", "Tipo", "Potencia", "Modelo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

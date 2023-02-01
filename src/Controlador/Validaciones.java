@@ -9,6 +9,7 @@ public class Validaciones {
 
     // ---> Se lo usara para limitar a 10 los numeros que se pueden ingresar en un jTextField
     private int contador = 0;
+    private boolean dotPresent;
 
     public int valiCedula(String cedula) {
         //si la cedula es una cadena numerica
@@ -79,6 +80,18 @@ public class Validaciones {
             evt.consume();  // ignorar el evento de teclado
         }
     }
+
+    public void ValiSueldo(java.awt.event.KeyEvent evt) {
+        JTextField txt = (JTextField) evt.getComponent();
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.') {
+            evt.consume();
+        }
+        if (c == '.' && txt.getText().contains(".")) {
+            evt.consume();
+        }
+    }
+
 
     public boolean valiString(String cadena) {
         return cadena.matches("[a-zA-z]{3,15}[\\s]{0,1}[a-zA-z]{0,15}");

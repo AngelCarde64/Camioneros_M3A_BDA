@@ -69,7 +69,7 @@
               <Font name="Yu Gothic UI Semibold" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="INGRESO DE CAMIONEROS"/>
+            <Property name="text" type="java.lang.String" value="CRUD DE TURNO DE CONDUCCI&#xd3;N"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>

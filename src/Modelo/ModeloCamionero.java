@@ -72,7 +72,7 @@ public class ModeloCamionero extends Camionero {
         String sql = "UPDATE Camionero SET cami_dni = '" + getDni() + "', cami_nombre = '" + getNombre() + "', cami_telefono = '" + getTelefono()
                 + "', cami_id_Direccion = '" + getId_Direccion() + "', cami_sueldo = '" + getSueldo()
                 + "', cami_poblacion = '" + getPoblacion() + "', cami_correo = '" + getCorreo() + "'";
-        sql += "WHERE cami_id = '" + getId() + "';";
+        sql += "WHERE cami_id = '" + getId() + "'";
         return conpg.accion(sql);
     }
 

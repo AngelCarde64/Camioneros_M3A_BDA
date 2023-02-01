@@ -26,7 +26,7 @@ public class ControlRCamionero {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "", mssDEError = "";
-    private int seleccionado;
+    private int seleccionado=-1;
     // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
     //--> Atributos para email
     private static String emailFrom = "adrysdiaz1991@gmail.com";
@@ -191,12 +191,13 @@ public class ControlRCamionero {
     public void Modificar() {
         ModeloCamionero MCamionero = new ModeloCamionero();
         MCamionero = RecuperarDatos(MCamionero, true);
+        MCamionero.setId(listaCamioneros.get(seleccionado).getId());
 
         if (MCamionero.ActualizarCamionero() == null) {
             JOptionPane.showMessageDialog(null,
                     "Camionero modificado satisfactoriamente.");
-            LimpiarDatos();
             CargarCamioneros();
+            LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar al Camionero!\n"
                     + "Por favor corriga estos errores:",
@@ -234,14 +235,15 @@ public class ControlRCamionero {
         if (isUpdate) {
             MCami.setId(listaCamioneros.get(seleccionado).getId());
         } else {
-            boolean ValiCRepetida = MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
+            boolean ValiCRepetida = !MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
             if (ValiCRepetida) {
-                MCami.setDni(vistaCam.getjFieldDNI().getText());
-            } else {
+               
+//            } else {
                 mssDEError += "\n - La cedula ingresada ya existe";
                 return null;
-            }
+            }           
         }
+         MCami.setDni(vistaCam.getjFieldDNI().getText());
         if (!vistaCam.getjFieldNombre().getText().isEmpty()) {
             MCami.setNombre(vistaCam.getjFieldNombre().getText());
         } else {
@@ -291,7 +293,7 @@ public class ControlRCamionero {
         vistaCam.getjFieldDNI().setText("");
         vistaCam.getjFieldNombre().setText("");
         vistaCam.getjFieldtelefono().setText("");
-        vistaCam.getjSpinnerPoblacion().setValue(0);
+        vistaCam.getjSpinnerPoblacion().setValue(1);
         vistaCam.getjFieldsueldo().setText("");
         vistaCam.getjCBoxIDDirecciones().setSelectedIndex(0);
     }

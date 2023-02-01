@@ -14,7 +14,7 @@ public class ControlCliente {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "";
-    private int id_Cliente;
+    private int seleccionado;
     private List<Cliente> listaClientes;
 
     public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente) {
@@ -33,11 +33,11 @@ public class ControlCliente {
                 Insertar();
             }
         });
-        
+
         vistaCli.getjButtonActualizar().addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt){
-            CargarClientes();
-        }    
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarClientes();
+            }
         });
 
         vistaCli.getjButtonModificarA().addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,10 +79,10 @@ public class ControlCliente {
             }
         });
         vistaCli.getjFieldNombre().addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyTyped(java.awt.event.KeyEvent evt){
-            validaciones.IngresarSoloLetras(evt);
-        }
-        
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validaciones.IngresarSoloLetras(evt);
+            }
+
         });
 
         vistaCli.getjFieldtelefono().addKeyListener(new java.awt.event.KeyAdapter() {
@@ -126,7 +126,7 @@ public class ControlCliente {
 
         DefaultTableModel pTabla = (DefaultTableModel) vistaCli.getTablaR().getModel();
         pTabla.setNumRows(0);
-        
+
         listaClientes = modeloCliente.ListarCliente("");
 
         // Uso de una expresion landa
@@ -177,7 +177,7 @@ public class ControlCliente {
     }
 
     public void Eliminar() {
-        if (id_Cliente == 0) {
+        if (seleccionado == 0) {
             JOptionPane.showMessageDialog(null, "Error al eliminar al Cliente!\n"
                     + "Por favor Selecciona un cliente",
                     "Error al eliminar al cliente", JOptionPane.ERROR_MESSAGE);
@@ -186,20 +186,20 @@ public class ControlCliente {
 
             respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
             if (respuesta == 0) {
-                ModeloCliente MCliente = new ModeloCliente(id_Cliente, "", "", "");
+                ModeloCliente MCliente = new ModeloCliente(listaClientes.get(seleccionado), "", "", "");
 
                 if (MCliente.BorrarCliente() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    id_Cliente = 0;
+                    seleccionado = 0;
                     CargarClientes();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
                             "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
-                    id_Cliente = 0;
+                    seleccionado = 0;
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Cancelado");
-                id_Cliente = 0;
+                seleccionado = 0;
             }
         }
     }
@@ -215,6 +215,7 @@ public class ControlCliente {
 
         return MCli;
     }
+
     public ModeloCliente RecuperarDatos2(ModeloCliente MCli) {
         MCli.setId(Integer.parseInt(vistaCli.getjLabelID().getText()));
         MCli.setDni(vistaCli.getjFieldDNI().getText());
@@ -225,10 +226,10 @@ public class ControlCliente {
     }
 
     public void MostrarDatos() {
-        vistaCli.getjLabelID().setText(String.valueOf(listaClientes.get(id_Cliente).getId()));
-        vistaCli.getjFieldDNI().setText(listaClientes.get(id_Cliente).getDni());
-        vistaCli.getjFieldNombre().setText(listaClientes.get(id_Cliente).getNombre());
-        vistaCli.getjFieldtelefono().setText(listaClientes.get(id_Cliente).getTelefono());
+        vistaCli.getjLabelID().setText(String.valueOf(listaClientes.get(seleccionado).getId()));
+        vistaCli.getjFieldDNI().setText(listaClientes.get(seleccionado).getDni());
+        vistaCli.getjFieldNombre().setText(listaClientes.get(seleccionado).getNombre());
+        vistaCli.getjFieldtelefono().setText(listaClientes.get(seleccionado).getTelefono());
 
     }
 
@@ -250,7 +251,7 @@ public class ControlCliente {
     }
 
     private void ObtenerIDTable() {
-        id_Cliente = vistaCli.getTablaR().convertRowIndexToModel(vistaCli.getTablaR().getSelectedRow());
+        seleccionado = vistaCli.getTablaR().convertRowIndexToModel(vistaCli.getTablaR().getSelectedRow());
         vistaCli.getTablaR().removeAll();
         MostrarDatos();
     }

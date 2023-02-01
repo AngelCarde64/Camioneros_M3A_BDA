@@ -26,7 +26,7 @@ public class ControlRCamionero {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "", mssDEError = "";
-    private int seleccionado;
+    private int seleccionado = -1;
     // --> Sera usado para mostrar en uin combo box todas los ID de dirreciones disponibles
     //--> Atributos para email
     private static String emailFrom = "adrysdiaz1991@gmail.com";
@@ -215,7 +215,6 @@ public class ControlRCamionero {
                 String cedula;
                 cedula = vistaCam.getTablaDeRegistros().getValueAt(seleccionado, 0).toString();
                 modeloCamionero.setId(Integer.parseInt(cedula));
-
                 if (modeloCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
                     MostrarDatos();//Actualizo la tabla con los datos

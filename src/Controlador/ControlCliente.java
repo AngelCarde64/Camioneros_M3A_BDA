@@ -14,7 +14,7 @@ public class ControlCliente {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "";
-    private int seleccionado;
+    private int seleccionado = -1;
     private List<Cliente> listaClientes;
 
     public ControlCliente(VistaRegistroCliente vistaCli, ModeloCliente modeloCliente) {
@@ -187,7 +187,7 @@ public class ControlCliente {
 
                 if (MCliente.BorrarCliente() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    seleccionado = 0;
+                    seleccionado = -1;
                     CargarClientes();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",

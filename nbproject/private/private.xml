@@ -3,13 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USUARIO/Documents/GitHub/Camioneros_M3A_BDA/src/Modelo/ModeloCamionero.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/GitHub/Camioneros_M3A_BDA/src/Controlador/Validaciones.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/GitHub/Camioneros_M3A_BDA/src/Modelo/PgConect.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/GitHub/Camioneros_M3A_BDA/src/Controlador/ControlRCamionero.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/GitHub/Camioneros_M3A_BDA/src/Main/MVC_Camioneros.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/GitHub/Camioneros_M3A_BDA/src/Modelo/Cliente.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/GitHub/Camioneros_M3A_BDA/src/Vista/VistaRCamionero.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Imagenes/Logo%20Camion.png</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Vista/VistaMenuPrincipal.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Modelo/PgConect.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Controlador/ControlProvincias.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Controlador/ControlMenuPrincipal.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Modelo/ModeloTurnoDeConduccion.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Modelo/Camionero.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Modelo/ModeloCamionero.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Modelo/TurnoDeConduccion.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Vista/VistaRegistroProvincia.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Controlador/ControlRCamion.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Vista/VistaRCamionero.java</file>
+            <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Imagenes/TURNO.png</file>
         </group>
         <group name="Programacion_VisualAD">
             <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Modelo/ModeloCamion.java</file>

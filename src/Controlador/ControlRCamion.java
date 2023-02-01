@@ -33,6 +33,11 @@ public class ControlRCamion {
                 CargarCamiones();
             }
         });
+        VRCamion.getjButtonLimpiar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LimpiarDatos();
+            }
+        });
         VRCamion.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();

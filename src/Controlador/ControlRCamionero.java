@@ -75,6 +75,11 @@ public class ControlRCamionero {
                 Eliminar();
             }
         });
+        vistaCam.getjButtonActualizar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarCamioneros();
+            }
+        });
         vistaCam.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ObtenerIDTable();

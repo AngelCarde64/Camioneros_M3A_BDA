@@ -74,7 +74,7 @@
               <Font name="Yu Gothic UI Semibold" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="PROVINCIAS"/>
+            <Property name="text" type="java.lang.String" value="CRUD DIRECCIONES"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>

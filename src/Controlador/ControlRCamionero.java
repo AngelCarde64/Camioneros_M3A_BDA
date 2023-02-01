@@ -246,7 +246,7 @@ public class ControlRCamionero {
         mssDEError = "";
         boolean ValiCRepetida = !MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
 
-        if (validaciones.valiCedula(vistaCam.getjFieldDNI().getText()) != 0) {
+        if (validaciones.valiCedula(vistaCam.getjFieldDNI().getText()) == 0) {
             if (ValiCRepetida) {
                 mssDEError += "\n - La cedula ingresada ya existe";
                 return null;

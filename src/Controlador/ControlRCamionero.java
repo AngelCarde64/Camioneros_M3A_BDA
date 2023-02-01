@@ -118,6 +118,12 @@ public class ControlRCamionero {
                 validaciones.IngresarSoloLetras(evt);
             }
         });
+        
+        vistaCam.getjFieldsueldo().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                validaciones.ValiSueldo(evt);
+            }
+        });
 
         // --> Desactivar elementos que van a estar ocultos al principio
         

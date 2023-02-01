@@ -18,11 +18,7 @@
             <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Imagenes/TURNO.png</file>
         </group>
         <group name="Programacion_VisualAD">
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Modelo/ModeloCamion.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Vista/VistaRegistroTConduccion.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Modelo/ModeloCamionero.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlProvincias.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlMenuPrincipal.java</file>
+            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlRCamionero.java</file>
         </group>
     </open-files>
 </project-private>

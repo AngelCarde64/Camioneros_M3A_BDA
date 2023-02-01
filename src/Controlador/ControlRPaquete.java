@@ -1,12 +1,14 @@
 package Controlador;
 
-import Modelo.Cliente;
 import Modelo.ModeloCliente;
+import Modelo.Cliente;
 import Modelo.Dirrecciones;
-import Modelo.ModeloDirrecciones;
+import Modelo.Provincia;
+import Modelo.ModeloProvincia;
 import Modelo.ModeloPaquete;
 import Modelo.Paquete;
 import Vista.VistaRegistroPaquetes;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,10 +18,10 @@ public class ControlRPaquete {
     private VistaRegistroPaquetes vRPaquetes;
     private ModeloPaquete modeloPaquete;
     private Validaciones vali = new Validaciones();
-    private String id_paquete = "", criterio = "";
-    private int seleccionado ;
+    private String mssDEError = "", criterio = "";
+    private int seleccionado=-1 ;
     private List<Paquete> listaPaquetes;
-    private List<Dirrecciones> listaDirecciones;
+    private List<Provincia> listaDirecciones;
     private List<Cliente> listaClientes;
 
     public ControlRPaquete(VistaRegistroPaquetes vRPaquetes, ModeloPaquete modeloPaquete) {
@@ -28,15 +30,15 @@ public class ControlRPaquete {
     }
 
     public void iniciarControl() {
+        CargarPaquetes();
         // --> Desactivar elementos que van a estar ocultos al principio
         //Cargar datos en el combobox
-        ModeloDirrecciones MDirreciones = new ModeloDirrecciones();
-        listaDirecciones = MDirreciones.ListarDirrecciones("");
+        ModeloProvincia MDirreciones = new ModeloProvincia();
+        listaDirecciones = MDirreciones.ListarProvincia("");
         vRPaquetes.getjCBoxIDDirecciones().removeAllItems();
-
-        for (Dirrecciones listD : listaDirecciones) {
-            vRPaquetes.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getId()
-                    + " - " + listD.getCalle_P() + " - " + listD.getCalle_S()));
+            
+        for (Provincia listD : listaDirecciones) {
+            vRPaquetes.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getCod_provincia()+"-"+listD.getNombre()));
         }
         
         //Cargar datos combobox
@@ -44,34 +46,19 @@ public class ControlRPaquete {
         listaClientes = MCliente.ListarCliente("");
         vRPaquetes.getjCBoxIDDestinatario().removeAllItems();
         for (Cliente listC : listaClientes) {
-            vRPaquetes.getjCBoxIDDestinatario().addItem(String.valueOf(listC.getId()
+            vRPaquetes.getjCBoxIDDestinatario().addItem(String.valueOf(listC.getId()+"-"+listC.getDni()
                     + " - " + listC.getNombre()));
         }
-        
-        
-        vRPaquetes.getjLabelSinCoincidencias().setVisible(false);
-        CargarPaquetes();
-        
-        
-        
-        vRPaquetes.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ObtenerIDTable();
-            }
-        });
+ 
         
         vRPaquetes.getjFieldCodP().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 vali.IngresarSoloNumeros(evt);
             }
         });
-        vRPaquetes.getjFieldDescripcion().addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                vali.IngresarSoloLetras(evt);
-            }
-        });
         
         
+        // --> Add listeners MOUSE LISTENER
         vRPaquetes.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
@@ -88,7 +75,28 @@ public class ControlRPaquete {
                 Eliminar();
             }
         });
-        
+        vRPaquetes.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ObtenerIDTable();
+            }
+        });
+        vRPaquetes.getjTextFieldBuscar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (vRPaquetes.getjTextFieldBuscar().getText().contains("Buscar")) {
+                    vRPaquetes.getjTextFieldBuscar().setText("");
+                    vRPaquetes.getjTextFieldBuscar().setForeground(Color.black);
+                }
+            }
+        });
+        // --> Key Listener
+        vRPaquetes.getjTextFieldBuscar().addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                if (evt.getKeyChar() == '\n') {
+                    Buscar();
+                }
+            }
+        });
+         vRPaquetes.getjLabelSinCoincidencias().setVisible(false);
     }
     public void LlenarTablaBusqueda() {
         // Para darle forma al modelo de la tabla
@@ -134,30 +142,37 @@ public class ControlRPaquete {
     }
     public void Insertar() {
         ModeloPaquete MPaquete = new ModeloPaquete();
-        MPaquete = RecuperarDatos(MPaquete);
+        MPaquete = RecuperarDatos(MPaquete,false);
 
+        if (!mssDEError.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Error al crear al paquete!\n"
+                    + "Por favor corriga estos errores:" + mssDEError,
+                    "Error al crear al paquete", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         if (MPaquete.CrearPaquete()== null) {
-//            crearEmail();
-//                    sendEmail();
             JOptionPane.showMessageDialog(null,
-                    "Cliente creado satisfactoriamente.");
+                    "Paquete creado satisfactoriamente.");
 
-            CargarPaquetes();
+             CargarPaquetes();
+            LimpiarDatos();
         } else {
-            JOptionPane.showMessageDialog(null, "Error al crear al Cliente!\n"
-                    + "Por favor corriga estos errores:",
-                    "Error al crear al Cliente", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al crear al turno paquete!\n"
+                    + "¡¡Error al intentar crear al paquete!!",
+                    "Error al crear al paquete", JOptionPane.ERROR_MESSAGE);
         }
     }
         public void Modificar() {
         ModeloPaquete MPaquetes = new ModeloPaquete();
-        MPaquetes = RecuperarDatos(MPaquetes);
-
+        MPaquetes = RecuperarDatos(MPaquetes,true);
+        MPaquetes.setId(listaPaquetes.get(seleccionado).getId());
+            
         if (MPaquetes.ActualizarPaquete()== null) {
             JOptionPane.showMessageDialog(null,
                     "Camionero modificado satisfactoriamente.");
-            LimpiarDatos();
             CargarPaquetes();
+            LimpiarDatos();
+            
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar al Camionero!\n"
                     + "Por favor corriga estos errores:",
@@ -166,20 +181,20 @@ public class ControlRPaquete {
     }
 
     public void Eliminar() {
-        if (seleccionado == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+       if (seleccionado == -1) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar al paquete!\n"
+                    + "Por favor Selecciona un paquete",
+                    "Error al eliminar al paquete", JOptionPane.ERROR_MESSAGE);
         } else {
-
             int response = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
-
                 String cedula;
                 cedula = vRPaquetes.getTablaDeRegistros().getValueAt(seleccionado, 0).toString();
                 modeloPaquete.setId(Integer.parseInt(cedula));
 
                 if (modeloPaquete.DeletePaquete()== null) {
                     JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
-                    MostrarDatos();//Actualizo la tabla con los datos
+                    CargarPaquetes();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
                 }
@@ -187,19 +202,23 @@ public class ControlRPaquete {
         }
     }
     
-    public ModeloPaquete RecuperarDatos(ModeloPaquete MCami) {
+    public ModeloPaquete RecuperarDatos(ModeloPaquete MCami,boolean isUpdate) {
         String mssDEError = "";
-        boolean ValiCRepetida = MCami.ListarPaquete(vRPaquetes.getjFieldCodP().getText()).isEmpty();
+        if (isUpdate) {
+            MCami.setId(listaPaquetes.get(seleccionado).getId());
+        } 
+        else{
+        boolean ValiCRepetida = !MCami.ListarPaquete(vRPaquetes.getjFieldCodP().getText()).isEmpty();
 
         if (ValiCRepetida) {
-            MCami.setCod_paquete(vRPaquetes.getjFieldCodP().getText());
-        } else {
+           
+       
             mssDEError += "\n - El codigo ingresado ya existe";
             return null;
         }
-        
-        MCami.setDireccion((listaDirecciones.get(vRPaquetes.getjCBoxIDDirecciones().getSelectedIndex()).getId()));
-
+        }
+         MCami.setCod_paquete(vRPaquetes.getjFieldCodP().getText());
+       
         if (!vRPaquetes.getjFieldDescripcion().getText().isEmpty()) {
             MCami.setDescripcion(vRPaquetes.getjFieldDescripcion().getText());
         } else {
@@ -207,6 +226,7 @@ public class ControlRPaquete {
             return null;
         }
         MCami.setDestinatario((listaClientes.get(vRPaquetes.getjCBoxIDDestinatario().getSelectedIndex()).getId()));
+         MCami.setDireccion((listaDirecciones.get(vRPaquetes.getjCBoxIDDirecciones().getSelectedIndex()).getCod_provincia()));
 
         
         return MCami;
@@ -221,8 +241,8 @@ public class ControlRPaquete {
     }
     
         public void LimpiarDatos() {
-        vRPaquetes.getjFieldCodP().setText("");
-        vRPaquetes.getjFieldDescripcion().setText("");
+        vRPaquetes.getjFieldCodP().setText(null);
+        vRPaquetes.getjFieldDescripcion().setText(null);
         vRPaquetes.getjCBoxIDDestinatario().setSelectedIndex(0);
         vRPaquetes.getjCBoxIDDirecciones().setSelectedIndex(0);
     }
@@ -239,27 +259,9 @@ public class ControlRPaquete {
     }
 
     private void ObtenerIDTable() {
-        int fila = vRPaquetes.getTablaDeRegistros().getSelectedRow();
-
-        if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
-        } else {
-
-            int response = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (response == JOptionPane.YES_OPTION) {
-
-                String cedula;
-                cedula = vRPaquetes.getTablaDeRegistros().getValueAt(fila, 0).toString();
-                modeloPaquete.setId(Integer.parseInt(cedula));
-
-                if (modeloPaquete.DeletePaquete()== null) {
-                    JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
-                    MostrarDatos();//Actualizo la tabla con los datos
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
-                }
-            }
-        }
+         seleccionado = vRPaquetes.getTablaDeRegistros().convertRowIndexToModel(vRPaquetes.getTablaDeRegistros().getSelectedRow());
+        vRPaquetes.getTablaDeRegistros().removeAll();
+        MostrarDatos();
 
     }
 

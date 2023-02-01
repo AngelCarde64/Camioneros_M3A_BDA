@@ -14,7 +14,7 @@ public class ModeloProvincia extends Provincia {
     public ModeloProvincia() {
     }
 
-    public ModeloProvincia(String cod_paquete, String nombre) {
+    public ModeloProvincia(int cod_paquete, String nombre) {
         super(cod_paquete, nombre);
     }
 
@@ -27,7 +27,7 @@ public class ModeloProvincia extends Provincia {
         try {
             while (rs.next()) {
                 Provincia provincia = new Provincia();
-                provincia.setCod_provincia(rs.getString("pro_codigo_provincia"));
+                provincia.setCod_provincia(rs.getInt("pro_codigo_provincia"));
                 provincia.setNombre(rs.getString("pro_nombre"));
                 lista.add(provincia);
             }
@@ -51,12 +51,12 @@ public class ModeloProvincia extends Provincia {
 
     public SQLException ActualizarProvincia() {
         String sql = "UPDATE PROVINCIA SET pro_nombre = '" + getNombre() + "';";
-        sql += "WHERE pro_codigo_provincia = '" + getCod_provincia() + "';";
+        sql += "WHERE pro_codigo_provincia = '" + getCod_provincia() + "'";
         return conpg.accion(sql);
     }
 
     public SQLException DeleteProvincia() {
-        String sql = "DELETE FROM PROVINCIA WHERE pro_codigo_provincia ='" + getCod_provincia() + "';";
+        String sql = "DELETE FROM PROVINCIA WHERE pro_codigo_provincia ='" + getCod_provincia() + "'";
         return conpg.accion(sql);
     }
 
@@ -66,8 +66,8 @@ public class ModeloProvincia extends Provincia {
         ModeloProvincia MProvincia = new ModeloProvincia();
         try {
             while (rs.next()) {
-                MProvincia.setCod_provincia(rs.getString("pro_codigo_provincia"));
-                MProvincia.setCod_provincia(rs.getString("pro_nombre"));
+                MProvincia.setCod_provincia(rs.getInt("pro_codigo_provincia"));
+                MProvincia.setNombre(rs.getString("pro_nombre"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ModeloProvincia.class.getName()).log(Level.SEVERE, null, ex);

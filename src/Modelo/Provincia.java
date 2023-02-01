@@ -2,22 +2,22 @@ package Modelo;
 
 public class Provincia {
 
-    private String cod_provincia;
+    private int cod_provincia;
     private String nombre;
 
     public Provincia() {
     }
 
-    public Provincia(String cod_paquete, String nombre) {
+    public Provincia(int cod_paquete, String nombre) {
         this.cod_provincia = cod_paquete;
         this.nombre = nombre;
     }
 
-    public String getCod_provincia() {
+    public int getCod_provincia() {
         return cod_provincia;
     }
 
-    public void setCod_provincia(String cod_provincia) {
+    public void setCod_provincia(int cod_provincia) {
         this.cod_provincia = cod_provincia;
     }
 

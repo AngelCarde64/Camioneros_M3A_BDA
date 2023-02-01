@@ -20,11 +20,17 @@ public class ModeloCliente extends Cliente {
     }
 
     public List<Cliente> ListarCliente(String filtro) {
-        String sql = "select * from cliente where ";
+        String sql="";
+        if(filtro.isEmpty()){
+            sql = "select * from cliente ";
+        }else{
+             sql = "select * from cliente where ";
         sql += " UPPER(cli_id) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cli_dni) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cli_nombre) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(cli_telefono) like UPPER('%" + filtro + "%') ";
+        }
+        
 
         ResultSet rs = conpg.consulta(sql);
         List<Cliente> lista = new ArrayList<Cliente>();

@@ -20,12 +20,17 @@ public class ModeloPaquete extends Paquete {
     }
  
     public List<Paquete> ListarPaquete(String filtro) {
-        String sql = "select * from Paqueteria where ";
+        String sql="";
+        if(filtro.isEmpty()){
+           sql = "select * from Paqueteria  ";  
+        }else{
+         sql = "select * from Paqueteria where ";
         sql += " UPPER(paq_id_paquetes) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(paq_codigo_paquete) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(paq_id_direccion) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(paq_descripcion) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(paq_destinatario) like UPPER('%" + filtro + "%') ";
+        }
         ResultSet rs = conpg.consulta(sql);
         List<Paquete> lista = new ArrayList<Paquete>();
         try {
@@ -59,12 +64,12 @@ public class ModeloPaquete extends Paquete {
     public SQLException ActualizarPaquete() {
         String sql = "UPDATE Paqueteria SET paq_codigo_paquete = '" + getCod_paquete() + "', paq_id_direccion = '" + getDireccion()
                 + "', paq_descripcion = '" + getDescripcion() + "', paq_destinatario = '" + getDestinatario() + "'";
-        sql += "WHERE paq_id_paquetes = '" + getId() + "';";
+        sql += "WHERE paq_id_paquetes = '" + getId() + "'";
         return conpg.accion(sql);
     }
 
     public SQLException DeletePaquete() {
-        String sql = "DELETE FROM Paqueteria WHERE paq_id_paquetes ='" + getId() + "';";
+        String sql = "DELETE FROM Paqueteria WHERE paq_id_paquetes ='" + getId() + "'";
         return conpg.accion(sql);
     }
 

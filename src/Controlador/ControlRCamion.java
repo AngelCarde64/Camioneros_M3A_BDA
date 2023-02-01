@@ -14,7 +14,7 @@ public class ControlRCamion {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "", mssDEError = "";
-    private int seleccionado;
+    private int seleccionado = -1;
 
     private List<Camion> listaCamiones;
 
@@ -154,7 +154,6 @@ public class ControlRCamion {
 
     public void Eliminar() {
         int respuesta = 0;
-
         if (seleccionado == -1) {
             JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
         } else {
@@ -164,7 +163,7 @@ public class ControlRCamion {
 
                 if (MCamion.DeleteCamion() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    seleccionado = 0;
+                    seleccionado = -1;
                     CargarCamiones();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",

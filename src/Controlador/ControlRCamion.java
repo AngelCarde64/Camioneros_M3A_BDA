@@ -155,22 +155,26 @@ public class ControlRCamion {
     public void Eliminar() {
         int respuesta = 0;
 
-        respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
-        if (respuesta == 0) {
-            ModeloCamion MCamion = new ModeloCamion(listaCamiones.get(seleccionado).getId(), "", "", "", "");
+        if (seleccionado == -1) {
+            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
+        } else {
+            respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
+            if (respuesta == 0) {
+                ModeloCamion MCamion = new ModeloCamion(listaCamiones.get(seleccionado).getId(), "", "", "", "");
 
-            if (MCamion.DeleteCamion() == null) {
-                JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                seleccionado = 0;
-                CargarCamiones();
+                if (MCamion.DeleteCamion() == null) {
+                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
+                    seleccionado = 0;
+                    CargarCamiones();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
+                            "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+                    seleccionado = 0;
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Error al eliminar al Camionero!",
-                        "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Cancelado");
                 seleccionado = 0;
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Cancelado");
-            seleccionado = 0;
         }
     }
 

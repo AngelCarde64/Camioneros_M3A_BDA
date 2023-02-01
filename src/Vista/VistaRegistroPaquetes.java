@@ -28,6 +28,9 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
         jLabelSinCoincidencias = new javax.swing.JLabel();
         jScrollPaneCam = new javax.swing.JScrollPane();
         TablaDeRegistros = new javax.swing.JTable();
+        jScrollPaneCam1 = new javax.swing.JScrollPane();
+        TablaR = new javax.swing.JTable();
+        jTextFieldBuscar1 = new javax.swing.JTextField();
         CambiarDatosPanel = new javax.swing.JPanel();
         Datostxt = new javax.swing.JLabel();
         MensajeingresoTxt = new javax.swing.JLabel();
@@ -57,7 +60,7 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
         jLabeltituloCamioneros1.setBackground(new java.awt.Color(255, 255, 255));
         jLabeltituloCamioneros1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jLabeltituloCamioneros1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltituloCamioneros1.setText("INGRESO DE CAMIONEROS");
+        jLabeltituloCamioneros1.setText("INGRESO DE PAQUETERIA");
         jLabeltituloCamioneros1.setFocusable(false);
         jLabeltituloCamioneros1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -90,7 +93,7 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
 
         jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("  Buscar camioneros ...");
-        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(164, 164, 164))); // NOI18N
+        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 15), new java.awt.Color(164, 164, 164))); // NOI18N
 
         jButtonInsertarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonInsertarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -144,6 +147,41 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
         TablaDeRegistros.setRowHeight(30);
         jScrollPaneCam.setViewportView(TablaDeRegistros);
 
+        TablaR.setBackground(new java.awt.Color(133, 171, 208));
+        TablaR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        TablaR.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "DNI", "Nombre"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        TablaR.setRowHeight(30);
+        jScrollPaneCam1.setViewportView(TablaR);
+
+        jTextFieldBuscar1.setForeground(new java.awt.Color(102, 102, 102));
+        jTextFieldBuscar1.setText("  Buscar clientes ...");
+        jTextFieldBuscar1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 15), new java.awt.Color(164, 164, 164))); // NOI18N
+
         javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
@@ -165,6 +203,14 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
                         .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(145, 145, 145))
             .addComponent(jScrollPaneCam, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneCam1)
+                .addContainerGap())
+            .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextFieldBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelOpcionesLayout.setVerticalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,8 +227,12 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
                     .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPaneCam)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jTextFieldBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPaneCam1, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -533,6 +583,7 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
     private javax.swing.JLabel PorcionTXT;
     private javax.swing.JLabel SueldoTxt;
     private javax.swing.JTable TablaDeRegistros;
+    private javax.swing.JTable TablaR;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminarA;
     private javax.swing.JButton jButtonInsertarA;
@@ -548,12 +599,14 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelTop1;
     private javax.swing.JScrollPane jScrollCami;
     private javax.swing.JScrollPane jScrollPaneCam;
+    private javax.swing.JScrollPane jScrollPaneCam1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSpinner jSpinnerPoblacion;
     private javax.swing.JTextField jTextFieldBuscar;
+    private javax.swing.JTextField jTextFieldBuscar1;
     private javax.swing.JLabel telefonoTxt;
     private javax.swing.JLabel telefonoTxt1;
     // End of variables declaration//GEN-END:variables

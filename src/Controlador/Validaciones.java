@@ -76,7 +76,7 @@ public class Validaciones {
 
     public void IngresarSoloLetras(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
-        if (!Character.isLetter(c)) {
+        if (!Character.isLetter(c) && !Character.isSpaceChar(c)) {
             evt.consume();  // ignorar el evento de teclado
         }
     }

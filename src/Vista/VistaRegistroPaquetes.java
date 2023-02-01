@@ -30,6 +30,7 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
         jLabelSinCoincidencias = new javax.swing.JLabel();
         jScrollPaneCam = new javax.swing.JScrollPane();
         TablaDeRegistros = new javax.swing.JTable();
+        jButtonActualizar = new javax.swing.JButton();
         CambiarDatosPanel = new javax.swing.JPanel();
         Datostxt = new javax.swing.JLabel();
         MensajeingresoTxt = new javax.swing.JLabel();
@@ -143,6 +144,12 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
         TablaDeRegistros.getTableHeader().setReorderingAllowed(false);
         jScrollPaneCam.setViewportView(TablaDeRegistros);
 
+        jButtonActualizar.setBackground(new java.awt.Color(137, 107, 197));
+        jButtonActualizar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonActualizar.setText("Actualizar");
+        jButtonActualizar.setBorder(null);
+
         javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
@@ -155,13 +162,14 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
                         .addGap(10, 10, 10)
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
-                        .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldBuscar))
+                .addGap(0, 0, 0)
+                .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(145, 145, 145))
             .addComponent(jScrollPaneCam, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -176,6 +184,7 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
                         .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonInsertarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -412,6 +421,14 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFieldDescripcionActionPerformed
 
+    public JButton getjButtonActualizar() {
+        return jButtonActualizar;
+    }
+
+    public void setjButtonActualizar(JButton jButtonActualizar) {
+        this.jButtonActualizar = jButtonActualizar;
+    }
+
     public JLabel getjLabelSinCoincidencias() {
         return jLabelSinCoincidencias;
     }
@@ -538,6 +555,7 @@ public class VistaRegistroPaquetes extends javax.swing.JPanel {
     private javax.swing.JPanel PanelOpciones;
     private javax.swing.JLabel SueldoTxt;
     private javax.swing.JTable TablaDeRegistros;
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminarA;
     private javax.swing.JButton jButtonInsertarA;

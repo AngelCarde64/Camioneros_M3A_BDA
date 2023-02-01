@@ -19,7 +19,7 @@ public class ControlRPaquete {
     private ModeloPaquete modeloPaquete;
     private Validaciones vali = new Validaciones();
     private String mssDEError = "", criterio = "";
-    private int seleccionado=-1 ;
+    private int seleccionado = -1;
     private List<Paquete> listaPaquetes;
     private List<Provincia> listaDirecciones;
     private List<Cliente> listaClientes;
@@ -36,35 +36,39 @@ public class ControlRPaquete {
         ModeloProvincia MDirreciones = new ModeloProvincia();
         listaDirecciones = MDirreciones.ListarProvincia("");
         vRPaquetes.getjCBoxIDDirecciones().removeAllItems();
-            
+
         for (Provincia listD : listaDirecciones) {
-            vRPaquetes.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getCod_provincia()+"-"+listD.getNombre()));
+            vRPaquetes.getjCBoxIDDirecciones().addItem(String.valueOf(listD.getCod_provincia() + "-" + listD.getNombre()));
         }
-        
+
         //Cargar datos combobox
         ModeloCliente MCliente = new ModeloCliente();
         listaClientes = MCliente.ListarCliente("");
         vRPaquetes.getjCBoxIDDestinatario().removeAllItems();
         for (Cliente listC : listaClientes) {
-            vRPaquetes.getjCBoxIDDestinatario().addItem(String.valueOf(listC.getId()+"-"+listC.getDni()
+            vRPaquetes.getjCBoxIDDestinatario().addItem(String.valueOf(listC.getId() + "-" + listC.getDni()
                     + " - " + listC.getNombre()));
         }
- 
+
+        vRPaquetes.getjButtonActualizar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarPaquetes();
+            }
+        });
         
         vRPaquetes.getjFieldCodP().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 vali.IngresarSoloNumeros(evt);
             }
         });
-        
-        
+
         // --> Add listeners MOUSE LISTENER
         vRPaquetes.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
             }
         });
-        
+
         vRPaquetes.getjButtonModificarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Modificar();
@@ -96,8 +100,9 @@ public class ControlRPaquete {
                 }
             }
         });
-         vRPaquetes.getjLabelSinCoincidencias().setVisible(false);
+        vRPaquetes.getjLabelSinCoincidencias().setVisible(false);
     }
+
     public void LlenarTablaBusqueda() {
         // Para darle forma al modelo de la tabla
         DefaultTableModel mTabla;
@@ -110,7 +115,7 @@ public class ControlRPaquete {
         if (!listaPaquetes.isEmpty()) {
             listaPaquetes.stream().forEach(cam -> {
                 String[] filaNueva = {String.valueOf(cam.getId()), cam.getCod_paquete(), String.valueOf(cam.getDireccion()),
-                cam.getDescripcion(),String.valueOf(cam.getDestinatario())};
+                    cam.getDescripcion(), String.valueOf(cam.getDestinatario())};
                 mTabla.addRow(filaNueva);
             });
         } else {
@@ -118,8 +123,8 @@ public class ControlRPaquete {
         }
 
     }
-    
-     public void CargarPaquetes() {
+
+    public void CargarPaquetes() {
         // Para darle forma al modelo de la tabla
 
         DefaultTableModel pTabla = (DefaultTableModel) vRPaquetes.getTablaDeRegistros().getModel();
@@ -133,28 +138,30 @@ public class ControlRPaquete {
 //                cam.getPoblacion(), cam.getTelefono(), String.valueOf(cam.getSueldo()),String.valueOf(cam.getId_Direccion()),cam.getCorreo()};
         listaPaquetes.stream().forEach(cam -> {
             String[] filaNueva = {String.valueOf(cam.getId()), cam.getCod_paquete(), String.valueOf(cam.getDireccion()),
-                cam.getDescripcion(),String.valueOf(cam.getDestinatario())};
+                cam.getDescripcion(), String.valueOf(cam.getDestinatario())};
 
             pTabla.addRow(filaNueva);
 
         });
 
     }
+
     public void Insertar() {
         ModeloPaquete MPaquete = new ModeloPaquete();
-        MPaquete = RecuperarDatos(MPaquete,false);
+        MPaquete = RecuperarDatos(MPaquete, false);
 
+        System.out.println("SASAAS:" + mssDEError);
         if (!mssDEError.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Error al crear al paquete!\n"
-                    + "Por favor corriga estos errores:" + mssDEError,
+                    + "Por favor ingrese datos" + mssDEError,
                     "Error al crear al paquete", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (MPaquete.CrearPaquete()== null) {
+        if (MPaquete.CrearPaquete() == null) {
             JOptionPane.showMessageDialog(null,
                     "Paquete creado satisfactoriamente.");
 
-             CargarPaquetes();
+            CargarPaquetes();
             LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear al turno paquete!\n"
@@ -162,17 +169,24 @@ public class ControlRPaquete {
                     "Error al crear al paquete", JOptionPane.ERROR_MESSAGE);
         }
     }
-        public void Modificar() {
+
+    public void Modificar() {
+        if (seleccionado == -1) {
+            JOptionPane.showMessageDialog(null, "Error al modificar al paquete!\n"
+                    + "Por favor seleccione una tabla" + mssDEError,
+                    "Error al modificar al paquete", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         ModeloPaquete MPaquetes = new ModeloPaquete();
-        MPaquetes = RecuperarDatos(MPaquetes,true);
+        MPaquetes = RecuperarDatos(MPaquetes, true);
         MPaquetes.setId(listaPaquetes.get(seleccionado).getId());
-            
-        if (MPaquetes.ActualizarPaquete()== null) {
+        if (MPaquetes.ActualizarPaquete() == null) {
             JOptionPane.showMessageDialog(null,
                     "Camionero modificado satisfactoriamente.");
             CargarPaquetes();
             LimpiarDatos();
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar al Camionero!\n"
                     + "Por favor corriga estos errores:",
@@ -181,7 +195,7 @@ public class ControlRPaquete {
     }
 
     public void Eliminar() {
-       if (seleccionado == -1) {
+        if (seleccionado == -1) {
             JOptionPane.showMessageDialog(null, "Error al eliminar al paquete!\n"
                     + "Por favor Selecciona un paquete",
                     "Error al eliminar al paquete", JOptionPane.ERROR_MESSAGE);
@@ -192,7 +206,7 @@ public class ControlRPaquete {
                 cedula = vRPaquetes.getTablaDeRegistros().getValueAt(seleccionado, 0).toString();
                 modeloPaquete.setId(Integer.parseInt(cedula));
 
-                if (modeloPaquete.DeletePaquete()== null) {
+                if (modeloPaquete.DeletePaquete() == null) {
                     JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
                     CargarPaquetes();
                 } else {
@@ -201,24 +215,27 @@ public class ControlRPaquete {
             }
         }
     }
-    
-    public ModeloPaquete RecuperarDatos(ModeloPaquete MCami,boolean isUpdate) {
-        String mssDEError = "";
+
+    public ModeloPaquete RecuperarDatos(ModeloPaquete MCami, boolean isUpdate) {
+        mssDEError = "";
         if (isUpdate) {
             MCami.setId(listaPaquetes.get(seleccionado).getId());
-        } 
-        else{
-        boolean ValiCRepetida = !MCami.ListarPaquete(vRPaquetes.getjFieldCodP().getText()).isEmpty();
+        } else {
+            boolean ValiCRepetida = !MCami.ListarPaquete(vRPaquetes.getjFieldCodP().getText()).isEmpty();
 
-        if (ValiCRepetida) {
-           
-       
-            mssDEError += "\n - El codigo ingresado ya existe";
+            if (ValiCRepetida) {
+
+                mssDEError += "\n - El codigo ingresado ya existe";
+                return null;
+            }
+        }
+        if (!vRPaquetes.getjFieldCodP().getText().isEmpty()) {
+            MCami.setCod_paquete(vRPaquetes.getjFieldCodP().getText());
+        } else {
+            mssDEError += "\n - Ingrese un COD PARA CODIGO PAQUETERIA.";
             return null;
         }
-        }
-         MCami.setCod_paquete(vRPaquetes.getjFieldCodP().getText());
-       
+
         if (!vRPaquetes.getjFieldDescripcion().getText().isEmpty()) {
             MCami.setDescripcion(vRPaquetes.getjFieldDescripcion().getText());
         } else {
@@ -226,11 +243,11 @@ public class ControlRPaquete {
             return null;
         }
         MCami.setDestinatario((listaClientes.get(vRPaquetes.getjCBoxIDDestinatario().getSelectedIndex()).getId()));
-         MCami.setDireccion((listaDirecciones.get(vRPaquetes.getjCBoxIDDirecciones().getSelectedIndex()).getCod_provincia()));
+        MCami.setDireccion((listaDirecciones.get(vRPaquetes.getjCBoxIDDirecciones().getSelectedIndex()).getCod_provincia()));
 
-        
         return MCami;
     }
+
     public void MostrarDatos() {
         vRPaquetes.getjLabelID().setText(String.valueOf(listaPaquetes.get(seleccionado).getId()));
         vRPaquetes.getjFieldCodP().setText(listaPaquetes.get(seleccionado).getCod_paquete());
@@ -239,8 +256,8 @@ public class ControlRPaquete {
         vRPaquetes.getjCBoxIDDestinatario().setSelectedItem(listaPaquetes.get(seleccionado).getDestinatario());
 
     }
-    
-        public void LimpiarDatos() {
+
+    public void LimpiarDatos() {
         vRPaquetes.getjFieldCodP().setText(null);
         vRPaquetes.getjFieldDescripcion().setText(null);
         vRPaquetes.getjCBoxIDDestinatario().setSelectedIndex(0);
@@ -259,11 +276,10 @@ public class ControlRPaquete {
     }
 
     private void ObtenerIDTable() {
-         seleccionado = vRPaquetes.getTablaDeRegistros().convertRowIndexToModel(vRPaquetes.getTablaDeRegistros().getSelectedRow());
+        seleccionado = vRPaquetes.getTablaDeRegistros().convertRowIndexToModel(vRPaquetes.getTablaDeRegistros().getSelectedRow());
         vRPaquetes.getTablaDeRegistros().removeAll();
         MostrarDatos();
 
     }
-
 
 }

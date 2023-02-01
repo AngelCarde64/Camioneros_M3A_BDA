@@ -14,7 +14,7 @@ public class ControlRTConduccion {
 
     private Validaciones validaciones = new Validaciones();
     private String criterio = "", mssDEError = "";
-    private int id_TC=-1;
+    private int seleccionado=-1;
 
     private List<TurnoDeConduccion> listaTC;
     private List<Camion> listaCamion;
@@ -125,12 +125,13 @@ public class ControlRTConduccion {
         ModeloTurnoDeConduccion MTC = new ModeloTurnoDeConduccion();
         MTC = RecuperarDatos(MTC,false);
 
-        if (!mssDEError.isEmpty()) {
+        if (!mssDEError.isEmpty() && MTC==null) {
             JOptionPane.showMessageDialog(null, "Error al crear al turno conducción!\n"
                     + "Por favor corriga estos errores:" + mssDEError,
                     "Error al crear al turno conducción", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
         if (MTC.CrearTConduccion() == null) {
             JOptionPane.showMessageDialog(null,
                     "Camionero creado satisfactoriamente.");
@@ -145,9 +146,17 @@ public class ControlRTConduccion {
     }
 
     public void Modificar() {
+
+        if (seleccionado == -1) {
+            JOptionPane.showMessageDialog(null, "Error al modificar al paquete!\n"
+                    + "Por favor seleccione una tabla" + mssDEError,
+                    "Error al modificar al paquete", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+            
         ModeloTurnoDeConduccion MTC = new ModeloTurnoDeConduccion();
         MTC = RecuperarDatos(MTC,true);
-        MTC.setId(listaTC.get(id_TC).getId());
+        MTC.setId(listaTC.get(seleccionado).getId());
         if (MTC.ActualizarTConduccion() == null) {
             JOptionPane.showMessageDialog(null,
                     "Turno conducción fue modificado satisfactoriamente.");
@@ -162,7 +171,7 @@ public class ControlRTConduccion {
     }
 
     public void Eliminar() {
-        if (id_TC == -1) {
+        if (seleccionado == -1) {
             JOptionPane.showMessageDialog(null, "Error al eliminar al turno conducción!\n"
                     + "Por favor Selecciona un turno conducción",
                     "Error al eliminar al turno conducción", JOptionPane.ERROR_MESSAGE);
@@ -170,7 +179,7 @@ public class ControlRTConduccion {
             int response = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
                 String cedula;
-                cedula = vistaTC.getTablaDeRegistros().getValueAt(id_TC, 0).toString();
+                cedula = vistaTC.getTablaDeRegistros().getValueAt(seleccionado, 0).toString();
                 modeloTC.setId(Integer.parseInt(cedula));
 
                 if (modeloTC.DeleteTConduccion()== null) {
@@ -189,25 +198,25 @@ public class ControlRTConduccion {
      */
     public ModeloTurnoDeConduccion RecuperarDatos(ModeloTurnoDeConduccion MTC,boolean isUpdate) {
         mssDEError = "";
-         if (isUpdate) {
-            MTC.setId(listaTC.get(id_TC).getId());
-        } 
-        java.sql.Date fechaInicioSQL = new java.sql.Date(vistaTC.getjDateChooserFechaInicio().getDate().getTime());
-        java.sql.Date fechaFinSQL = new java.sql.Date(vistaTC.getjDateChooserFechaFin().getDate().getTime());
-
-        if (!vistaTC.getjDateChooserFechaInicio().getDate().toString().isEmpty()) {
-            MTC.setFechaInicio(fechaInicioSQL);
-        } else {
+         
+        if (vistaTC.getjDateChooserFechaInicio().getDate() == null) {
             mssDEError += "\n - Ingrese un valor para Fecha Inicio.";
             return null;
+        } else {
+        java.sql.Date fechaInicioSQL = new java.sql.Date(vistaTC.getjDateChooserFechaInicio().getDate().getTime());
+            MTC.setFechaInicio(fechaInicioSQL);
         }
 
-        if (!vistaTC.getjDateChooserFechaFin().getDate().toString().isEmpty()) {
-            MTC.setFechaFin(fechaFinSQL);
-        } else {
+        if (vistaTC.getjDateChooserFechaFin().getDate() == null) {
             mssDEError += "\n - Ingrese un valor para Fecha fin";
             return null;
+        } else {
+        java.sql.Date fechaFinSQL = new java.sql.Date(vistaTC.getjDateChooserFechaFin().getDate().getTime());
+            MTC.setFechaFin(fechaFinSQL);
         }
+         if (isUpdate) {
+            MTC.setId(listaTC.get(seleccionado).getId());
+        } 
 
         MTC.setCam_id((listaCamion.get(vistaTC.getjCBoxIDCamion().getSelectedIndex()).getId()));
         MTC.setCami_id((listaCamioneros.get(vistaTC.getjCBoxIDCamionero().getSelectedIndex()).getId()));
@@ -215,11 +224,11 @@ public class ControlRTConduccion {
     }
 
     public void MostrarDatos() {
-        vistaTC.getjLabelID().setText(String.valueOf(listaTC.get(id_TC).getId()));
-        vistaTC.getjCBoxIDCamion().setSelectedItem(listaCamion.get(id_TC).getId());
-        vistaTC.getjCBoxIDCamionero().setSelectedItem(listaCamioneros.get(id_TC).getId());
-        vistaTC.getjDateChooserFechaInicio().setDate(listaTC.get(id_TC).getFechaInicio());
-        vistaTC.getjDateChooserFechaFin().setDate(listaTC.get(id_TC).getFechaFin());
+        vistaTC.getjLabelID().setText(String.valueOf(listaTC.get(seleccionado).getId()));
+        vistaTC.getjCBoxIDCamion().setSelectedItem(listaCamion.get(seleccionado).getId());
+        vistaTC.getjCBoxIDCamionero().setSelectedItem(listaCamioneros.get(seleccionado).getId());
+        vistaTC.getjDateChooserFechaInicio().setDate(listaTC.get(seleccionado).getFechaInicio());
+        vistaTC.getjDateChooserFechaFin().setDate(listaTC.get(seleccionado).getFechaFin());
     }
 
     public void LimpiarDatos() {
@@ -242,7 +251,7 @@ public class ControlRTConduccion {
     }
 
     private void ObtenerIDTable() {
-        id_TC = vistaTC.getTablaDeRegistros().convertRowIndexToModel(vistaTC.getTablaDeRegistros().getSelectedRow());
+        seleccionado = vistaTC.getTablaDeRegistros().convertRowIndexToModel(vistaTC.getTablaDeRegistros().getSelectedRow());
         vistaTC.getTablaDeRegistros().removeAll();
         MostrarDatos();
     }

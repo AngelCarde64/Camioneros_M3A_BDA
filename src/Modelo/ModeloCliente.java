@@ -70,8 +70,8 @@ public class ModeloCliente extends Cliente {
     }
 
     public SQLException ActualizarCliente() {
-        String sql = "UPDATE Cliente SET cli_DNI = '" + getDni() + "', cli_nombre = '" + getNombre() + "', cli_telefono = '" + getTelefono();
-        sql += " WHERE cli_id = '" + getId() + "'";
+        String sql = "UPDATE Cliente SET cli_dni = '" + getDni() + "', cli_nombre = '" + getNombre() + "', cli_telefono = '" + getTelefono();
+        sql += "' WHERE cli_id = '" + getId() + "'";
         return conpg.accion(sql);
     }
 

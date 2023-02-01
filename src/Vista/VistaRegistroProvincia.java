@@ -104,6 +104,23 @@ public class VistaRegistroProvincia extends javax.swing.JPanel {
         this.JtextFieldBuscarPaquete = JtextFieldBuscarPaquete;
     }
 
+    public JLabel getIdForATxt() {
+        return idForATxt;
+    }
+
+    public void setIdForATxt(JLabel idForATxt) {
+        this.idForATxt = idForATxt;
+    }
+
+    public JButton getjButtonActualizar() {
+        return jButtonActualizar;
+    }
+
+    public void setjButtonActualizar(JButton jButtonActualizar) {
+        this.jButtonActualizar = jButtonActualizar;
+    }
+    
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

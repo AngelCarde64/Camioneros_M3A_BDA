@@ -13,7 +13,7 @@ public class ControlCliente {
     private ModeloCliente modeloCliente;
 
     private Validaciones validaciones = new Validaciones();
-    private String criterio = "";
+    private String criterio = "", mssDEError = "";
     private int seleccionado = -1;
     private List<Cliente> listaClientes;
 
@@ -145,7 +145,7 @@ public class ControlCliente {
 
     public void Insertar() {
         ModeloCliente MCliente = new ModeloCliente();
-        MCliente = RecuperarDatos(MCliente);
+        MCliente = RecuperarDatos(MCliente,false);
 
         if (MCliente.CrearCliente() == null) {
 //            crearEmail();
@@ -154,6 +154,7 @@ public class ControlCliente {
                     "Cliente creado satisfactoriamente.");
 
             CargarClientes();
+            LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear al Cliente!\n"
                     + "Por favor corriga estos errores:",
@@ -163,12 +164,14 @@ public class ControlCliente {
 
     public void Modificar() {
         ModeloCliente MCliente = new ModeloCliente();
-        MCliente = RecuperarDatos2(MCliente);
+        MCliente = RecuperarDatos(MCliente,true);
+        MCliente.setId(listaClientes.get(seleccionado).getId());
 
         if (MCliente.ActualizarCliente() == null) {
             JOptionPane.showMessageDialog(null,
                     "Cliente modificado satisfactoriamente.");
             CargarClientes();
+            LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar al Cliente!\n"
                     + "Por favor corriga estos errores:",
@@ -205,7 +208,18 @@ public class ControlCliente {
      * ---> Cuando se le da click en un elemento de la tabla en la parte derecha
      * se llenaran los datos.
      */
-    public ModeloCliente RecuperarDatos(ModeloCliente MCli) {
+    public ModeloCliente RecuperarDatos(ModeloCliente MCli,boolean isUpdate) {
+        mssDEError = "";
+        if (isUpdate) {
+            MCli.setId(listaClientes.get(seleccionado).getId());
+        } else {
+            boolean ValiCRepetida = !MCli.ListarCliente(vistaCli.getjFieldDNI().getText()).isEmpty();
+
+            if (ValiCRepetida) {
+                mssDEError += "\n - El DNI ya existe ya existe";
+                return null;
+            }
+        }
         MCli.setDni(vistaCli.getjFieldDNI().getText());
         MCli.setNombre(vistaCli.getjFieldNombre().getText());
         MCli.setTelefono(vistaCli.getjFieldtelefono().getText());
@@ -213,14 +227,7 @@ public class ControlCliente {
         return MCli;
     }
 
-    public ModeloCliente RecuperarDatos2(ModeloCliente MCli) {
-        MCli.setId(Integer.parseInt(vistaCli.getjLabelID().getText()));
-        MCli.setDni(vistaCli.getjFieldDNI().getText());
-        MCli.setNombre(vistaCli.getjFieldNombre().getText());
-        MCli.setTelefono(vistaCli.getjFieldtelefono().getText());
-
-        return MCli;
-    }
+    
 
     public void MostrarDatos() {
         vistaCli.getjLabelID().setText(String.valueOf(listaClientes.get(seleccionado).getId()));

@@ -19,9 +19,15 @@ public class ModeloProvincia extends Provincia {
     }
 
     public List<Provincia> ListarProvincia(String filtro) {
-        String sql = "select * from PROVINCIA where ";
+        String sql="";
+        if(filtro.isEmpty()){
+             sql = "select * from PROVINCIA  ";
+        }else{
+        
+        sql = "select * from PROVINCIA where ";
         sql += " UPPER(pro_codigo_provincia) like UPPER('%" + filtro + "%') ";
         sql += "OR UPPER(pro_nombre) like UPPER('%" + filtro + "%') ";
+        }
         ResultSet rs = conpg.consulta(sql);
         List<Provincia> lista = new ArrayList<Provincia>();
         try {
@@ -50,7 +56,7 @@ public class ModeloProvincia extends Provincia {
     }
 
     public SQLException ActualizarProvincia() {
-        String sql = "UPDATE PROVINCIA SET pro_nombre = '" + getNombre() + "';";
+        String sql = "UPDATE PROVINCIA SET pro_nombre = '" + getNombre() + "'";
         sql += "WHERE pro_codigo_provincia = '" + getCod_provincia() + "'";
         return conpg.accion(sql);
     }

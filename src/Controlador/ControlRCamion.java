@@ -27,6 +27,12 @@ public class ControlRCamion {
         CargarCamiones();
 
         // --> Add listeners MOUSE LISTENER
+        
+        VRCamion.getjButtonActualizar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarCamiones();
+            }
+        });
         VRCamion.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Insertar();
@@ -136,6 +142,14 @@ public class ControlRCamion {
     }
 
     public void Modificar() {
+
+        if (seleccionado == -1) {
+            JOptionPane.showMessageDialog(null, "Error al modificar al paquete!\n"
+                    + "Por favor seleccione una tabla" + mssDEError,
+                    "Error al modificar al paquete", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+            
         ModeloCamion MCamion = new ModeloCamion();
         MCamion = RecuperarDatos(MCamion, true);
         MCamion.setId(listaCamiones.get(seleccionado).getId());

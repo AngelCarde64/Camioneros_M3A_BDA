@@ -189,6 +189,14 @@ public class ControlRCamionero {
     }
 
     public void Modificar() {
+
+        if (seleccionado == -1) {
+            JOptionPane.showMessageDialog(null, "Error al modificar al paquete!\n"
+                    + "Por favor seleccione una tabla" + mssDEError,
+                    "Error al modificar al paquete", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+            
         ModeloCamionero MCamionero = new ModeloCamionero();
         MCamionero = RecuperarDatos(MCamionero, true);
         MCamionero.setId(listaCamioneros.get(seleccionado).getId());

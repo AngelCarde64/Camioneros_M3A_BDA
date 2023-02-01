@@ -201,10 +201,10 @@ public class ControlRTConduccion {
             return null;
         }
 
-        if (vistaTC.getjDateChooserFechaFin().getDate().toString().isEmpty()) {
-            MTC.setFechaInicio(vistaTC.getjDateChooserFechaFin().getDate());
+        if (!vistaTC.getjDateChooserFechaFin().getDate().toString().isEmpty()) {
+            MTC.setFechaFin(vistaTC.getjDateChooserFechaFin().getDate());
         } else {
-            mssDEError += "\n - Ingrese un valor para Fecha Inicio";
+            mssDEError += "\n - Ingrese un valor para Fecha fin";
             return null;
         }
 

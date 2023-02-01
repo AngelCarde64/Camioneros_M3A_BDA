@@ -52,7 +52,7 @@ public class ModeloTurnoDeConduccion extends TurnoDeConduccion {
 
     public SQLException CrearTConduccion() {
         String sql = "INSERT INTO Turno_de_conduccion (tur_fecha_inicio, tur_fecha_fin, tur_cami_id, tur_cam_id)";
-        sql += " VALUES ('" + getFechaInicio() + "','" + getFechaFin() + "','" + getCami_id() + "','" + getCam_id() + "')";
+        sql += " VALUES (to_date('" + getFechaInicio() + "', 'YYYY-MM-DD HH24:MI:SS'), to_date('" + getFechaFin() + "', 'YYYY-MM-DD HH24:MI:SS'), '" + getCami_id() + "', '" + getCam_id() + "')";
         return conpg.accion(sql);
     }
 

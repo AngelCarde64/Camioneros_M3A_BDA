@@ -25,7 +25,7 @@ public class ControlRCamion {
 
     public void iniciarControl() {
         CargarCamiones();
-        
+
         // --> Add listeners MOUSE LISTENER
         VRCamion.getjButtonInsertarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -63,12 +63,6 @@ public class ControlRCamion {
                 if (evt.getKeyChar() == '\n') {
                     Buscar();
                 }
-            }
-        });
-
-        VRCamion.getjFieldnro_Placa().addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                validaciones.IngresarSoloNumeros(evt);
             }
         });
 
@@ -113,8 +107,8 @@ public class ControlRCamion {
         // Uso de una expresion landa
 
         listaCamiones.stream().forEach(cam -> {
-                String[] filaNueva = {String.valueOf(cam.getId()), cam.getNro_Placa(), cam.getTipo(), cam.getPotencia(), cam.getModelo()};
-                mTabla.addRow(filaNueva);
+            String[] filaNueva = {String.valueOf(cam.getId()), cam.getNro_Placa(), cam.getTipo(), cam.getPotencia(), cam.getModelo()};
+            mTabla.addRow(filaNueva);
         });
     }
 
@@ -128,7 +122,7 @@ public class ControlRCamion {
                     "Error al crear al Camion", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (MCamion.CrearCamion()== null) {
+        if (MCamion.CrearCamion() == null) {
             JOptionPane.showMessageDialog(null,
                     "Camion creado satisfactoriamente.");
 
@@ -145,7 +139,7 @@ public class ControlRCamion {
         ModeloCamion MCamion = new ModeloCamion();
         MCamion = RecuperarDatos(MCamion);
 
-        if (MCamion.ActualizarCamion()== null) {
+        if (MCamion.ActualizarCamion() == null) {
             JOptionPane.showMessageDialog(null,
                     "Camionero modificado satisfactoriamente.");
             CargarCamiones();
@@ -193,12 +187,12 @@ public class ControlRCamion {
         mssDEError = "";
         boolean ValiCRepetida = !MCami.ListarCamion(VRCamion.getjFieldnro_Placa().getText()).isEmpty();
 
-            if (ValiCRepetida) {
-                mssDEError += "\n - El numero de placa ingresada ya existe";
-                return null;
-            }
-            MCami.setNro_Placa(VRCamion.getjFieldnro_Placa().getText());
-            
+        if (ValiCRepetida) {
+            mssDEError += "\n - El numero de placa ingresada ya existe";
+            return null;
+        }
+        MCami.setNro_Placa(VRCamion.getjFieldnro_Placa().getText());
+
         if (!VRCamion.getjFieldModelo().getText().isEmpty()) {
             MCami.setModelo(VRCamion.getjFieldModelo().getText());
         } else {

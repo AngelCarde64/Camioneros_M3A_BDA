@@ -69,7 +69,7 @@
               <Font name="Yu Gothic UI Semibold" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="INGRESO DE CAMION"/>
+            <Property name="text" type="java.lang.String" value="CRUD DE CAMION"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
@@ -292,22 +292,16 @@
                       </Border>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="11">
-                        <Column editable="true" title="ID" type="java.lang.Integer"/>
+                      <Table columnCount="5" rowCount="11">
+                        <Column editable="true" title="ID" type="java.lang.String"/>
                         <Column editable="true" title="Nro. Placa" type="java.lang.String"/>
-                        <Column editable="true" title="Matricula" type="java.lang.String"/>
                         <Column editable="true" title="Tipo" type="java.lang.String"/>
                         <Column editable="true" title="Potencia" type="java.lang.String"/>
-                        <Column editable="true" title="Modelo" type="java.lang.Double"/>
+                        <Column editable="true" title="Modelo" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -574,8 +568,8 @@
                           <Component id="potenciaTxt" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jFieldpotencia" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jSeparator4" min="-2" pref="14" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>

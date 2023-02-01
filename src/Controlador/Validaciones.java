@@ -9,39 +9,40 @@ public class Validaciones {
 
     // ---> Se lo usara para limitar a 10 los numeros que se pueden ingresar en un jTextField
     private int contador = 0;
+    private boolean dotPresent;
 
-    public int valiCedula(String cedula) {
-        //si la cedula es una cadena numerica
-        if (cedula.matches("[0-9]{10}")) {
-            int numero = 0, suma = 0, resultado = 0;
-            for (int i = 0; i < cedula.length(); i++) {
-                numero = Integer.parseInt(String.valueOf(cedula.charAt(i)));
-                if (i % 2 == 0) {
-                    numero = numero * 2;
-
-                    if (numero > 9) {
-                        numero = numero - 9;
-                    }
-                }
-                suma = suma + numero;
-            }
-            if (suma % 10 != 0) {
-                resultado = 10 - (suma % 10);
-                if (resultado == numero) {
-                    //si la cedula es correcta
-                    return 0;
-                } else {
-                    //si la cedula no es valida
-                    return 1;
-                }
-            } else {
-                return 0;
-            }
-            //la cedula contiene letras o no cumple con el formato
-        } else {
-            return 1;
-        }
-    }
+//    public int valiCedula(String cedula) {
+//        //si la cedula es una cadena numerica
+//        if (cedula.matches("[0-9]{10}")) {
+//            int numero = 0, suma = 0, resultado = 0;
+//            for (int i = 0; i < cedula.length(); i++) {
+//                numero = Integer.parseInt(String.valueOf(cedula.charAt(i)));
+//                if (i % 2 == 0) {
+//                    numero = numero * 2;
+//
+//                    if (numero > 9) {
+//                        numero = numero - 9;
+//                    }
+//                }
+//                suma = suma + numero;
+//            }
+//            if (suma % 10 != 0) {
+//                resultado = 10 - (suma % 10);
+//                if (resultado == numero) {
+//                    //si la cedula es correcta
+//                    return 0;
+//                } else {
+//                    //si la cedula no es valida
+//                    return 1;
+//                }
+//            } else {
+//                return 0;
+//            }
+//            //la cedula contiene letras o no cumple con el formato
+//        } else {
+//            return 1;
+//        }
+//    }
 
     public boolean validarNombre(String nomAp) {
         return nomAp.matches("[a-zA-z]{3,15}");
@@ -75,10 +76,22 @@ public class Validaciones {
 
     public void IngresarSoloLetras(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
-        if (!Character.isLetter(c)) {
+        if (!Character.isLetter(c) && !Character.isSpaceChar(c)) {
             evt.consume();  // ignorar el evento de teclado
         }
     }
+
+    public void ValiSueldo(java.awt.event.KeyEvent evt) {
+        JTextField txt = (JTextField) evt.getComponent();
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != '.') {
+            evt.consume();
+        }
+        if (c == '.' && txt.getText().contains(".")) {
+            evt.consume();
+        }
+    }
+
 
     public boolean valiString(String cadena) {
         return cadena.matches("[a-zA-z]{3,15}[\\s]{0,1}[a-zA-z]{0,15}");

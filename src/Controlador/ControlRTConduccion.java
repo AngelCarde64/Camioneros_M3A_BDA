@@ -26,7 +26,7 @@ public class ControlRTConduccion {
     }
 
     public void iniciarControl() {
-        CargarCamioneros();
+        CargarRT();
 
         // --> Obtener ID de camionero y camion
         ModeloCamion MCam = new ModeloCamion();
@@ -106,7 +106,7 @@ public class ControlRTConduccion {
 
     }
 
-    public void CargarCamioneros() {
+    public void CargarRT() {
         // Para darle forma al modelo de la tabla
         DefaultTableModel mTabla;
         mTabla = (DefaultTableModel) vistaTC.getTablaDeRegistros().getModel();
@@ -135,7 +135,7 @@ public class ControlRTConduccion {
             JOptionPane.showMessageDialog(null,
                     "Camionero creado satisfactoriamente.");
 
-            CargarCamioneros();
+            CargarRT();
             LimpiarDatos();
         } else {
             JOptionPane.showMessageDialog(null, "Error al crear al turno conducción!\n"
@@ -152,7 +152,7 @@ public class ControlRTConduccion {
             JOptionPane.showMessageDialog(null,
                     "Turno conducción fue modificado satisfactoriamente.");
             LimpiarDatos();
-            CargarCamioneros();
+            CargarRT();
         } else {
             JOptionPane.showMessageDialog(null, "Error al modificar al turno conducción!\n"
                     + "Por favor corriga estos errores:",
@@ -175,7 +175,7 @@ public class ControlRTConduccion {
                 if (MCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
                     id_TC = 0;
-                    CargarCamioneros();
+                    CargarRT();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al eliminar al turno conducción!",
                             "Error al crear al turno conducción", JOptionPane.ERROR_MESSAGE);
@@ -194,17 +194,20 @@ public class ControlRTConduccion {
      */
     public ModeloTurnoDeConduccion RecuperarDatos(ModeloTurnoDeConduccion MTC) {
         mssDEError = "";
+        java.sql.Date fechaInicioSQL = new java.sql.Date(vistaTC.getjDateChooserFechaInicio().getDate().getTime());
+        java.sql.Date fechaFinSQL = new java.sql.Date(vistaTC.getjDateChooserFechaFin().getDate().getTime());
+
         if (!vistaTC.getjDateChooserFechaInicio().getDate().toString().isEmpty()) {
-            MTC.setFechaInicio(vistaTC.getjDateChooserFechaInicio().getDate());
+            MTC.setFechaInicio(fechaInicioSQL);
         } else {
             mssDEError += "\n - Ingrese un valor para Fecha Inicio.";
             return null;
         }
 
-        if (vistaTC.getjDateChooserFechaFin().getDate().toString().isEmpty()) {
-            MTC.setFechaInicio(vistaTC.getjDateChooserFechaFin().getDate());
+        if (!vistaTC.getjDateChooserFechaFin().getDate().toString().isEmpty()) {
+            MTC.setFechaFin(fechaFinSQL);
         } else {
-            mssDEError += "\n - Ingrese un valor para Fecha Inicio";
+            mssDEError += "\n - Ingrese un valor para Fecha fin";
             return null;
         }
 
@@ -235,7 +238,7 @@ public class ControlRTConduccion {
             LlenarTablaBusqueda();
         } else {
             vistaTC.getjLabelSinCoincidencias().setVisible(false);
-            CargarCamioneros();
+            CargarRT();
         }
     }
 

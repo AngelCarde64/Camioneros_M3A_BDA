@@ -37,6 +37,7 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
         jLabelSinCoincidencias = new javax.swing.JLabel();
         jScrollPaneCam = new javax.swing.JScrollPane();
         TablaR = new javax.swing.JTable();
+        jButtonActualizar = new javax.swing.JButton();
         CambiarDatosPanel = new javax.swing.JPanel();
         Datostxt = new javax.swing.JLabel();
         MensajeingresoTxt = new javax.swing.JLabel();
@@ -61,7 +62,7 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
         jLabeltituloCamioneros1.setBackground(new java.awt.Color(255, 255, 255));
         jLabeltituloCamioneros1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jLabeltituloCamioneros1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltituloCamioneros1.setText("INGRESO DE CLIENTES");
+        jLabeltituloCamioneros1.setText("CRUD DE CLIENTES");
         jLabeltituloCamioneros1.setFocusable(false);
         jLabeltituloCamioneros1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -94,7 +95,7 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
 
         jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("  Buscar clientes ...");
-        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 15), new java.awt.Color(164, 164, 164))); // NOI18N
+        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(164, 164, 164))); // NOI18N
 
         jButtonInsertarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonInsertarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -113,6 +114,11 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
         jButtonEliminarA.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEliminarA.setText("Eliminar");
         jButtonEliminarA.setBorder(null);
+        jButtonEliminarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarAActionPerformed(evt);
+            }
+        });
 
         jLabelSinCoincidencias.setForeground(new java.awt.Color(204, 0, 0));
         jLabelSinCoincidencias.setText("No hay coincidencias");
@@ -148,6 +154,17 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
         TablaR.setRowHeight(30);
         jScrollPaneCam.setViewportView(TablaR);
 
+        jButtonActualizar.setBackground(new java.awt.Color(137, 107, 197));
+        jButtonActualizar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonActualizar.setText("Actualizar");
+        jButtonActualizar.setBorder(null);
+        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
@@ -160,7 +177,10 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
                         .addGap(10, 10, 10)
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PanelOpcionesLayout.createSequentialGroup()
                         .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                         .addGap(0, 0, 0)
@@ -181,14 +201,19 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
                     .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
                 .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonInsertarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPaneCam)
+                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonInsertarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(PanelOpcionesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -411,6 +436,14 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFieldDNIActionPerformed
 
+    private void jButtonEliminarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEliminarAActionPerformed
+
+    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonActualizarActionPerformed
+
     public JLabel getjLabelID() {
         return jLabelID;
     }
@@ -502,6 +535,16 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
         this.jTextFieldBuscar = jTextFieldBuscar;
     }
 
+    public JButton getjButtonActualizar() {
+        return jButtonActualizar;
+    }
+
+    public void setjButtonActualizar(JButton jButtonActualizar) {
+        this.jButtonActualizar = jButtonActualizar;
+    }
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CambiarDatosPanel;
@@ -515,6 +558,7 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
     private javax.swing.JPanel PanelOpciones;
     private javax.swing.JLabel SueldoTxt1;
     private javax.swing.JTable TablaR;
+    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminarA;
     private javax.swing.JButton jButtonInsertarA;

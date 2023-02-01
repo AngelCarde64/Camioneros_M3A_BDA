@@ -54,7 +54,7 @@ public class ModeloCliente extends Cliente {
 
         String sql = "INSERT INTO Cliente (cli_DNI, cli_nombre, cli_telefono)";
         sql += " VALUES ('" + getDni() + "','" + getNombre() + "','" + getTelefono()
-                + "''" + "')";
+                + "')";
 
 //        String sql = "INSERT INTO Camionero (cami_dni, cami_nombre, cami_telefono, cami_id_Direccion, cami_sueldo, cami_poblacion)";
 //        sql += " VALUES ('" + getDni() + "','" + getNombre() + "','" + getTelefono() + "','" + getId_Direccion()
@@ -64,13 +64,13 @@ public class ModeloCliente extends Cliente {
     }
 
     public SQLException ActualizarCliente() {
-        String sql = "UPDATE Cliente SET cli_dni = '" + getDni() + "', cli_nombre = '" + getNombre() + "', cli_telefono = '" + getTelefono() + "'";
-        sql += "WHERE cli_id = '" + getId() + "';";
+        String sql = "UPDATE Cliente SET cli_DNI = '" + getDni() + "', cli_nombre = '" + getNombre() + "', cli_telefono = '" + getTelefono() + "'";
+        sql += "WHERE cli_id = '" + getId() + "'";
         return conpg.accion(sql);
     }
 
     public SQLException BorrarCliente() {
-        String sql = "DELETE FROM Cliente WHERE cli_id ='" + getId() + "';";
+        String sql = "DELETE FROM Cliente WHERE cli_id ='" + getId() + "'";
         return conpg.accion(sql);
     }
 

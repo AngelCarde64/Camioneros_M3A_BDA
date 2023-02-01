@@ -70,12 +70,12 @@ public class ModeloCamion extends Camion {
     public SQLException ActualizarCamion() {
         String sql = "UPDATE Camion SET cam_nro_Placa = '" + getNro_Placa() + "', cam_modelo = '" + getModelo()
                 + "', cam_tipo = '" + getTipo() + "', cam_potencia = '" + getPotencia() + "'";
-        sql += "WHERE cam_id = '" + getId() + "';";
+        sql += "WHERE cam_id = '" + getId() + "'";
         return conpg.accion(sql);
     }
 
     public SQLException DeleteCamion() {
-        String sql = "DELETE FROM Camion WHERE cam_id ='" + getId() + "';";
+        String sql = "DELETE FROM Camion WHERE cam_id ='" + getId() + "'";
         return conpg.accion(sql);
     }
 

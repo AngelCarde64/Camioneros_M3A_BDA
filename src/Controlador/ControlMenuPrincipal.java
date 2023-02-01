@@ -97,6 +97,10 @@ public class ControlMenuPrincipal {
                         CRProvincia.iniciarControl();
                         SetNewPanelContent(VRprovincias);
                         break;
+                    case "DIRECCIONES":
+                        
+                        break;
+                        
                 }
             }
 

@@ -27,7 +27,7 @@ public class ControlProvincias {
         this.modeloProv = modeloProv;
     }
     
-    public void iniciarControl() {
+    public void iniciarControl(){
         CargarDirecciones();
         // --> Add listeners
         vistaProvincias.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
@@ -81,12 +81,12 @@ public class ControlProvincias {
 
         if (MCamionero.CrearProvincia()== null) {
             JOptionPane.showMessageDialog(null,
-                    "Dirección creada satisfactoriamente.");
+                    "Provincia creada satisfactoriamente.");
             CargarDirecciones();
         } else {
-            JOptionPane.showMessageDialog(null, "Error al crear al Camionero!\n"
+            JOptionPane.showMessageDialog(null, "Error al crear la Provincia!\n"
                     + "Por favor corriga estos errores:",
-                    "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
+                    "Error al crear la Provincia", JOptionPane.ERROR_MESSAGE);
         }
     }
      

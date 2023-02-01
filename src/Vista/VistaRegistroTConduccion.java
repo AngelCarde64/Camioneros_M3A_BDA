@@ -83,7 +83,7 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
 
         jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("  Buscar camioneros ...");
-        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(164, 164, 164))); // NOI18N
+        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(164, 164, 164))); // NOI18N
 
         jButtonInsertarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonInsertarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -255,7 +255,7 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         ID_CamioneroTXT1.setBackground(new java.awt.Color(0, 102, 255));
         ID_CamioneroTXT1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ID_CamioneroTXT1.setForeground(new java.awt.Color(102, 102, 102));
-        ID_CamioneroTXT1.setText("ID Camionero:");
+        ID_CamioneroTXT1.setText("ID Camion:");
 
         jDateChooserFechaInicio.setDateFormatString("dd MMM yyyy");
 

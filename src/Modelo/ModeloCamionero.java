@@ -22,7 +22,8 @@ public class ModeloCamionero extends Camionero {
         String sql = "";
 
         if (filtro.isEmpty()) {
-            sql = "select * from Camionero";
+            sql = "select * from Camionero ";
+            
         } else {
             sql = "select * from Camionero where ";
             sql += "UPPER(cami_id) like UPPER('%" + filtro + "%') ";

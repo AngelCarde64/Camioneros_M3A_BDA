@@ -2,7 +2,7 @@ package Modelo;
 
 public class TurnoDeConduccion {
 
-    private String id;
+    private int id;
     private java.sql.Date fechaInicio;
     private java.sql.Date fechaFin;
     private int cami_id;
@@ -11,7 +11,7 @@ public class TurnoDeConduccion {
     public TurnoDeConduccion() {
     }
 
-    public TurnoDeConduccion(String id, java.sql.Date fechaInicio, java.sql.Date fechaFin, int tur_cami_id, int tur_cam_id) {
+    public TurnoDeConduccion(int id, java.sql.Date fechaInicio, java.sql.Date fechaFin, int tur_cami_id, int tur_cam_id) {
         this.id = id;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -19,11 +19,11 @@ public class TurnoDeConduccion {
         this.cam_id = tur_cam_id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

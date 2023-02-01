@@ -78,6 +78,12 @@ public class ControlCliente {
                 validaciones.IngresarSoloNumeros(evt);
             }
         });
+        vistaCli.getjFieldNombre().addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt){
+            validaciones.IngresarSoloLetras(evt);
+        }
+        
+        });
 
         vistaCli.getjFieldtelefono().addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

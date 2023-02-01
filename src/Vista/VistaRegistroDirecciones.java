@@ -87,7 +87,7 @@ public class VistaRegistroDirecciones extends javax.swing.JPanel {
         this.jLabelSinCoincidencias = jLabelSinCoincidencias;
     }
     
-                                                                //jTextFieldCalleSe
+                                                                        //idForATxt
 
     public JTextField getjTextFieldCalleSe() {
         return jTextFieldCalleSe;
@@ -95,6 +95,22 @@ public class VistaRegistroDirecciones extends javax.swing.JPanel {
 
     public void setjTextFieldCalleSe(JTextField jTextFieldCalleSe) {
         this.jTextFieldCalleSe = jTextFieldCalleSe;
+    }
+
+    public JLabel getIDtxt() {
+        return IDtxt;
+    }
+
+    public void setIDtxt(JLabel IDtxt) {
+        this.IDtxt = IDtxt;
+    }
+
+    public JLabel getIdForATxt() {
+        return idForATxt;
+    }
+
+    public void setIdForATxt(JLabel idForATxt) {
+        this.idForATxt = idForATxt;
     }
     
     

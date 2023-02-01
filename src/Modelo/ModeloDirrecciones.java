@@ -62,7 +62,7 @@ public class ModeloDirrecciones extends Dirrecciones {
     }
 
     public SQLException DeleteDirrecciones() {
-        String sql = "DELETE FROM Dirrecciones WHERE dir_id ='" + getId() + "';";
+        String sql = "DELETE FROM Dirrecciones WHERE dir_id ='" + getId() + "'";
         return conpg.accion(sql);
     }
 

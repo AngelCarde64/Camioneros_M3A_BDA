@@ -118,6 +118,8 @@ public class VistaRegistroDirecciones extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelTop1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         ContentRegistro = new javax.swing.JPanel();
         PanelOpciones = new javax.swing.JPanel();
         jLabelSinCoincidencias = new javax.swing.JLabel();
@@ -146,6 +148,26 @@ public class VistaRegistroDirecciones extends javax.swing.JPanel {
         alertEspecietxt = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jFieldNombreRA = new javax.swing.JTextField();
+
+        jPanelTop1.setBackground(new java.awt.Color(248, 171, 75));
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PROVINCIAS");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanelTop1Layout = new javax.swing.GroupLayout(jPanelTop1);
+        jPanelTop1.setLayout(jPanelTop1Layout);
+        jPanelTop1Layout.setHorizontalGroup(
+            jPanelTop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTop1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1084, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanelTop1Layout.setVerticalGroup(
+            jPanelTop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+        );
 
         ContentRegistro.setBackground(new java.awt.Color(236, 236, 236));
 
@@ -252,7 +274,7 @@ public class VistaRegistroDirecciones extends javax.swing.JPanel {
                     .addGroup(PanelOpcionesLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(ContentButtonsIME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         PanelOpcionesLayout.setVerticalGroup(
             PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,13 +493,21 @@ public class VistaRegistroDirecciones extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanelTop1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(ContentRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(47, 47, 47))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 63, Short.MAX_VALUE)
+                .addComponent(ContentRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanelTop1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 617, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -504,8 +534,10 @@ public class VistaRegistroDirecciones extends javax.swing.JPanel {
     private javax.swing.JButton jButtonModificarA;
     private javax.swing.JButton jButtonMostrar;
     private javax.swing.JTextField jFieldNombreRA;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelIconTipo;
     private javax.swing.JLabel jLabelSinCoincidencias;
+    private javax.swing.JPanel jPanelTop1;
     private javax.swing.JScrollPane jScrollPCDAnimal;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;

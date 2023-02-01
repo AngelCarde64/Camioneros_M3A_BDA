@@ -62,7 +62,7 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
         jLabeltituloCamioneros1.setBackground(new java.awt.Color(255, 255, 255));
         jLabeltituloCamioneros1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jLabeltituloCamioneros1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabeltituloCamioneros1.setText("INGRESO DE CLIENTES");
+        jLabeltituloCamioneros1.setText("CRUD DE CLIENTES");
         jLabeltituloCamioneros1.setFocusable(false);
         jLabeltituloCamioneros1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -95,7 +95,7 @@ public class VistaRegistroCliente extends javax.swing.JPanel {
 
         jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("  Buscar clientes ...");
-        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 15), new java.awt.Color(164, 164, 164))); // NOI18N
+        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(164, 164, 164))); // NOI18N
 
         jButtonInsertarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonInsertarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N

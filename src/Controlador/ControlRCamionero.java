@@ -165,7 +165,7 @@ public class ControlRCamionero {
 
     public void Insertar() {
         ModeloCamionero MCamionero = new ModeloCamionero();
-        MCamionero = RecuperarDatos(MCamionero);
+        MCamionero = RecuperarDatos(MCamionero, false);
 
         if (!mssDEError.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Error al crear al Camionero!\n"
@@ -190,7 +190,7 @@ public class ControlRCamionero {
 
     public void Modificar() {
         ModeloCamionero MCamionero = new ModeloCamionero();
-        MCamionero = RecuperarDatos(MCamionero);
+        MCamionero = RecuperarDatos(MCamionero, true);
 
         if (MCamionero.ActualizarCamionero() == null) {
             JOptionPane.showMessageDialog(null,
@@ -211,14 +211,13 @@ public class ControlRCamionero {
 
             int response = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (response == JOptionPane.YES_OPTION) {
-
                 String cedula;
                 cedula = vistaCam.getTablaDeRegistros().getValueAt(seleccionado, 0).toString();
                 modeloCamionero.setId(Integer.parseInt(cedula));
 
                 if (modeloCamionero.DeleteCamionero() == null) {
                     JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
-                    MostrarDatos();//Actualizo la tabla con los datos
+                    CargarCamioneros();
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
                 }
@@ -230,17 +229,19 @@ public class ControlRCamionero {
      * ---> Cuando se le da click en un elemento de la tabla en la parte derecha
      * se llenaran los datos.
      */
-    public ModeloCamionero RecuperarDatos(ModeloCamionero MCami) {
+    public ModeloCamionero RecuperarDatos(ModeloCamionero MCami, boolean isUpdate) {
         mssDEError = "";
-        boolean ValiCRepetida = MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
-
-        if (ValiCRepetida) {
-            MCami.setDni(vistaCam.getjFieldDNI().getText());
+        if (isUpdate) {
+            MCami.setId(listaCamioneros.get(seleccionado).getId());
         } else {
-            mssDEError += "\n - La cedula ingresada ya existe";
-            return null;
+            boolean ValiCRepetida = MCami.ListarCamioneros(vistaCam.getjFieldDNI().getText()).isEmpty();
+            if (ValiCRepetida) {
+                MCami.setDni(vistaCam.getjFieldDNI().getText());
+            } else {
+                mssDEError += "\n - La cedula ingresada ya existe";
+                return null;
+            }
         }
-
         if (!vistaCam.getjFieldNombre().getText().isEmpty()) {
             MCami.setNombre(vistaCam.getjFieldNombre().getText());
         } else {
@@ -307,28 +308,9 @@ public class ControlRCamionero {
     }
 
     private void ObtenerIDTable() {
-        int fila = vistaCam.getTablaDeRegistros().getSelectedRow();
-
-        if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
-        } else {
-
-            int response = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (response == JOptionPane.YES_OPTION) {
-
-                String cedula;
-                cedula = vistaCam.getTablaDeRegistros().getValueAt(fila, 0).toString();
-                modeloCamionero.setId(Integer.parseInt(cedula));
-
-                if (modeloCamionero.DeleteCamionero() == null) {
-                    JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
-                    MostrarDatos();//Actualizo la tabla con los datos
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
-                }
-            }
-        }
-
+        seleccionado = vistaCam.getTablaDeRegistros().convertRowIndexToModel(vistaCam.getTablaDeRegistros().getSelectedRow());
+        vistaCam.getTablaDeRegistros().removeAll();
+        MostrarDatos();
     }
 
     private void crearEmail() {

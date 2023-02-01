@@ -23,6 +23,15 @@ public class VistaRegistroDirecciones extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JButton getjButtonActualizar() {
+        return jButtonActualizar;
+    }
+
+    public void setjButtonActualizar(JButton jButtonActualizar) {
+        this.jButtonActualizar = jButtonActualizar;
+    }
+
+    
     public JTable getTablaDeRegistros() {
         return TablaDeRegistros;
     }

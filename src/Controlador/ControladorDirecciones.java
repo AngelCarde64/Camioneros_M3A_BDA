@@ -37,7 +37,7 @@ public class ControladorDirecciones {
         // --> Add listeners
         VistaDirecciones.getTablaDeRegistros().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ObtenerIDTable(evt);
+                ObtenerIDTable();
             }
         });
         VistaDirecciones.getJtextFieldBuscarDirecciones().addKeyListener(new java.awt.event.KeyAdapter() {
@@ -67,10 +67,10 @@ public class ControladorDirecciones {
         mTabla = (DefaultTableModel) VistaDirecciones.getTablaDeRegistros().getModel();
         mTabla.setNumRows(0);
 
-        List<Dirrecciones> listap = modelo.ListarDirrecciones("");
+        listadirecciones = modelo.ListarDirrecciones("");
 
         // Uso de una expresion landa
-        listap.stream().forEach(cam -> {
+        listadirecciones.stream().forEach(cam -> {
             String[] filaNueva = {String.valueOf(cam.getId()), cam.getCalle_P(),cam.getCalle_S()};
             mTabla.addRow(filaNueva);
         });
@@ -110,40 +110,35 @@ public class ControladorDirecciones {
         return MCami;
     }
      
-     private void ObtenerIDTable(java.awt.event.MouseEvent evt) {
-        id_Direccion = "";
-        DefaultTableModel tm = (DefaultTableModel) VistaDirecciones.getTablaDeRegistros().getModel();
-        id_Direccion = String.valueOf(tm.getValueAt(VistaDirecciones.getTablaDeRegistros().getSelectedRow(), 0));
+    private void ObtenerIDTable() {
+        seleccionado = VistaDirecciones.getTablaDeRegistros().convertRowIndexToModel(VistaDirecciones.getTablaDeRegistros().getSelectedRow());
+        VistaDirecciones.getTablaDeRegistros().removeAll();
+        MostrarDatos();
     }
      
     public void Eliminar() {
-        int respuesta = 0;
         if (seleccionado == -1) {
             JOptionPane.showMessageDialog(null, "Aun no ha seleccionado una fila");
         } else {
-            respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
-            if (respuesta == 0) {
-                ModeloDirrecciones MCliente = new ModeloDirrecciones(listadirecciones.get(seleccionado).getId(), "", "");
 
-                if (MCliente.DeleteDirrecciones()== null) {
-                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    seleccionado = -1;
+            int response = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar esta información?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                String cedula;
+                cedula = VistaDirecciones.getTablaDeRegistros().getValueAt(seleccionado, 0).toString();
+                modelo.setId(Integer.parseInt(cedula));
+
+                if (modelo.DeleteDirrecciones()== null) {
+                    JOptionPane.showMessageDialog(null, "La persona fue eliminada exitosamente");
                     CargarDirecciones();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error al eliminar la Direccion!",
-                            "Error al crear al Camionero", JOptionPane.ERROR_MESSAGE);
-                    seleccionado = 0;
+                    JOptionPane.showMessageDialog(null, "Error: La persona no se pudo eliminar");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Cancelado");
-                seleccionado = 0;
             }
         }
     }
-     
-     public void MostrarDatos() {
-         VistaDirecciones.getjFieldNombreRA().setText(String.valueOf(listadirecciones.get(seleccionado).getId()));
-        VistaDirecciones.getjFieldNombreRA().setText(String.valueOf(listadirecciones.get(seleccionado).getCalle_P()));
+    public void MostrarDatos() {
+        VistaDirecciones.getIdForATxt().setText(String.valueOf(listadirecciones.get(seleccionado).getId()));
+        VistaDirecciones.getjFieldNombreRA().setText(listadirecciones.get(seleccionado).getCalle_P());
         VistaDirecciones.getjTextFieldCalleSe().setText(listadirecciones.get(seleccionado).getCalle_S());
     }
 }

@@ -131,13 +131,13 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jPanelClientes" alignment="0" pref="256" max="32767" attributes="0"/>
-                          <Component id="jPanelCamiones" alignment="0" pref="256" max="32767" attributes="0"/>
-                          <Component id="jPanelCamioneros" alignment="0" pref="256" max="32767" attributes="0"/>
-                          <Component id="jPanelPaquetes" alignment="0" pref="256" max="32767" attributes="0"/>
-                          <Component id="jPanelTurnosConducc" alignment="0" pref="256" max="32767" attributes="0"/>
-                          <Component id="jPanelProvincias" pref="256" max="32767" attributes="0"/>
-                          <Component id="jPanelDirecciones" alignment="1" pref="256" max="32767" attributes="0"/>
+                          <Component id="jPanelClientes" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="jPanelCamiones" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="jPanelCamioneros" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="jPanelPaquetes" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="jPanelTurnosConducc" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="jPanelProvincias" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="jPanelDirecciones" alignment="1" min="-2" pref="256" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
                   </Group>
@@ -206,7 +206,7 @@
                           <Component id="jLabelIconC" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabelCamioneros" min="-2" pref="110" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="75" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -262,7 +262,7 @@
                           <Component id="jLabelIconP" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabelPaquetes" min="-2" pref="90" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="101" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -318,7 +318,7 @@
                           <Component id="jLabelIconCa1" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabelCamiones1" min="-2" pref="90" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="89" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -432,7 +432,7 @@
                           <Component id="jLabelIconC3" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabelCamioneros3" min="-2" pref="110" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="69" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -545,7 +545,7 @@
                           <Component id="jLabelIconC1" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabelCamioneros1" min="-2" pref="110" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="69" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

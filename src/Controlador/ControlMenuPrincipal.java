@@ -57,6 +57,12 @@ public class ControlMenuPrincipal {
                         SetNewPanelContent(VRCamionero);
                         break;
                     case "PAQUETES":
+                        vistaMP.getjPanelPaquetes().setBackground(coloresbtnMenu[0]);
+                        VistaRegistroPaquetes VRPaquetes = new VistaRegistroPaquetes();
+                        ModeloPaquete modeloPaquete = new ModeloPaquete();
+                        ControlRPaquete CProvincias = new ControlRPaquete(VRPaquetes, modeloPaquete);
+                        CProvincias.iniciarControl();
+                        SetNewPanelContent(VRPaquetes);
                         break;
                     case "CAMIONES":
                         System.out.println("SASAASAS");

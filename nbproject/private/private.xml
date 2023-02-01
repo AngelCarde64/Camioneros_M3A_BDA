@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Programacion_VisualAD">
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Modelo/ModeloCamion.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Vista/VistaRCamion.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlRCamion.java</file>
+            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Modelo/PgConect.java</file>
+            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlMenuPrincipal.java</file>
             <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Controlador/ControlRCamionero.java</file>
-            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Vista/VistaMenuPrincipal.java</file>
+            <file>file:/C:/Users/User/Documents/JAVA%20DEVELOPMENT/INSTITUTO/Ciclo%203/Programacion%20Visual/Camioneros_M3A_BDA/src/Modelo/ModeloTurnoDeConduccion.java</file>
         </group>
         <group>
             <file>file:/C:/Users/josias/CAMIONEROS/Camioneros_M3A_BDA/src/Imagenes/Logo%20Camion.png</file>

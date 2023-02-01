@@ -1,9 +1,9 @@
 package Vista;
 
+import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -36,26 +36,14 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         jLabelID = new javax.swing.JLabel();
         jScrollCami = new javax.swing.JScrollPane();
         JPanelDatosCamionero = new javax.swing.JPanel();
-        IDtxt = new javax.swing.JLabel();
-        jFieldDNI = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
-        Nombretxt = new javax.swing.JLabel();
-        jFieldNombre = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        telefonoTxt = new javax.swing.JLabel();
-        jFieldtelefono = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        telefonoTxt1 = new javax.swing.JLabel();
-        jCBoxIDDirecciones = new javax.swing.JComboBox<>();
-        SueldoTxt = new javax.swing.JLabel();
-        jFieldsueldo = new javax.swing.JTextField();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSpinnerPoblacion = new javax.swing.JSpinner();
-        PorcionTXT = new javax.swing.JLabel();
-        SueldoTxt1 = new javax.swing.JLabel();
-        SueldoTxt2 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jfieldcorreo = new javax.swing.JTextField();
+        ID_CamioneroTXT = new javax.swing.JLabel();
+        ID_CamioneroTXT1 = new javax.swing.JLabel();
+        jDateChooserFechaInicio = new com.toedter.calendar.JDateChooser();
+        fecha_inicioTXT = new javax.swing.JLabel();
+        jDateChooserFechaFin = new com.toedter.calendar.JDateChooser();
+        fecha_fin_TXT = new javax.swing.JLabel();
+        jCBoxIDCamionero = new javax.swing.JComboBox<>();
+        jCBoxIDCamion = new javax.swing.JComboBox<>();
 
         jPanelTop1.setBackground(new java.awt.Color(248, 171, 75));
 
@@ -122,24 +110,24 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         TablaDeRegistros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         TablaDeRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "DNI", "Nombre", "Poblacion", "Teléfono", "Salario", "ID Dirreción", "Correo"
+                "ID", "ID Camionero", "ID Camion", "Fecha Inicio", "Fecha Fin"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -259,193 +247,79 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         JPanelDatosCamionero.setBackground(new java.awt.Color(255, 255, 255));
         JPanelDatosCamionero.setPreferredSize(new java.awt.Dimension(340, 500));
 
-        IDtxt.setBackground(new java.awt.Color(0, 102, 255));
-        IDtxt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        IDtxt.setForeground(new java.awt.Color(102, 102, 102));
-        IDtxt.setText("DNI:");
+        ID_CamioneroTXT.setBackground(new java.awt.Color(0, 102, 255));
+        ID_CamioneroTXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ID_CamioneroTXT.setForeground(new java.awt.Color(102, 102, 102));
+        ID_CamioneroTXT.setText("ID Camionero:");
 
-        jFieldDNI.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldDNI.setBorder(null);
-        jFieldDNI.setMinimumSize(new java.awt.Dimension(30, 16));
+        ID_CamioneroTXT1.setBackground(new java.awt.Color(0, 102, 255));
+        ID_CamioneroTXT1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ID_CamioneroTXT1.setForeground(new java.awt.Color(102, 102, 102));
+        ID_CamioneroTXT1.setText("ID Camionero:");
 
-        jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+        fecha_inicioTXT.setBackground(new java.awt.Color(0, 102, 255));
+        fecha_inicioTXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        fecha_inicioTXT.setForeground(new java.awt.Color(102, 102, 102));
+        fecha_inicioTXT.setText("Fecha Inicio:");
 
-        Nombretxt.setBackground(new java.awt.Color(0, 102, 255));
-        Nombretxt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        Nombretxt.setForeground(new java.awt.Color(102, 102, 102));
-        Nombretxt.setText("Nombre:");
+        fecha_fin_TXT.setBackground(new java.awt.Color(0, 102, 255));
+        fecha_fin_TXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        fecha_fin_TXT.setForeground(new java.awt.Color(102, 102, 102));
+        fecha_fin_TXT.setText("Fecha Fin:");
 
-        jFieldNombre.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldNombre.setBorder(null);
+        jCBoxIDCamionero.setBorder(null);
 
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-
-        telefonoTxt.setBackground(new java.awt.Color(0, 102, 255));
-        telefonoTxt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        telefonoTxt.setForeground(new java.awt.Color(102, 102, 102));
-        telefonoTxt.setText("Telefono:");
-
-        jFieldtelefono.setForeground(new java.awt.Color(102, 102, 102));
-        jFieldtelefono.setBorder(null);
-
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-
-        telefonoTxt1.setBackground(new java.awt.Color(0, 102, 255));
-        telefonoTxt1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        telefonoTxt1.setForeground(new java.awt.Color(102, 102, 102));
-        telefonoTxt1.setText("ID Direccion");
-
-        jCBoxIDDirecciones.setBorder(null);
-
-        SueldoTxt.setBackground(new java.awt.Color(0, 102, 255));
-        SueldoTxt.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        SueldoTxt.setForeground(new java.awt.Color(102, 102, 102));
-        SueldoTxt.setText("Sueldo");
-
-        jFieldsueldo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jFieldsueldo.setForeground(new java.awt.Color(255, 198, 51));
-        jFieldsueldo.setBorder(null);
-        jFieldsueldo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFieldsueldoActionPerformed(evt);
-            }
-        });
-
-        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-
-        jSpinnerPoblacion.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, null, 1.0d));
-        jSpinnerPoblacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        PorcionTXT.setBackground(new java.awt.Color(0, 102, 255));
-        PorcionTXT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        PorcionTXT.setForeground(new java.awt.Color(102, 102, 102));
-        PorcionTXT.setText("Población:");
-
-        SueldoTxt1.setBackground(new java.awt.Color(0, 102, 255));
-        SueldoTxt1.setFont(new java.awt.Font("Times New Roman", 1, 19)); // NOI18N
-        SueldoTxt1.setForeground(new java.awt.Color(102, 102, 102));
-        SueldoTxt1.setText("$");
-
-        SueldoTxt2.setBackground(new java.awt.Color(0, 102, 255));
-        SueldoTxt2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        SueldoTxt2.setForeground(new java.awt.Color(102, 102, 102));
-        SueldoTxt2.setText("Correo:");
-
-        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-
-        jfieldcorreo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jfieldcorreo.setBorder(null);
+        jCBoxIDCamion.setBorder(null);
 
         javax.swing.GroupLayout JPanelDatosCamioneroLayout = new javax.swing.GroupLayout(JPanelDatosCamionero);
         JPanelDatosCamionero.setLayout(JPanelDatosCamioneroLayout);
         JPanelDatosCamioneroLayout.setHorizontalGroup(
             JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jfieldcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(IDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(6, 6, 6)
-                            .addComponent(jFieldDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(62, 62, 62)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(telefonoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jFieldtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(telefonoTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(jCBoxIDDirecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(SueldoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(29, 29, 29)
-                            .addComponent(SueldoTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(6, 6, 6)
-                            .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jFieldsueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                                    .addGap(1, 1, 1)
-                                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(SueldoTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(PorcionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
-                            .addComponent(jSpinnerPoblacion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(16, 16, 16)
+                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
+                        .addComponent(fecha_fin_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooserFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
+                        .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ID_CamioneroTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fecha_inicioTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooserFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCBoxIDCamion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
+                        .addComponent(ID_CamioneroTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCBoxIDCamionero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(31, 31, 31))
         );
         JPanelDatosCamioneroLayout.setVerticalGroup(
             JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(IDtxt))
-                    .addComponent(jFieldDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Nombretxt)
-                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(telefonoTxt)
-                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jFieldtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(telefonoTxt1)
-                .addGap(9, 9, 9)
-                .addComponent(jCBoxIDDirecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(SueldoTxt)
-                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(SueldoTxt1))
-                    .addComponent(jFieldsueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(SueldoTxt2)
-                .addGap(9, 9, 9)
-                .addComponent(jfieldcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
+                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ID_CamioneroTXT)
+                    .addComponent(jCBoxIDCamionero, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ID_CamioneroTXT1)
+                    .addComponent(jCBoxIDCamion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooserFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(PorcionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSpinnerPoblacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(9, 9, 9)
+                        .addComponent(fecha_inicioTXT)))
+                .addGap(18, 18, 18)
+                .addGroup(JPanelDatosCamioneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooserFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JPanelDatosCamioneroLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(fecha_fin_TXT)))
+                .addContainerGap())
         );
 
         jScrollCami.setViewportView(JPanelDatosCamionero);
@@ -489,9 +363,37 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFieldsueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldsueldoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFieldsueldoActionPerformed
+    public JComboBox<String> getjCBoxIDCamion() {
+        return jCBoxIDCamion;
+    }
+
+    public void setjCBoxIDCamion(JComboBox<String> jCBoxIDCamion) {
+        this.jCBoxIDCamion = jCBoxIDCamion;
+    }
+
+    public JComboBox<String> getjCBoxIDCamionero() {
+        return jCBoxIDCamionero;
+    }
+
+    public void setjCBoxIDCamionero(JComboBox<String> jCBoxIDCamionero) {
+        this.jCBoxIDCamionero = jCBoxIDCamionero;
+    }
+
+    public JDateChooser getjDateChooserFechaFin() {
+        return jDateChooserFechaFin;
+    }
+
+    public void setjDateChooserFechaFin(JDateChooser jDateChooserFechaFin) {
+        this.jDateChooserFechaFin = jDateChooserFechaFin;
+    }
+
+    public JDateChooser getjDateChooserFechaInicio() {
+        return jDateChooserFechaInicio;
+    }
+
+    public void setjDateChooserFechaInicio(JDateChooser jDateChooserFechaInicio) {
+        this.jDateChooserFechaInicio = jDateChooserFechaInicio;
+    }
 
     public JLabel getjLabelID() {
         return jLabelID;
@@ -500,7 +402,6 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
     public void setjLabelID(JLabel jLabelID) {
         this.jLabelID = jLabelID;
     }
-
 
     public JLabel getjLabelSinCoincidencias() {
         return jLabelSinCoincidencias;
@@ -550,46 +451,6 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         this.jButtonModificarA = jButtonModificarA;
     }
 
-    public JComboBox<String> getjCBoxIDDirecciones() {
-        return jCBoxIDDirecciones;
-    }
-
-    public void setjCBoxIDDirecciones(JComboBox<String> jCBoxIDDirecciones) {
-        this.jCBoxIDDirecciones = jCBoxIDDirecciones;
-    }
-
-    public JTextField getjFieldDNI() {
-        return jFieldDNI;
-    }
-
-    public void setjFieldDNI(JTextField jFieldDNI) {
-        this.jFieldDNI = jFieldDNI;
-    }
-
-    public JTextField getjFieldNombre() {
-        return jFieldNombre;
-    }
-
-    public void setjFieldNombre(JTextField jFieldNombre) {
-        this.jFieldNombre = jFieldNombre;
-    }
-
-    public JTextField getjFieldsueldo() {
-        return jFieldsueldo;
-    }
-
-    public void setjFieldsueldo(JTextField jFieldsueldo) {
-        this.jFieldsueldo = jFieldsueldo;
-    }
-
-    public JTextField getjFieldtelefono() {
-        return jFieldtelefono;
-    }
-
-    public void setjFieldtelefono(JTextField jFieldtelefono) {
-        this.jFieldtelefono = jFieldtelefono;
-    }
-
     public JTextField getjTextFieldBuscar() {
         return jTextFieldBuscar;
     }
@@ -598,62 +459,34 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         this.jTextFieldBuscar = jTextFieldBuscar;
     }
 
-    public JSpinner getjSpinnerPoblacion() {
-        return jSpinnerPoblacion;
-    }
-
-    public void setjSpinnerPoblacion(JSpinner jSpinnerPoblacion) {
-        this.jSpinnerPoblacion = jSpinnerPoblacion;
-    }
-
-    public JTextField getJfieldcorreo() {
-        return jfieldcorreo;
-    }
-
-    public void setJfieldcorreo(JTextField jfieldcorreo) {
-        this.jfieldcorreo = jfieldcorreo;
-    }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CambiarDatosPanel;
     private javax.swing.JPanel ContentRegistro;
     private javax.swing.JLabel Datostxt;
     private javax.swing.JLabel IDTxt;
-    private javax.swing.JLabel IDtxt;
+    private javax.swing.JLabel ID_CamioneroTXT;
+    private javax.swing.JLabel ID_CamioneroTXT1;
     private javax.swing.JPanel JPanelDatosCamionero;
     private javax.swing.JLabel MensajeingresoTxt;
-    private javax.swing.JLabel Nombretxt;
     private javax.swing.JPanel PanelOpciones;
-    private javax.swing.JLabel PorcionTXT;
-    private javax.swing.JLabel SueldoTxt;
-    private javax.swing.JLabel SueldoTxt1;
-    private javax.swing.JLabel SueldoTxt2;
     private javax.swing.JTable TablaDeRegistros;
+    private javax.swing.JLabel fecha_fin_TXT;
+    private javax.swing.JLabel fecha_inicioTXT;
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminarA;
     private javax.swing.JButton jButtonInsertarA;
     private javax.swing.JButton jButtonModificarA;
-    private javax.swing.JComboBox<String> jCBoxIDDirecciones;
-    private javax.swing.JTextField jFieldDNI;
-    private javax.swing.JTextField jFieldNombre;
-    private javax.swing.JTextField jFieldsueldo;
-    private javax.swing.JTextField jFieldtelefono;
+    private javax.swing.JComboBox<String> jCBoxIDCamion;
+    private javax.swing.JComboBox<String> jCBoxIDCamionero;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaFin;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaInicio;
     private javax.swing.JLabel jLabelID;
     private javax.swing.JLabel jLabelSinCoincidencias;
     public javax.swing.JLabel jLabeltituloCamioneros1;
     private javax.swing.JPanel jPanelTop1;
     private javax.swing.JScrollPane jScrollCami;
     private javax.swing.JScrollPane jScrollPaneCam;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSpinner jSpinnerPoblacion;
     private javax.swing.JTextField jTextFieldBuscar;
-    private javax.swing.JTextField jfieldcorreo;
-    private javax.swing.JLabel telefonoTxt;
-    private javax.swing.JLabel telefonoTxt1;
     // End of variables declaration//GEN-END:variables
 }

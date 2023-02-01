@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 public class ModeloPaquete extends Paquete {
 
@@ -14,10 +15,10 @@ public class ModeloPaquete extends Paquete {
     public ModeloPaquete() {
     }
 
-    public ModeloPaquete(int id, String cod_paquete, String descripcion, String destinatario, String direccion) {
+    public ModeloPaquete(int id, String cod_paquete, String descripcion, int destinatario, int direccion) {
         super(id, cod_paquete, descripcion, destinatario, direccion);
     }
-
+ 
     public List<Paquete> ListarPaquete(String filtro) {
         String sql = "select * from Paqueteria where ";
         sql += " UPPER(paq_id_paquetes) like UPPER('%" + filtro + "%') ";
@@ -32,9 +33,9 @@ public class ModeloPaquete extends Paquete {
                 Paquete paquete = new Paquete();
                 paquete.setId(rs.getInt("paq_id_paquetes"));
                 paquete.setCod_paquete(rs.getString("paq_codigo_paquete"));
-                paquete.setDireccion(rs.getString("paq_id_direccion"));
+                paquete.setDireccion(rs.getInt("paq_id_direccion"));
                 paquete.setDescripcion(rs.getString("paq_descripcion"));
-                paquete.setDestinatario(rs.getString("paq_destinatario"));
+                paquete.setDestinatario(rs.getInt("paq_destinatario"));
                 lista.add(paquete);
             }
         } catch (SQLException ex) {
@@ -75,9 +76,9 @@ public class ModeloPaquete extends Paquete {
             while (rs.next()) {
                 MPaquete.setId(rs.getInt("paq_id_paquetes"));
                 MPaquete.setCod_paquete(rs.getString("paq_codigo_paquete"));
-                MPaquete.setDireccion(rs.getString("paq_id_direccion"));
+                MPaquete.setDireccion(rs.getInt("paq_id_direccion"));
                 MPaquete.setDescripcion(rs.getString("paq_descripcion"));
-                MPaquete.setDestinatario(rs.getString("paq_destinatario"));
+                MPaquete.setDestinatario(rs.getInt("paq_destinatario"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ModeloPaquete.class.getName()).log(Level.SEVERE, null, ex);

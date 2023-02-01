@@ -5,13 +5,13 @@ public class Paquete {
     private int id;
     private String cod_paquete;
     private String descripcion;
-    private String destinatario;
-    private String direccion;
+    private int destinatario;
+    private int direccion;
 
     public Paquete() {
     }
 
-    public Paquete(int id, String cod_paquete, String descripcion, String destinatario, String direccion) {
+    public Paquete(int id, String cod_paquete, String descripcion, int destinatario, int direccion) {
         this.id = id;
         this.cod_paquete = cod_paquete;
         this.descripcion = descripcion;
@@ -44,19 +44,19 @@ public class Paquete {
         this.descripcion = descripcion;
     }
 
-    public String getDestinatario() {
+    public int getDestinatario() {
         return destinatario;
     }
 
-    public void setDestinatario(String destinatario) {
+    public void setDestinatario(int destinatario) {
         this.destinatario = destinatario;
     }
 
-    public String getDireccion() {
+    public int getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
+    public void setDireccion(int direccion) {
         this.direccion = direccion;
     }
 }

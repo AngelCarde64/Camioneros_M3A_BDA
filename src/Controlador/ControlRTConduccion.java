@@ -48,6 +48,11 @@ public class ControlRTConduccion {
                 Insertar();
             }
         });
+        vistaTC.getjButtonLimpiar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LimpiarDatos();
+            }
+        });
 
         vistaTC.getjButtonModificarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

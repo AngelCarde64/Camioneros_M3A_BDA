@@ -30,6 +30,7 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         jScrollPaneCam = new javax.swing.JScrollPane();
         TablaDeRegistros = new javax.swing.JTable();
         jButtonActualizar = new javax.swing.JButton();
+        jButtonLimpiar = new javax.swing.JButton();
         CambiarDatosPanel = new javax.swing.JPanel();
         Datostxt = new javax.swing.JLabel();
         MensajeingresoTxt = new javax.swing.JLabel();
@@ -84,7 +85,7 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
 
         jTextFieldBuscar.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldBuscar.setText("  Buscar camioneros ...");
-        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(164, 164, 164))); // NOI18N
+        jTextFieldBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 0, 15), new java.awt.Color(164, 164, 164))); // NOI18N
 
         jButtonInsertarA.setBackground(new java.awt.Color(137, 107, 197));
         jButtonInsertarA.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -144,6 +145,12 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         jButtonActualizar.setText("Actualizar");
         jButtonActualizar.setBorder(null);
 
+        jButtonLimpiar.setBackground(new java.awt.Color(137, 107, 197));
+        jButtonLimpiar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jButtonLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.setBorder(null);
+
         javax.swing.GroupLayout PanelOpcionesLayout = new javax.swing.GroupLayout(PanelOpciones);
         PanelOpciones.setLayout(PanelOpcionesLayout);
         PanelOpcionesLayout.setHorizontalGroup(
@@ -159,6 +166,8 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
                         .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PanelOpcionesLayout.createSequentialGroup()
                         .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
@@ -186,9 +195,10 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
                     .addGroup(PanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonModificarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonEliminarA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                .addComponent(jScrollPaneCam, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -382,6 +392,14 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
         return jCBoxIDCamion;
     }
 
+    public JButton getjButtonLimpiar() {
+        return jButtonLimpiar;
+    }
+
+    public void setjButtonLimpiar(JButton jButtonLimpiar) {
+        this.jButtonLimpiar = jButtonLimpiar;
+    }
+
     public void setjCBoxIDCamion(JComboBox<String> jCBoxIDCamion) {
         this.jCBoxIDCamion = jCBoxIDCamion;
     }
@@ -500,6 +518,7 @@ public class VistaRegistroTConduccion extends javax.swing.JPanel {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminarA;
     private javax.swing.JButton jButtonInsertarA;
+    private javax.swing.JButton jButtonLimpiar;
     private javax.swing.JButton jButtonModificarA;
     private javax.swing.JComboBox<String> jCBoxIDCamion;
     private javax.swing.JComboBox<String> jCBoxIDCamionero;

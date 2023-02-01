@@ -64,6 +64,11 @@ public class ControlRTConduccion {
                 ObtenerIDTable();
             }
         });
+        vistaTC.getjButtonActualizar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarRT();
+            }
+        });
         vistaTC.getjTextFieldBuscar().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 if (vistaTC.getjTextFieldBuscar().getText().contains("Buscar")) {

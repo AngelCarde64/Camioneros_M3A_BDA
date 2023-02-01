@@ -53,6 +53,11 @@ public class ControladorDirecciones {
                 Insertar();
             }
         });
+         VistaDirecciones.getjButtonActualizar().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarDirecciones();
+            }
+        });
         
         VistaDirecciones.getjButtonEliminarA().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

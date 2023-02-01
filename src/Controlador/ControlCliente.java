@@ -186,7 +186,7 @@ public class ControlCliente {
 
             respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Eliminar!", JOptionPane.YES_NO_OPTION);
             if (respuesta == 0) {
-                ModeloCliente MCliente = new ModeloCliente(listaClientes.get(seleccionado), "", "", "");
+                ModeloCliente MCliente = new ModeloCliente(listaClientes.get(seleccionado).getId(), "", "", "");
 
                 if (MCliente.BorrarCliente() == null) {
                     JOptionPane.showMessageDialog(null, "Registro Eliminado");
